@@ -1,0 +1,180 @@
+//display
+.owl-carousel 
+{
+    touch-action: manipulation; 
+}
+.hidden {
+  display: none !important;
+}
+
+.block {
+  display: block !important;
+}
+
+.inline {
+  display: inline !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+.infinite-scroll-results {
+  height: calc(100vh - 210px);
+  overflow: scroll;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.inline-flex {
+  display: inline-flex !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+//align
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+//postions
+.absolute {
+  position: absolute !important;
+}
+
+.relative {
+  position: relative !important;
+}
+
+.sticky {
+  position: sticky !important;
+}
+.fixed {
+  position: fixed !important;
+}
+.z-auto {
+  z-index: auto !important;
+}
+
+@for $i from 0 through 5 {
+  .z-#{$i} {
+    z-index: #{$i} !important;
+  }
+}
+.pointer-none {
+  pointer-events: none;
+}
+.pointer-bounding {
+  pointer-events: bounding-box;
+}
+
+//grid width
+
+.w-full {
+  width: 100% !important;
+}
+
+.w-screen {
+  width: 100vw !important;
+}
+
+.w-auto {
+  width: auto !important;
+}
+.w-90 {
+  width: 90% !important;
+}
+$grid-columns: 12;
+
+@for $i from 1 through $grid-columns {
+  .w-#{$i} {
+    width: percentage($i / $grid-columns) !important;
+  }
+}
+
+.w-min {
+  width: min-content !important;
+}
+
+.w-max {
+  width: max-content !important;
+}
+
+.w-fit {
+  width: fit-content !important;
+}
+
+@for $i from 1 through 30 {
+  .w-#{$i}rem {
+    width: #{$i}rem !important;
+  }
+}
+.m-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.mx-2 {
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
+}
+
+.my-2 {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+.me-20 {
+  margin-inline-end: 20px;
+}
+
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-around {
+  justify-content: space-around !important;
+}
+
+.justify-content-evenly {
+  justify-content: space-evenly !important;
+}

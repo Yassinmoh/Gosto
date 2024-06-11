@@ -1,0 +1,27 @@
+@import "../helpers/variables.scss";
+@import "../helpers/mixins.scss";
+
+
+
+
+.list-scroll {
+  margin-top: 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100vw;
+  padding-right: 25px;
+
+  >* {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+    vertical-align: top;
+    overflow: hidden;
+  }
+}
+
+
+
+
