@@ -1,0 +1,13 @@
+<div class="navigation">
+  <ul>
+      <li *ngFor="let item of menuItems; let i = index;" class="list" (click)="setIndex(i)" [ngClass]="{'active':currentIndex === i}">
+          <a [routerLink]="['/'+item.url]" href="#">
+              <span class="icon">
+                <svg><use [attr.href]="['#'+item.icon]" ></use></svg>
+              </span>
+              <span class="text">{{item.label}}</span>
+          </a>
+      </li>
+      <div class="indicator"></div>
+  </ul>
+</div>

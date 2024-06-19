@@ -5,10 +5,11 @@ import { HeaderComponent } from '../../shared/components/header/header.component
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
+import { UserMenuComponent } from '../../shared/components/user-menu/user-menu.component';
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet,MiniHeaderComponent,HeaderComponent,FooterComponent,CommonModule],
+  imports: [RouterOutlet,MiniHeaderComponent,HeaderComponent,FooterComponent,CommonModule,UserMenuComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
 })
