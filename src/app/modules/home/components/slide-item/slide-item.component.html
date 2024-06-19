@@ -1,0 +1,11 @@
+<div class="slide">
+  <img [src]="'../../../../../assets/images/'+slide.imgUrl" [alt]="slide.id" [title]="slide.id">
+  <div class="info__box">
+    <div *ngIf="slide.sale" class="sale"><p>Hot Sale</p></div>
+    <div class="titles" @fadeInLeft>
+      <p>{{slide.title}}</p>
+      <p>{{slide.subtitle}}</p>
+    </div>
+    <button>{{slide.btnLabel}}</button>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+@import 'common';
+:host{
+  display: block;
+  height: 39vh;
+}
+.slide{
+  position: relative;
+  color: #fff;
+  height: 273px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .info__box{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 0.7rem;
+
+    .sale{
+      width: fit-content;
+      padding: 0 0.5rem;
+      background: $color-gold;
+      @include textStyle(10px,21px,#000,500)
+    }
+
+    .titles{
+      text-align: center;
+      p:nth-of-type(1){
+        @include textStyle(17px,20px,#fff,500)
+      }
+      p:nth-of-type(2){
+        @include textStyle(11px,15px,#999999,500);
+        margin-top: 0.7rem;
+      }
+    }
+
+    button{
+      background: $color-blue;
+      border: 0;
+      outline: 0;
+      @include textStyle(13px,27px,#fff,600);
+      width: fit-content;
+      padding: 0.5rem 2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      display: none;
+    }
+  }
+}
+
+
+@include DesktopScreen {
+  :host{
+    height: 95vh;
+    .slide{
+      height: 100%;
+      .info__box{
+        gap: 2rem;
+        .titles{
+          p:nth-of-type(1){
+            font-size: 50px;
+          }
+          p:nth-of-type(2){
+            margin-top: 2rem;
+            font-size: 15px;
+          }
+        }
+        button{
+          display: block;
+        }
+      }
+    }
+  }
+}

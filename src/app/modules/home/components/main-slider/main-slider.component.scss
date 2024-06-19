@@ -1,0 +1,21 @@
+@import 'common';
+
+section {
+  width: 100%;
+  position: relative;
+
+  .wrapper {
+    owl-carousel-o {
+      position: relative;
+
+      ::ng-deep {
+        .owl-dots {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}
