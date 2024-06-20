@@ -56,7 +56,8 @@ header{
       list-style: none;
       gap: 2rem;
       li{
-        @include textStyle(17px,15.6px,#fff,500)
+        @include textStyle(17px,15.6px,#fff,500);
+        cursor: pointer;
       }
     }
   }

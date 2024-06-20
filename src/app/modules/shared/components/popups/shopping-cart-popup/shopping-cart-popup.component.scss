@@ -1,0 +1,44 @@
+@import 'common';
+
+.container{
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.863);
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  .body__box{
+    width: 80%;
+    height: 100%;
+    background: #fff;
+    padding: 1rem;
+    .header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ebebeb;
+      padding: 1rem 1rem;
+      span{
+        @include textStyle(13px,24px,#0A2748,600);
+      }
+      svg{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@include tabletScreen{
+  :host{
+    .container{
+      .body__box{
+        width: 20%;
+      }
+    }
+  }
+}

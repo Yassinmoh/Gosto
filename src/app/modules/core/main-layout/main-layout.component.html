@@ -3,3 +3,6 @@
 <router-outlet></router-outlet>
 <Gosto-user-menu  *ngIf="isMobile"></Gosto-user-menu>
 <Gosto-footer></Gosto-footer>
+
+
+<Gosto-shopping-cart-popup *ngIf="showShoppingCartPopup$ |async"></Gosto-shopping-cart-popup>
