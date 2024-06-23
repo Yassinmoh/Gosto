@@ -6,7 +6,7 @@
       "title": "Apple WATCH",
       "subtitle": "Durable Nato 42/44mm Aple Watch Straps Set. Free Shipping!",
       "btnLabel": "DISCOVER NOW",
-      "imgUrl":"smart_watch.jpg"
+      "imgUrl": "smart_watch.jpg"
     },
     {
       "id": 2,
@@ -14,7 +14,36 @@
       "title": "Black FRIDAY",
       "subtitle": "Durable Nato 42/44mm Aple Watch Straps Set. Free Shipping!",
       "btnLabel": "DISCOVER NOW",
-      "imgUrl":"iphone.jpg"
+      "imgUrl": "iphone.jpg"
+    }
+  ],
+  "Products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "description": "This is the description for product 1.",
+      "price": 99.99,
+      "imageUrl": "https://via.placeholder.com/150",
+      "category": "Category 1",
+      "stock": 10,
+      "rating": 4.5,
+      "reviews": [
+        {
+          "userId": 1,
+          "comment": "Great product!",
+          "rating": 5
+        },
+        {
+          "userId": 2,
+          "comment": "Good value for money.",
+          "rating": 4
+        }
+      ],
+      "specifications": {
+        "color": "red",
+        "weight": "1kg",
+        "dimensions": "10x10x10cm"
+      }
     }
   ]
 }
