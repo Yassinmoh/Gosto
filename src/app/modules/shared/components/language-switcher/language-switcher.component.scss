@@ -1,0 +1,50 @@
+.language-switcher {
+  .switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 84px;
+    height: 34px;
+    background: #f0f0f0;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 5px #bababa, inset -2px -2px 5px #ffffff;
+    padding: 0 10px;
+    cursor: pointer;
+    .option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        font-weight: bold;
+        color: #333;
+        margin: 0 5px;
+      }
+      .flag {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        &.flag-ar {
+          background: url('https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg') no-repeat center;
+          background-size: cover;
+        }
+        &.flag-en {
+          background: url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg') no-repeat center;
+          background-size: cover;
+        }
+      }
+    }
+    .toggle {
+      position: absolute;
+      width: 35px;
+      height: 30px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 2px 2px 5px #bababa, -2px -2px 5px #ffffff;
+      transition: all 0.3s ease;
+      &.toggled {
+        transform: translateX(30px);
+      }
+    }
+  }
+}

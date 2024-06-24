@@ -1,0 +1,11 @@
+<div class="language-switcher">
+  <div class="switch" (click)="toggleLanguage()">
+    <div class="option">
+      <div class="flag flag-ar"></div>
+    </div>
+    <div class="option">
+      <div class="flag flag-en"></div>
+    </div>
+    <div class="toggle" [class.toggled]="currentLanguage === 'EN'"></div>
+  </div>
+</div>

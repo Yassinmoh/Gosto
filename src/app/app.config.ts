@@ -1,6 +1,9 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import {
+  TranslateModule,
+  TranslateLoader,
+} from '@ngx-translate/core';
 import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
@@ -13,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore(reducers, { metaReducers }),
     provideHttpClient(),
-    provideAnimations()
+    provideAnimations(),
+    importProvidersFrom(TranslateModule.forRoot())
   ]
 };

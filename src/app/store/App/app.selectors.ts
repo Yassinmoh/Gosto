@@ -3,3 +3,4 @@ import { AppState } from "./app.reeducer";
 
 const appFeatureState = createFeatureSelector<AppState>('App')
 export const shoppingCartPopup = createSelector(appFeatureState , state => state.toggleShoppingCartPopup)
+export const getAppLang = createSelector(appFeatureState,state => state.Lang)

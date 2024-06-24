@@ -22,6 +22,7 @@ export class MainSliderComponent implements OnInit {
     autoplay: true,
     center: true,
     dots: true,
+    rtl: true,
     autoHeight: true,
     autoWidth: true,
     responsive: {

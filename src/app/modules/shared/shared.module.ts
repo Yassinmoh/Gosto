@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MiniHeaderComponent } from './components/mini-header/mini-header.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 
 
 
@@ -12,12 +13,14 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule,
     MiniHeaderComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LanguageSwitcherComponent
   ],
   exports:[
     MiniHeaderComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LanguageSwitcherComponent
   ]
 })
 export class SharedModule { }
