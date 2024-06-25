@@ -1,7 +1,6 @@
 export const environment = {
   production: false,
-  apiURL:'http://localhost:3000',
-
+  apiURL:'https://gosto-scck.onrender.com',
   Storage: {
     Lang: 'Lang',
   }
