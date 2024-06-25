@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { SliderService } from '../../../core/services/slider.service';
-import { Slide } from '../../../core/model/Slide';
 import { SlideItemComponent } from '../slide-item/slide-item.component';
+import { Slide } from '../../../core/models/Slide';
 
 @Component({
   selector: 'Gosto-main-slider',

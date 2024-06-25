@@ -4,11 +4,13 @@ import { environment } from "../../../environment/environment";
 import { Lang } from "../../modules/core/enums/lang.enum";
 export interface AppState {
   toggleShoppingCartPopup: boolean;
+  toggleMenuPopup: boolean;
   Lang: string | null;
 }
 
 const initState = {
   toggleShoppingCartPopup: false,
+  toggleMenuPopup: false,
   Lang: localStorage.getItem(environment.Storage.Lang)
     ? localStorage.getItem(environment.Storage.Lang)
     : Lang.English
@@ -20,6 +22,12 @@ export const appReducer = createReducer(initState,
     return {
       ...state,
       toggleShoppingCartPopup: !state.toggleShoppingCartPopup
+    }
+  }),
+  on(appActions.toggleMenuPopup,(state:AppState)=>{
+    return{
+      ...state,
+      toggleMenuPopup:!state.toggleMenuPopup
     }
   }),
   on(appActions.setAppLang,(state:AppState,action)=>{

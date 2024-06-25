@@ -1,10 +1,19 @@
 <header>
   <div class="icons__container" *ngIf="isMobile">
-    <div (click)="openCart()"><svg><use href="#shopping-bag"></use></svg></div>
+    <div (click)="openCart()">
+      <span class="counter">0</span>
+      <svg><use href="#shopping-bag"></use></svg>
+    </div>
   </div>
   <div class="icons__container" *ngIf="!isMobile">
-    <div (click)="openCart()"><svg><use href="#shopping-bag"></use></svg></div>
-    <div><svg><use href="#heart-icon"></use></svg></div>
+    <div (click)="openCart()">
+      <span class="counter">0</span>
+      <svg><use href="#shopping-bag"></use></svg>
+    </div>
+    <div>
+      <span class="counter">0</span>
+      <svg><use href="#heart-icon"></use></svg>
+    </div>
     <div><svg><use href="#account-icon"></use></svg></div>
     <form>
       <input type="text" name="" placeholder="search">
@@ -25,6 +34,6 @@
   </div>
 
   <div class="burger__menu" *ngIf="isMobile">
-    <svg><use href="#burger-menu"></use></svg>
+    <svg (click)="openMenu()"><use href="#burger-menu"></use></svg>
   </div>
 </header>

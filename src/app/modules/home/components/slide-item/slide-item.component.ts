@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Slide } from '../../../core/model/Slide';
+import { Slide } from '../../../core/models/Slide';
 import { CommonModule } from '@angular/common';
 import { fadeInLeft } from '../../../core/animations';
 

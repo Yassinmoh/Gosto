@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Slide } from '../model/Slide';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../../../environment/environment';
+import { Slide } from '../models/Slide';
 
 @Injectable({
   providedIn: 'root'

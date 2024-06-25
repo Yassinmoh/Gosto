@@ -27,4 +27,8 @@ export class HeaderComponent implements OnInit {
   openCart(){
     this.store.dispatch(appActions.toggleShoppingCartPopup())
   }
+
+  openMenu(){
+    this.store.dispatch(appActions.toggleMenuPopup())
+  }
 }

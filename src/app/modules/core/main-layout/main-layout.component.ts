@@ -10,11 +10,12 @@ import { UserMenuComponent } from '../../shared/components/user-menu/user-menu.c
 import { ShoppingCartPopupComponent } from '../../shared/components/popups/shopping-cart-popup/shopping-cart-popup.component';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { shoppingCartPopup } from '../../../store/App/app.selectors';
+import { menuPopup, shoppingCartPopup } from '../../../store/App/app.selectors';
+import { SharedModule } from '../../shared/shared.module';
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet,MiniHeaderComponent,HeaderComponent,FooterComponent,CommonModule,UserMenuComponent,ShoppingCartPopupComponent],
+  imports: [RouterOutlet,MiniHeaderComponent,HeaderComponent,FooterComponent,CommonModule,UserMenuComponent,ShoppingCartPopupComponent,SharedModule],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
 })
@@ -23,6 +24,7 @@ export class MainLayoutComponent implements OnInit {
   breakpointObserver:BreakpointObserver = inject(BreakpointObserver);
   isMobile!:boolean;
   showShoppingCartPopup$!:Observable<boolean>
+  showMenuPopup$!:Observable<boolean>
   store = inject(Store<AppState>)
 
   ngOnInit(): void {
@@ -30,5 +32,6 @@ export class MainLayoutComponent implements OnInit {
       .subscribe(result => this.isMobile = result.matches);
 
       this.showShoppingCartPopup$ = this.store.select(shoppingCartPopup)
+      this.showMenuPopup$ = this.store.select(menuPopup)
   }
 }
