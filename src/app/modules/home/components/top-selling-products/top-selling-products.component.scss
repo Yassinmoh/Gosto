@@ -1,0 +1,93 @@
+@import 'common';
+
+:host {
+  padding: 0.5rem;
+}
+
+.top-selling {
+  width: 100%;
+  height: 100vh;
+  background: #f4f4f4;
+  padding: 1rem;
+
+  .top__section {
+    padding-top: 3rem;
+
+    .texts {
+      width: 80%;
+      text-align: center;
+      margin: 0 auto;
+
+      h2 {
+        @include textStyle(24px, 31.2px, #111111, 500)
+      }
+
+      p {
+        @include textStyle(16px, 29px, #444444, 400)
+      }
+    }
+
+    .filter_tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+
+      .tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: 35px;
+        background: #fff;
+        border-radius: 20px;
+        padding: 0 1rem;
+        cursor: pointer;
+
+        span {
+          @include textStyle(14px, 18px, #636E84, 400)
+        }
+
+        &:is(.active) {
+          background: #0071e3;
+          span {
+            color: #fff;
+          }
+        }
+
+      }
+    }
+  }
+
+  .buttom__section {
+    height: 60%;
+    .products{
+      margin-top: 2rem;
+    }
+  }
+}
+
+@include DesktopScreen {
+  :host {
+    .top-selling {
+      padding: 5rem 15rem 2rem 15rem;
+      .top__section {
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        .texts {
+          text-align: left;
+        }
+
+        .filter_tags {
+          flex-wrap: nowrap;
+          justify-content: end;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

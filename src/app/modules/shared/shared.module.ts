@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { MenuPopupComponent } from './components/popups/menu-popup/menu-popup.component';
 import { BannerItemComponent } from './components/cards/banner-item/banner-item.component';
+import { SellingProductCardComponent } from './components/cards/selling-product-card/selling-product-card.component';
 
 
 
@@ -18,7 +19,8 @@ import { BannerItemComponent } from './components/cards/banner-item/banner-item.
     FooterComponent,
     LanguageSwitcherComponent,
     MenuPopupComponent,
-    BannerItemComponent
+    BannerItemComponent,
+    SellingProductCardComponent
   ],
   exports:[
     MiniHeaderComponent,
@@ -26,7 +28,8 @@ import { BannerItemComponent } from './components/cards/banner-item/banner-item.
     FooterComponent,
     LanguageSwitcherComponent,
     MenuPopupComponent,
-    BannerItemComponent
+    BannerItemComponent,
+    SellingProductCardComponent
   ]
 })
 export class SharedModule { }
