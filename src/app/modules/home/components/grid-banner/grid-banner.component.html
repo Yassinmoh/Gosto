@@ -1,0 +1,11 @@
+<section>
+  <div class="top-section">
+      <Gosto-banner-item *ngFor="let item of topSection; let i = index" [type]="i % 2 === 0 ? 'even' : 'odd'" [item]="item"></Gosto-banner-item>
+  </div>
+  <div class="meddle-section">
+    <Gosto-banner-item [item]="meddleSection" [type]="'wide'"></Gosto-banner-item>
+  </div>
+  <div class="bottom-section">
+    <Gosto-banner-item *ngFor="let item of bottomSection; let i = index" [type]="'even'" [item]="item"></Gosto-banner-item>
+  </div>
+</section>

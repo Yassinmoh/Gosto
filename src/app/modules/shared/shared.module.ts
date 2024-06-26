@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { MenuPopupComponent } from './components/popups/menu-popup/menu-popup.component';
+import { BannerItemComponent } from './components/cards/banner-item/banner-item.component';
 
 
 
@@ -16,14 +17,16 @@ import { MenuPopupComponent } from './components/popups/menu-popup/menu-popup.co
     HeaderComponent,
     FooterComponent,
     LanguageSwitcherComponent,
-    MenuPopupComponent
+    MenuPopupComponent,
+    BannerItemComponent
   ],
   exports:[
     MiniHeaderComponent,
     HeaderComponent,
     FooterComponent,
     LanguageSwitcherComponent,
-    MenuPopupComponent
+    MenuPopupComponent,
+    BannerItemComponent
   ]
 })
 export class SharedModule { }

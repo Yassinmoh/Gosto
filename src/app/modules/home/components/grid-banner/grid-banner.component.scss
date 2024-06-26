@@ -1,0 +1,70 @@
+@import 'common';
+
+section{
+      padding: 0.2rem;
+  .top-section{
+    ::ng-deep Gosto-banner-item {
+      width: 100%;
+      height: 317px;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meddle-section{
+    margin: 0.3rem 0;
+    ::ng-deep Gosto-banner-item {
+      display: block;
+      width: 100%;
+      height: 617px;
+    }
+  }
+
+  .bottom-section{
+    ::ng-deep Gosto-banner-item {
+      width: 100%;
+      height: 317px;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
+
+@include DesktopScreen {
+  :host{
+    section{
+      padding: 0.5rem;
+      .top-section{
+        ::ng-deep Gosto-banner-item {
+          width: 33%;
+          height: 540px;
+        }
+        flex-direction: row;
+      }
+
+      .meddle-section{
+        ::ng-deep Gosto-banner-item {
+          display: block;
+          width: 100%;
+          height: 720px;
+        }
+      }
+
+      .bottom-section{
+        ::ng-deep Gosto-banner-item {
+          width: 50%;
+          height: 540px;
+        }
+        flex-direction: row;
+      }
+    }
+  }
+}

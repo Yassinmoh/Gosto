@@ -1,0 +1,138 @@
+@import 'common';
+
+.card {
+  height: 100%;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card__info {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 0.7rem;
+
+
+
+    .sale {
+      width: fit-content;
+      padding: 0 0.5rem;
+      background: $color-gold;
+      @include textStyle(10px, 21px, #000, 500)
+    }
+
+    .titles {
+      text-align: center;
+
+      p:nth-of-type(1) {
+        @include textStyle(17px, 20px, #fff, 500)
+      }
+
+      p:nth-of-type(2) {
+        @include textStyle(11px, 15px, #999999, 500);
+        margin-top: 0.7rem;
+      }
+    }
+
+    button {
+      background: $color-blue;
+      border: 0;
+      outline: 0;
+      @include textStyle(13px, 27px, #fff, 600);
+      width: fit-content;
+      padding: 0.5rem 2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      display: none;
+    }
+
+    &:is(.wide) {
+      top: 70%;
+      width: 90%;
+
+      .titles {
+        text-align: center;
+
+        p:nth-of-type(1) {
+          @include textStyle(25px, 20px, #fff, 500)
+        }
+
+        p:nth-of-type(2) {
+          @include textStyle(17px, 20px, #999999, 500);
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    &:is(.even) {
+      top: 32%;
+      width: 60%;
+
+      .titles {
+        text-align: center;
+
+        p:nth-of-type(1) {
+          @include textStyle(25px, 20px, #fff, 500)
+        }
+
+        p:nth-of-type(2) {
+          @include textStyle(15px, 20px, #999999, 500);
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    &:is(.odd) {
+      top: 50%;
+      width: 60%;
+
+      .titles {
+        text-align: center;
+
+        p:nth-of-type(1) {
+          @include textStyle(27px, 20px, #fff, 500)
+        }
+
+        p:nth-of-type(2) {
+          @include textStyle(18px, 25px, #fff, 500);
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+}
+
+@include DesktopScreen {
+  :host {
+    .card {
+      .card__info {
+        gap: 2rem;
+
+        .titles {
+          p:nth-of-type(1) {
+            font-size: 26px;
+          }
+
+          p:nth-of-type(2) {
+            margin-top: 1.5rem;
+            font-size: 15px;
+          }
+        }
+
+        button {
+          display: block;
+        }
+      }
+    }
+  }
+}

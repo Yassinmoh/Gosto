@@ -1,0 +1,11 @@
+<div class="card">
+<img [src]="'../../../../../../assets/images/banners/'+item.imgUrl" alt="">
+  <div class="card__info" [ngClass]="{'wide':type=='wide','even':type=='even','odd':type=='odd'}">
+    <div  class="sale"><p>{{item.tag}}</p></div>
+    <div class="titles">
+      <p>{{item.title}}</p>
+      <p>{{item.subtitle}}</p>
+    </div>
+    <button>{{item.btnLabel}}</button>
+  </div>
+</div>
