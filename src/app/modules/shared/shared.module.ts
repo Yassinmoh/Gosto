@@ -7,6 +7,7 @@ import { LanguageSwitcherComponent } from './components/language-switcher/langua
 import { MenuPopupComponent } from './components/popups/menu-popup/menu-popup.component';
 import { BannerItemComponent } from './components/cards/banner-item/banner-item.component';
 import { SellingProductCardComponent } from './components/cards/selling-product-card/selling-product-card.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 
 
 
@@ -20,7 +21,8 @@ import { SellingProductCardComponent } from './components/cards/selling-product-
     LanguageSwitcherComponent,
     MenuPopupComponent,
     BannerItemComponent,
-    SellingProductCardComponent
+    SellingProductCardComponent,
+    ScrollTopComponent
   ],
   exports:[
     MiniHeaderComponent,
@@ -29,7 +31,8 @@ import { SellingProductCardComponent } from './components/cards/selling-product-
     LanguageSwitcherComponent,
     MenuPopupComponent,
     BannerItemComponent,
-    SellingProductCardComponent
+    SellingProductCardComponent,
+    ScrollTopComponent
   ]
 })
 export class SharedModule { }
