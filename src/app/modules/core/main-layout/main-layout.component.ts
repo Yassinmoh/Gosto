@@ -10,7 +10,7 @@ import { UserMenuComponent } from '../../shared/components/user-menu/user-menu.c
 import { ShoppingCartPopupComponent } from '../../shared/components/popups/shopping-cart-popup/shopping-cart-popup.component';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { menuPopup, shoppingCartPopup } from '../../../store/App/app.selectors';
+import { menuPopup, shoppingCartPopup, wishlistPopup } from '../../../store/App/app.selectors';
 import { SharedModule } from '../../shared/shared.module';
 @Component({
   selector: 'app-main-layout',
@@ -25,6 +25,7 @@ export class MainLayoutComponent implements OnInit {
   isMobile!:boolean;
   showShoppingCartPopup$!:Observable<boolean>
   showMenuPopup$!:Observable<boolean>
+  showWishlistPopup$!:Observable<boolean>
   store = inject(Store<AppState>)
 
   ngOnInit(): void {
@@ -33,5 +34,6 @@ export class MainLayoutComponent implements OnInit {
 
       this.showShoppingCartPopup$ = this.store.select(shoppingCartPopup)
       this.showMenuPopup$ = this.store.select(menuPopup)
+      this.showWishlistPopup$ = this.store.select(wishlistPopup)
   }
 }

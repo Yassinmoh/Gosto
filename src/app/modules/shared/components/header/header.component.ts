@@ -31,4 +31,8 @@ export class HeaderComponent implements OnInit {
   openMenu(){
     this.store.dispatch(appActions.toggleMenuPopup())
   }
+
+  openWishlist(){
+    this.store.dispatch(appActions.toggleWishlistPopup())
+  }
 }
