@@ -1,4 +1,4 @@
-<section class="top-selling">
+<section class="top-selling" *ngIf="products$ | async as products">
   <div class="top__section">
     <div class="texts">
       <h2>Top Selling Products</h2>
