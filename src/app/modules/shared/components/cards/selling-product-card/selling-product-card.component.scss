@@ -65,7 +65,26 @@
     outline: none;
     width: 100%;
     padding: 0.5rem 0;
+
     @include textStyle(14px, 22px, #888, 500);
     border-radius: 20px;
+    cursor: pointer;
+  }
+}
+
+@include DesktopScreen {
+  :host{
+    .product__card{
+      height: 570px;
+      gap: 2rem;
+
+      button{
+        margin-top: 0.5rem;
+        &:hover{
+          background: #0071e3;
+          color: #fff;
+        }
+      }
+    }
   }
 }

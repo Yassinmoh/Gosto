@@ -5,14 +5,22 @@
       <p>Meet our newbies! The latest templates uploaded to the marketplace.</p>
     </div>
     <div class="filter_tags">
-      <div class="tag"  *ngFor="let item of [].constructor(6)">
-        <span>All Product</span>
+      <div class="tag" *ngFor="let tag of tags;let i =index" (click)="select(i)"
+        [ngClass]="{'active': i == currentIndex}">
+        <span>{{tag}}</span>
       </div>
     </div>
   </div>
   <div class="buttom__section">
     <div class="products">
-      <Gosto-selling-product-card></Gosto-selling-product-card>
+      <!-- <Gosto-selling-product-card></Gosto-selling-product-card> -->
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let product of products">
+          <ng-template class="slide" carouselSlide [id]="(product.id).toString()">
+            <Gosto-selling-product-card [product]="product"></Gosto-selling-product-card>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
     </div>
 
   </div>
