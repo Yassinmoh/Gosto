@@ -29,7 +29,22 @@
       @include textStyle(16px, 20.8px, #000, 500)
     }
 
-    .rate {}
+    .rate {
+      display: flex;
+      align-items: center;
+      >div {
+        svg{
+          width: 15px;
+          height: 20px;
+          fill: transparent;
+        }
+        &:is(.selected){
+          svg{
+            fill: gold;
+          }
+        }
+      }
+    }
 
     .product-price {
       @include textStyle(16px, 29px, #0A2748, 400);
@@ -37,6 +52,7 @@
 
     .description {
       margin: 0.5rem 0 0 0.7rem;
+
       ul {
         list-style: none;
 
@@ -73,14 +89,15 @@
 }
 
 @include DesktopScreen {
-  :host{
-    .product__card{
+  :host {
+    .product__card {
       height: 570px;
       gap: 2rem;
 
-      button{
+      button {
         margin-top: 0.5rem;
-        &:hover{
+
+        &:hover {
           background: #0071e3;
           color: #fff;
         }
