@@ -1,11 +1,11 @@
 @import 'common';
 
 .product__card {
-  height: 517px;
+  height: 550px;
   width: 93%;
   margin: 0 auto;
   background: #fff;
-  padding: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
   border-radius: 15px;
 
   display: flex;
@@ -32,6 +32,8 @@
     .rate {
       display: flex;
       align-items: center;
+      padding: 0.2rem 0;
+
       >div {
         svg{
           width: 15px;
@@ -91,11 +93,12 @@
 @include DesktopScreen {
   :host {
     .product__card {
-      height: 570px;
+      height: 600px;
       gap: 2rem;
 
       button {
         margin-top: 0.5rem;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
           background: #0071e3;

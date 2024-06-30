@@ -1,0 +1,238 @@
+@import 'common';
+
+:host {
+  background: #F4F4F4;
+}
+
+footer {
+  padding: 2rem 1rem;
+  background: #F4F4F4;
+
+  .top__section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    border-bottom: 1px solid #E1E1E1;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+
+      img {
+        width: 48px;
+        height: 32px;
+      }
+
+      .title {
+        @include textStyle(13px, 20.8px, #111111, 500)
+      }
+
+      .sub__title {
+        @include textStyle(14px, 20.8px, #555555, 400)
+      }
+    }
+  }
+
+  .middle__section {
+    padding: 2rem 1rem;
+    border-bottom: 1px solid #E1E1E1;
+
+    .about__Store {
+      .title {
+        @include textStyle(16px, 16px, #111111, 500);
+        padding: 1rem 1rem 1rem 0;
+        text-align: left;
+      }
+
+      .cta {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        img {
+          width: 52px;
+          height: 50px;
+        }
+
+        >div {
+          p:nth-child(1) {
+            @include textStyle(14px, 18px, #555555, 500)
+          }
+
+          p:nth-child(2) {
+            @include textStyle(24px, 24px, #0071E3, 400)
+          }
+        }
+      }
+
+      p:nth-of-type(2) {
+        @include textStyle(16px, 15px, #555555, 400);
+        padding: 0.5rem 0;
+      }
+
+      p:nth-of-type(3),
+      p:nth-of-type(4) {
+        @include textStyle(16px, 15px, #0071E3, 400);
+        padding: 0.5rem 0;
+      }
+    }
+
+    .company,
+    .shop_categories,
+    .support {
+      .title {
+        @include textStyle(16px, 16px, #111111, 500);
+        padding: 1rem 1rem 1rem 0;
+        text-align: left;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+
+        li {
+          @include textStyle(14px, 26px, #555555, 400);
+          cursor: pointer;
+        }
+      }
+    }
+
+    .newletter {
+      .title {
+        @include textStyle(16px, 16px, #111111, 500);
+        padding: 1rem 1rem 1rem 0;
+      }
+
+      p:nth-of-type(2),
+      p:nth-of-type(3) {
+        @include textStyle(14px, 30px, #555555, 400);
+      }
+
+      form {
+        margin: 0.5rem 0;
+
+        input {
+          width: 65%;
+          border: 1px solid #55555549;
+          outline: none;
+          padding: 0.8rem 1rem;
+          border-radius: 30px;
+        }
+
+        button {
+          margin-left: 0.5rem;
+          border: 0;
+          outline: none;
+          background: #0071e3;
+          height: 45px;
+          width: 30%;
+          border-radius: 30px;
+          @include textStyle(12px, 18px, #fff, 500)
+        }
+      }
+    }
+  }
+
+  .bottom__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    >div {
+      ul{
+        display: none;
+      }
+    }
+    p{
+      @include textStyle(13px, 26px, #555555, 400);
+      span{
+        color: #0071E3;
+      }
+    }
+  }
+  #space{
+    display: block;
+    height: 70px;
+  }
+}
+
+@include DesktopScreen {
+  :host {
+
+    footer {
+      .top__section {
+        width: 75%;
+        margin: 0 auto;
+        padding: 0 2rem 5rem 2rem;
+        flex-direction: row;
+        gap: 2rem;
+
+        .item {
+          width: 20%;
+          gap: 0.5rem;
+        }
+      }
+
+      .middle__section {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        width: 75%;
+        margin: 0 auto;
+
+        .about__Store{
+          .cta{
+            margin-top: 0.7rem;
+          }
+        }
+
+        div {
+          flex: 1;
+
+          ul {
+            li {
+              padding: 0.3rem 0;
+              transition: all 0.2s ease-in-out;
+              &:hover{
+                padding-left: 0.5rem;
+                color: #0071E3;
+              }
+            }
+          }
+        }
+
+      }
+
+      .bottom__section {
+        width: 75%;
+        margin: 0 auto;
+        >div {
+          padding: 2rem;
+          ul {
+
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            li {
+              @include textStyle(13px, 26px, #555555, 400);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      #space{
+        display: none;
+      }
+    }
+  }
+}

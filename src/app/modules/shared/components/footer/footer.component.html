@@ -1,7 +1,73 @@
 <footer>
-  <div class="top__section"></div>
-  <div class="middle__section"></div>
-  <div class="bottom__section"></div>
+  <div class="top__section">
+    @for(item of topFooterData; track item){
+      <div class="item">
+        <img [src]="'../../../../../assets/images/' + item.img" [alt]="item.title">
+        <p class="title">{{item.title}}</p>
+        <p class="sub__title">{{item.description}}</p>
+      </div>
+    }
+  </div>
+  <div class="middle__section">
+    <div class="about__Store">
+      <p class="title">About The Store</p>
+      <div class="cta">
+        <img src="../../../../../assets/images/headphone.png" alt="headphone">
+        <div>
+          <p>Got Question? Call us 24/7</p>
+          <p>+001 123 456 789</p>
+        </div>
+      </div>
+      <p>Walls Street 68, Mahattan, New York, USA</p>
+      <p>Gosto$google.com</p>
+      <p>Center Help For You</p>
+    </div>
+    <div class="company">
+      <p class="title">Company</p>
+      <ul>
+        @for(item of ['About Us','Careers','Affiliates','Blog','Contact Us']; track item){
+          <li>{{item}}</li>
+        }
+      </ul>
+    </div>
+    <div class="shop_categories">
+      <p class="title">Shop Categories</p>
+      <ul>
+        @for(item of ['New Arrivals ','Best Selling ','Vegetables',' Fresh Meat',' Fresh Seafood']; track item){
+          <li>{{item}}</li>
+        }
+      </ul>
+    </div>
+    <div class="support">
+      <p class="title">Support</p>
+      <ul>
+        @for(item of ['Returns',' F.A.Q. ','Privacy ','Shipping']; track item){
+          <li>{{item}}</li>
+        }
+      </ul>
+    </div>
+    <div class="newletter">
+      <p class="title">Newletter</p>
+      <p>Subscribe to the Gosto mailing list to receive updates on new arrivals & other discount information.</p>
+      <form action="">
+        <input type="text" placeholder="Your email address">
+        <button>SUBSCRIBE</button>
+      </form>
+      <p>I would like to receive news and special offers.</p>
+    </div>
+  </div>
+  <div class="bottom__section">
+    <div>
+      <ul>
+        @for(item of ['ABOUT US','CUSTOMER SERVICE','PRIVACY POLICY','SITE MAP','ADVANCED SEARCH','CONTACT US']; track item){
+          <li>{{item}}</li>
+        }
+      </ul>
+    </div>
+    <img src="../../../../../assets/images/payment.png" alt="payment">
+    <p>Copyright © <span>GOSTO</span> all rights reserved. Powered by <span>Yassin Mohamed</span></p>
+  </div>
+  <div id="space"></div>
 </footer>
 
 
