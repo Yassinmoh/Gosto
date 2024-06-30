@@ -5,12 +5,13 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../../../store/App/app.reeducer';
 import * as appActions from '../../../../store/App/app.actions'
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'Gosto-header',
   standalone: true,
-  imports: [CommonModule,LanguageSwitcherComponent],
+  imports: [CommonModule,LanguageSwitcherComponent,RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

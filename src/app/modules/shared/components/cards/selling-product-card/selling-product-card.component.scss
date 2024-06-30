@@ -22,6 +22,10 @@
       width: 100%;
       height: 100%;
     }
+
+    .btns {
+      display: none;
+    }
   }
 
   .info__box {
@@ -35,13 +39,14 @@
       padding: 0.2rem 0;
 
       >div {
-        svg{
+        svg {
           width: 15px;
           height: 20px;
           fill: transparent;
         }
-        &:is(.selected){
-          svg{
+
+        &:is(.selected) {
+          svg {
             fill: gold;
           }
         }
@@ -96,6 +101,44 @@
       height: 600px;
       gap: 2rem;
 
+      .img__box {
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+
+        &:hover{
+          .btns {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            position: absolute;
+            width: 100%;
+            bottom: 20%;
+            animation: fadeInUp 0.5s ease-out forwards;
+            div {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: #fff;
+              border-radius: 50%;
+              padding: 0.6rem;
+
+              &:hover{
+                background: #0071e3;
+                color: #fff;
+              }
+
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+
+            }
+          }
+        }
+
+      }
+
       button {
         margin-top: 0.5rem;
         transition: all 0.2s ease-in-out;
@@ -106,5 +149,17 @@
         }
       }
     }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -15,3 +15,10 @@ export const fadeInRight = trigger('fadeInRight', [
     ]))
   ])
 ]);
+
+export const fadeInUp = trigger('fadeInUp', [
+  state('void', style({ opacity: 0, transform: 'translateY(20px)' })),
+  transition(':enter', [
+    animate('500ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+  ])
+])

@@ -1,6 +1,17 @@
 <div class="product__card">
   <div class="img__box">
     <img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
+    <div class="btns">
+      <div>
+        <svg><use href="#shopping-bag-g"></use></svg>
+      </div>
+      <div>
+        <svg><use href="#heart-icon-g"></use></svg>
+      </div>
+      <div>
+        <svg><use href="#account-icon-g"></use></svg>
+      </div>
+    </div>
   </div>
   <div class="info__box">
     <p class="product-title">{{product.name}}</p>
