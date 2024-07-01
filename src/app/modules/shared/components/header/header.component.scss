@@ -13,6 +13,12 @@ header{
   top: 1%;
   z-index: 100;
 
+  &:is(.shop-style){
+    height: 60px;
+    background-color: black;
+    top: 0;
+  }
+
   .icons__container{
     display: flex;
     align-items: center;
@@ -99,6 +105,10 @@ header{
     header{
       top: 5%;
       padding: 0.5rem 2.5rem;
+
+      &:is(.shop-style){
+        top: 0;
+      }
     }
   }
 }

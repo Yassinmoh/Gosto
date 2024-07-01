@@ -1,20 +1,28 @@
-<header>
+<header [ngClass]="{'shop-style':currentUrl==='shop'}">
   <div class="icons__container" *ngIf="isMobile">
     <div (click)="openCart()">
       <span class="counter">0</span>
-      <svg><use href="#shopping-bag"></use></svg>
+      <svg>
+        <use href="#shopping-bag"></use>
+      </svg>
     </div>
   </div>
   <div class="icons__container" *ngIf="!isMobile">
     <div (click)="openCart()">
       <span class="counter">0</span>
-      <svg><use href="#shopping-bag"></use></svg>
+      <svg>
+        <use href="#shopping-bag"></use>
+      </svg>
     </div>
     <div (click)="openWishlist()">
       <span class="counter">0</span>
-      <svg><use href="#heart-icon"></use></svg>
+      <svg>
+        <use href="#heart-icon"></use>
+      </svg>
     </div>
-    <div><svg><use href="#account-icon"></use></svg></div>
+    <div><svg>
+        <use href="#account-icon"></use>
+      </svg></div>
     <form>
       <input type="text" name="" placeholder="search">
     </form>
@@ -22,11 +30,11 @@
   </div>
   <div class="menu__container" *ngIf="!isMobile">
     <ul>
-      <li >Home</li>
+      <li [routerLink]="'/'">Home</li>
       <li [routerLink]="'/shop'">Shop</li>
-      <li>Blog</li>
-      <li>About</li>
-      <li>Conatct</li>
+      <li [routerLink]="'/blog'">Blog</li>
+      <li [routerLink]="'/about'">About</li>
+      <li [routerLink]="'/contact'">Contact</li>
     </ul>
   </div>
   <div class="logo">
@@ -34,6 +42,8 @@
   </div>
 
   <div class="burger__menu" *ngIf="isMobile">
-    <svg (click)="openMenu()"><use href="#burger-menu"></use></svg>
+    <svg (click)="openMenu()">
+      <use href="#burger-menu"></use>
+    </svg>
   </div>
 </header>

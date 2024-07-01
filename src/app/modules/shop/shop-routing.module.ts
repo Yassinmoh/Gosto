@@ -5,7 +5,8 @@ import { ShopPageComponent } from './pages/shop-page/shop-page.component';
 const routes: Routes = [
   {
     path:'',
-    component:ShopPageComponent
+    component:ShopPageComponent,
+    data: { breadcrumb: 'Shop' }
   }
 ];
 

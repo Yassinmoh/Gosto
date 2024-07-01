@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class UserMenuComponent {
   menuItems= [
-    {id:1,label:'Menu',icon:'menu-icon',url:'home'},
+    {id:1,label:'Shop',icon:'shop-icon',url:'shop'},
     {id:2,label:'Cart',icon:'cart-icon',url:'cart'},
     {id:3,label:'Home',icon:'home-icon',url:'home'},
     {id:4,label:'Wishlist',icon:'heart-icon',url:'wishlist'},
