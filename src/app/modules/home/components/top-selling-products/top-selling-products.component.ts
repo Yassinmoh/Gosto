@@ -24,7 +24,7 @@ export class TopSellingProductsComponent implements OnInit {
 
   customOptions: OwlOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     center: false,
     dots: false,
     rtl: false,
