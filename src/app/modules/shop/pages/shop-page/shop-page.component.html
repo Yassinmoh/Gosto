@@ -1,3 +1,7 @@
 <div>
+  <div id="filter-btn" (click)="openFilter()" [ngClass]="{'open':showFilterPopup$ | async}">
+    <svg><use href="#filter-icon"></use></svg>
+  </div>
+</div>
 
-</div>>
+<Gosto-filter-popup *ngIf="showFilterPopup$ | async"></Gosto-filter-popup>

@@ -32,6 +32,8 @@ export class HeaderComponent implements OnInit {
           this.currentUrl = event.urlAfterRedirects.split('/')[1];
         }
       });
+
+      this.currentUrl = this.router.url.split('/')[1]
   }
 
   openCart() {
