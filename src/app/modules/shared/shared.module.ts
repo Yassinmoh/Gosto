@@ -9,6 +9,7 @@ import { BannerItemComponent } from './components/cards/banner-item/banner-item.
 import { SellingProductCardComponent } from './components/cards/selling-product-card/selling-product-card.component';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 import { WishlistPopupComponent } from './components/popups/wishlist-popup/wishlist-popup.component';
+import { ProductCardComponent } from './components/cards/product-card/product-card.component';
 
 
 
@@ -24,7 +25,8 @@ import { WishlistPopupComponent } from './components/popups/wishlist-popup/wishl
     BannerItemComponent,
     SellingProductCardComponent,
     ScrollTopComponent,
-    WishlistPopupComponent
+    WishlistPopupComponent,
+    ProductCardComponent
   ],
   exports:[
     MiniHeaderComponent,
@@ -35,7 +37,8 @@ import { WishlistPopupComponent } from './components/popups/wishlist-popup/wishl
     BannerItemComponent,
     SellingProductCardComponent,
     ScrollTopComponent,
-    WishlistPopupComponent
+    WishlistPopupComponent,
+    ProductCardComponent
   ]
 })
 export class SharedModule { }

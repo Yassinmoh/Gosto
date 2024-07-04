@@ -105,6 +105,14 @@
         position: relative;
         cursor: pointer;
         width: 100%;
+        overflow: hidden;
+
+        img{
+          transition: opacity .5s ease, transform 2s cubic-bezier(0, 0, .44, 1.18), -webkit-transform 2s cubic-bezier(0, 0, .44, 1.18);
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
 
         &:hover{
           .btns {

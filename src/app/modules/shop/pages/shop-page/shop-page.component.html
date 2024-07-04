@@ -1,7 +1,43 @@
-<div>
+<section>
   <div id="filter-btn" (click)="openFilter()" [ngClass]="{'open':showFilterPopup$ | async}">
-    <svg><use href="#filter-icon"></use></svg>
+    <svg>
+      <use href="#filter-icon"></use>
+    </svg>
   </div>
-</div>
+  <div class="shop__header">
+    <p class="title">SHOP</p>
+    <div class="filter_tags">
+      <div class="tag" *ngFor="let tag of tags;let i =index" (click)="select(i)"
+        [ngClass]="{'active': i == currentIndex}">
+        <span>{{tag}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filter__container">
+      <div class="filter">
+        <svg>
+          <use href="#filter-icon-w"></use>
+        </svg>
+        <span>Filter</span>
+      </div>
+      <div class="views">
+        <span>Views:</span>
+        <div class="icons">
+          <svg *ngFor="let item of views; let i = index" (click)="selectMode(i)" [ngClass]="{'active':currentModeIndex == i}">
+            <use [attr.href]="'#'+item"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="sort">
+        <p-dropdown [options]="labels" optionLabel="name" placeholder="Sort" />
+      </div>
+    </div>
+    <div class="products__container">
+      <Gosto-product-card *ngFor="let item of [].constructor(8)"></Gosto-product-card>
+    </div>
+  </div>
+</section>
 
 <Gosto-filter-popup *ngIf="showFilterPopup$ | async"></Gosto-filter-popup>

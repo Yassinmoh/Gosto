@@ -1,8 +1,73 @@
-div{
-  height: 100vh;
-  position: relative;
+@import 'common';
 
-  #filter-btn{
+section {
+  // height: 100vh;
+  position: relative;
+  padding: 30% 1rem 1rem 1rem;
+
+  .shop__header {
+    .title {
+      @include textStyle(48px, 62px, #0A2748, 600);
+      text-align: center;
+    }
+
+    .filter_tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+
+      .tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: 35px;
+        background: #fff;
+        border-radius: 20px;
+        padding: 0 1rem;
+        cursor: pointer;
+        border: 1px solid #ebebeb;
+
+        span {
+          @include textStyle(14px, 18px, #636E84, 400)
+        }
+
+        &:is(.active) {
+          background: #0071e3;
+
+          span {
+            color: #fff;
+          }
+        }
+
+      }
+    }
+  }
+
+  .container {
+    padding: 1rem;
+    margin: 2rem 0;
+
+    .filter__container {
+      display: none;
+    }
+
+    .products__container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: space-between;
+      gap: 1.5rem;
+
+      ::ng-deep Gosto-product-card {
+        width: 43%;
+      }
+    }
+  }
+
+  #filter-btn {
     position: fixed;
     left: 0;
     top: 50%;
@@ -17,13 +82,126 @@ div{
     border-radius: 0 5px 5px 0;
     transition: 0.5s all ease-out;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -2px -2px 2px rgba(0, 0, 0, 0.1);
-    svg{
+
+    svg {
       width: 60%;
       height: 60%;
     }
 
-    &:is(.open){
-      left:80%
+    &:is(.open) {
+      left: 80%
+    }
+  }
+}
+
+
+
+@include DesktopScreen {
+  :host {
+    section {
+      padding-top: 5%;
+
+      .shop__header {
+        .filter_tags {
+          width: 30%;
+          margin: 1.5rem auto;
+        }
+      }
+
+      .container {
+        margin: 2rem auto;
+        width: 70%;
+
+        .filter__container {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 35px;
+          margin: 1rem 0;
+
+          .filter {
+            width: fit-content;
+            padding: 0 1rem;
+            height: 100%;
+            background: #c6452c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            svg {
+              width: 17px;
+              height: 25px;
+            }
+
+            span {
+              @include textStyle(11px, 20px, #fff, 500);
+              text-transform: uppercase;
+            }
+          }
+
+          .views {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            width: 30%;
+            gap: 0.5rem;
+
+            .icons {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+
+              svg {
+                width: 20px;
+                height: 20px;
+
+                &:nth-child(3),
+                &:nth-child(4) {
+                  width: 27px;
+                  height: 27px;
+                }
+                cursor: pointer;
+
+                &:is(.active){
+                  filter: brightness(0.3);
+                }
+              }
+            }
+          }
+
+          .sort {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+            ::ng-deep p-dropdown {
+              width: 40%;
+
+              .p-component {
+                width: 100%;
+                padding: 0 0.5rem;
+              }
+
+              .p-dropdown-label{
+                padding: 0.2rem 0.5rem;
+              }
+            }
+          }
+        }
+
+        .products__container {
+          ::ng-deep Gosto-product-card {
+            width: 22%;
+          }
+        }
+      }
+
+      #filter-btn {
+        display: none;
+      }
     }
   }
 }

@@ -11,8 +11,8 @@ export class ProductService {
   http: HttpClient = inject(HttpClient)
   constructor() { }
 
-  getProducts(){
-    return this.http.get<Product[]>(`${environment.apiURL}/Products`).pipe(
+  getProducts(pageNumber: number, pageSize: number){
+    return this.http.get<Product[]>(`${environment.apiURL}/Products?_page=${pageNumber}&_limit=${pageSize}`).pipe(
       tap(data => console.log("Products",data)
       )
     )

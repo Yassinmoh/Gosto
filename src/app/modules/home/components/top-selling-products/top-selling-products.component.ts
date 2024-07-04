@@ -20,7 +20,8 @@ export class TopSellingProductsComponent implements OnInit {
   products: Product[] = [];
   tags: string[] = ['All Products','Smart','Watchs','Iphone','Games','Labtops'];
   currentIndex = 0
-
+  pageNumber = 1;
+  pageSize = 5;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -44,7 +45,7 @@ export class TopSellingProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products$ = this.productService.getProducts().pipe(
+    this.products$ = this.productService.getProducts(this.pageNumber,this.pageSize).pipe(
       tap(data => this.products = data)
     )
   }
