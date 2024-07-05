@@ -6,4 +6,5 @@ export const shoppingCartPopup = createSelector(appFeatureState , state => state
 export const menuPopup = createSelector(appFeatureState , state => state.toggleMenuPopup)
 export const wishlistPopup = createSelector(appFeatureState,state => state.toggleWishlistPopup)
 export const filterPopup = createSelector(appFeatureState, state => state.toggleFilterPopup)
+export const filterDialog = createSelector(appFeatureState, state => state.toggleFilterDialog)
 export const getAppLang = createSelector(appFeatureState,state => state.Lang)

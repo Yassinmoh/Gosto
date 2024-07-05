@@ -4,4 +4,5 @@ export const toggleShoppingCartPopup = createAction('[App] toggle Shopping Cart 
 export const toggleMenuPopup = createAction('[App] toggle Menu Popup')
 export const toggleWishlistPopup = createAction('[App] toggle Wishlist Popup')
 export const toggleFilterPopup = createAction('[App] toggle Filter Popup')
+export const toggleFilterDialog = createAction('[App] toggle Filter Dialog')
 export const setAppLang = createAction('[App] Change Language',props<{lang:string}>())

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MainSliderComponent } from '../../components/main-slider/main-slider.component';
 import { GridBannerComponent } from '../../components/grid-banner/grid-banner.component';
 import { TopSellingProductsComponent } from '../../components/top-selling-products/top-selling-products.component';
@@ -10,6 +10,9 @@ import { TopSellingProductsComponent } from '../../components/top-selling-produc
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
 
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 }

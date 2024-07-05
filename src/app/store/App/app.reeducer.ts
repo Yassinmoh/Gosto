@@ -7,6 +7,7 @@ export interface AppState {
   toggleMenuPopup: boolean;
   toggleWishlistPopup: boolean;
   toggleFilterPopup: boolean;
+  toggleFilterDialog: boolean;
   Lang: string | null;
 }
 
@@ -15,9 +16,10 @@ const initState = {
   toggleMenuPopup: false,
   toggleWishlistPopup: false,
   toggleFilterPopup: false,
+  toggleFilterDialog:false,
   Lang: localStorage.getItem(environment.Storage.Lang)
-    ? localStorage.getItem(environment.Storage.Lang)
-    : Lang.English
+      ? localStorage.getItem(environment.Storage.Lang)
+      : Lang.English
 }
 
 
@@ -44,6 +46,12 @@ export const appReducer = createReducer(initState,
     return{
       ...state,
       toggleFilterPopup:!state.toggleFilterPopup
+    }
+  }),
+  on(appActions.toggleFilterDialog,(state:AppState)=>{
+    return {
+      ...state,
+      toggleFilterDialog:!state.toggleFilterDialog
     }
   }),
   on(appActions.setAppLang,(state:AppState,action)=>{

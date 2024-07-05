@@ -16,7 +16,7 @@
 
   <div class="container">
     <div class="filter__container">
-      <div class="filter">
+      <div class="filter" (click)="openFilterDialog()">
         <svg>
           <use href="#filter-icon-w"></use>
         </svg>
@@ -25,7 +25,8 @@
       <div class="views">
         <span>Views:</span>
         <div class="icons">
-          <svg *ngFor="let item of views; let i = index" (click)="selectMode(i)" [ngClass]="{'active':currentModeIndex == i}">
+          <svg *ngFor="let item of views; let i = index" (click)="selectMode(i)"
+            [ngClass]="{'active':currentModeIndex == i}">
             <use [attr.href]="'#'+item"></use>
           </svg>
         </div>
@@ -34,8 +35,51 @@
         <p-dropdown [options]="labels" optionLabel="name" placeholder="Sort" />
       </div>
     </div>
+    <div class="filter__dialog" *ngIf="showFilterDialog$ | async" [@fadeInDown]>
+      <form action="">
+        <div class="filter_by_category">
+          <p class="title">PRODUCT CATEGORIES</p>
+          <div class="cont_scroll">
+            <div *ngFor="let category of tags">
+              <input type="radio" value="category">
+              <label for="">{{category}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="filter_by_color">
+          <p class="title">FILTER BY COLOR</p>
+          <div class="cont_scroll">
+          <div *ngFor="let color of colors">
+            <input type="radio" value="category">
+            <label for="">{{color}}</label>
+          </div>
+        </div>
+        </div>
+        <div class="filter_by_size">
+          <p class="title">FILTER BY SIZE</p>
+          <div class="cont_scroll">
+          <div *ngFor="let size of sizes">
+            <input type="radio" value="category">
+            <label for="">{{size}}</label>
+          </div>
+        </div>
+        </div>
+        <div class="filter_by_brand">
+          <p class="title">FILTER BY BRAND</p>
+          <div class="cont_scroll">
+          <div *ngFor="let brand of brands">
+            <input type="radio" value="category">
+            <label for="">{{brand}}</label>
+          </div>
+        </div>
+        </div>
+        <div class="img">
+          <img src="../../../../../assets/images/bkg-filter.png" alt="bkg-filter.png">
+        </div>
+      </form>
+    </div>
     <div class="products__container">
-      <Gosto-product-card *ngFor="let item of [].constructor(8)"></Gosto-product-card>
+      <Gosto-product-card *ngFor="let item of [].constructor(12)"></Gosto-product-card>
     </div>
   </div>
 </section>
