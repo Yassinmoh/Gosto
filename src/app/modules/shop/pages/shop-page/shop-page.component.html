@@ -40,36 +40,48 @@
         <div class="filter_by_category">
           <p class="title">PRODUCT CATEGORIES</p>
           <div class="cont_scroll">
-            <div *ngFor="let category of tags">
-              <input type="radio" value="category">
-              <label for="">{{category}}</label>
+            <div *ngFor="let category of tags; let i = index">
+              <input type="radio" value="category" class="custom-input">
+              <label [for]="category" class="custom-label" (click)="selectOption('category',i)" [ngClass]="{'selected':selectedCategory==i}">
+                <span class="choice"></span>
+                {{category}}
+              </label>
             </div>
           </div>
         </div>
         <div class="filter_by_color">
           <p class="title">FILTER BY COLOR</p>
           <div class="cont_scroll">
-          <div *ngFor="let color of colors">
-            <input type="radio" value="category">
-            <label for="">{{color}}</label>
+          <div *ngFor="let color of colors;let i =index">
+            <input type="radio" class="custom-radio" name="color.name" [value]="color.name" [id]="color">
+            <label [for]="color" class="custom-label" (click)="selectOption('color',i)" [ngClass]="{'selected':selectedColor == i}">
+              <span class="color-circle" [style.backgroundColor]="color.code"></span>
+              {{color.name}}
+            </label>
           </div>
         </div>
         </div>
         <div class="filter_by_size">
           <p class="title">FILTER BY SIZE</p>
           <div class="cont_scroll">
-          <div *ngFor="let size of sizes">
-            <input type="radio" value="category">
-            <label for="">{{size}}</label>
+          <div *ngFor="let size of sizes; let i =index">
+            <input type="radio" name="size" value="category" class="custom-input" >
+            <label for="size" class="custom-label" (click)="selectOption('size',i)" [ngClass]="{'selected':selectedSize==i}">
+              <span class="choice"></span>
+              {{size}}
+            </label>
           </div>
         </div>
         </div>
         <div class="filter_by_brand">
           <p class="title">FILTER BY BRAND</p>
           <div class="cont_scroll">
-          <div *ngFor="let brand of brands">
-            <input type="radio" value="category">
-            <label for="">{{brand}}</label>
+          <div *ngFor="let brand of brands; let i =index">
+            <input type="radio" name="brand" value="category" class="custom-input" >
+            <label for="brand" class="custom-label" (click)="selectOption('brand',i)" [ngClass]="{'selected':selectedBrand==i}">
+              <span class="choice"></span>
+              {{brand}}
+            </label>
           </div>
         </div>
         </div>

@@ -237,6 +237,38 @@ section {
                 height: 200px;
                 overflow-y: scroll;
                 margin-top: 1.5rem;
+                .custom-input{
+                  display: none;
+                }
+                .custom-label{
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  .choice{
+                    position: relative;
+                    display: block;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                    background: #fff;
+                    outline: 2px solid #c6452c;
+                  }
+
+                  &:is(.selected){
+                    .choice::before{
+                      content: '';
+                      width: 12px;
+                      height: 12px;
+                      position: absolute;
+                      border-radius: 50%;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%,-50%);
+                      background: #c6452c;
+                    }
+                  }
+                }
+
 
                 >div {
                   margin: 0.2rem;
@@ -281,6 +313,29 @@ section {
               padding-left: 2rem;
               .cont_scroll {
                 overflow: hidden;
+              }
+            }
+
+            .filter_by_color{
+              .custom-radio{
+                display: none;
+              }
+
+              .custom-label{
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                .color-circle{
+                  display: block;
+                  width: 18px;
+                  height: 18px;
+                  border-radius: 50%;
+                }
+                &:is(.selected){
+                  .color-circle{
+                    outline: 2px solid #c6452c;
+                  }
+                }
               }
             }
 

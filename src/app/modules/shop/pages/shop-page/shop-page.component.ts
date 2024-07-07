@@ -18,7 +18,7 @@ import { fadeInDown } from '../../../core/animations';
   imports: [CommonModule, RouterModule, FilterPopupComponent, ProductCardComponent, DropdownModule],
   templateUrl: './shop-page.component.html',
   styleUrl: './shop-page.component.scss',
-  animations:[fadeInDown]
+  animations: [fadeInDown]
 })
 export class ShopPageComponent implements OnInit {
   store = inject(Store<AppState>);
@@ -26,12 +26,17 @@ export class ShopPageComponent implements OnInit {
   showFilterDialog$!: Observable<boolean>
   currentIndex = -1
   currentModeIndex = 2
+  selectedColor: number = -1
+  selectedCategory: number = -1
+  selectedSize: number = -1
+  selectedBrand: number = -1
+
 
   tags: string[] = ['Uncategorized', 'Decoration', 'Dining & Kitchen', 'Furniture', 'Fashion', 'Lighting', 'Maketplace', 'Medical', 'Medical', 'Outdoor & Gift', 'Phone', 'Sport', 'Tables & Chairs']
   views: string[] = ['two-col', 'three-col', 'four-col', 'list'];
   labels: any = [{ name: 'Default sorting' }, { name: 'Sort by popularity' }, { name: 'Sort by average rating' }, { name: 'Sort by latest' }, { name: 'Sort by price: low to high' }, { name: 'Sort by price: high to low' }];
-  colors: string[] = ['Black', 'Red', 'Green', 'Yellow','Gray'];
-  sizes: string[] = ['XS', 'S', 'M', 'L','XL','XXL'];
+  colors: any = [{ name: 'Black', code: '#000' }, { name: 'Red', code: '#FF0000' }, { name: 'Green', code: '#008000' }, { name: 'Yellow ', code: '#FFFF00' }, { name: 'Gray ', code: '#808080' }];
+  sizes: string[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
   brands: string[] = ['Uncategorized', 'Decoration', 'Dining & Kitchen', 'Furniture', 'Fashion', 'Lighting', 'Maketplace', 'Medical', 'Medical', 'Outdoor & Gift', 'Phone', 'Sport', 'Tables & Chairs']
 
   ngOnInit(): void {
@@ -44,7 +49,7 @@ export class ShopPageComponent implements OnInit {
     this.store.dispatch(appActions.toggleFilterPopup())
   }
 
-  openFilterDialog(){
+  openFilterDialog() {
     this.store.dispatch(appActions.toggleFilterDialog())
   }
 
@@ -55,4 +60,25 @@ export class ShopPageComponent implements OnInit {
   selectMode(index: number) {
     this.currentModeIndex = index
   }
+
+  selectOption(type: string, index: number) {
+    switch (type) {
+      case 'color':
+        this.selectedColor = index;
+        break;
+      case 'category':
+        this.selectedCategory = index;
+        break;
+      case 'size':
+        this.selectedSize = index;
+        break;
+      case 'brand':
+        this.selectedBrand = index;
+        break;
+      default:
+        break;
+    }
+  }
+
+
 }
