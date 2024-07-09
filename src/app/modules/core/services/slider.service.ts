@@ -12,8 +12,6 @@ export class SliderService {
   constructor() { }
 
   getSlidesData(): Observable<Slide[]>{
-    return this.http.get<Slide[]>(`${environment.apiURL}/slides`).pipe(
-      tap(data => console.log("Slides loaded",data))
-    )
+    return this.http.get<Slide[]>(`${environment.apiURL}/slides`)
   }
 }

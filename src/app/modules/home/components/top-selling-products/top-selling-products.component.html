@@ -12,11 +12,11 @@
     </div>
   </div>
   <div class="buttom__section">
-    <div class="products">
+    <div class="products" *ngIf="products$ | async as products">
       <!-- <Gosto-selling-product-card></Gosto-selling-product-card> -->
       <owl-carousel-o [options]="customOptions">
-        <ng-container *ngFor="let product of products">
-          <ng-template class="slide" carouselSlide [id]="(product.id).toString()">
+        <ng-container *ngFor="let product of products; let i= index">
+          <ng-template class="slide" carouselSlide [id]="(i+1).toString()">
             <Gosto-selling-product-card [product]="product"></Gosto-selling-product-card>
           </ng-template>
         </ng-container>

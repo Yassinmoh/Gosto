@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { SellingProductCardComponent } from '../../../shared/components/cards/selling-product-card/selling-product-card.component';
 import { ProductService } from '../../../core/services/product.service';
-import { Observable, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { Product } from '../../../core/models/product';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { IndexedDBService } from '../../../core/services/indexeddb.service';
 
 @Component({
   selector: 'Gosto-top-selling-products',
@@ -16,7 +17,10 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 export class TopSellingProductsComponent implements OnInit {
 
   productService = inject(ProductService);
+  indexedDBService = inject(IndexedDBService);
+
   products$!: Observable<Product[]>
+
   products: Product[] = [];
   tags: string[] = ['All Products','Smart','Watchs','Iphone','Games','Labtops'];
   currentIndex = 0
@@ -45,12 +49,26 @@ export class TopSellingProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products$ = this.productService.getProducts(this.pageNumber,this.pageSize).pipe(
-      tap(data => this.products = data)
-    )
+    // this.products$ = this.productService.getProducts(this.pageNumber,this.pageSize)
+    this.loadProducts()
   }
 
   select(index:number){
     this.currentIndex =index
+  }
+
+  async loadProducts() {
+    const cachedProducts = await this.indexedDBService.getTopSellingProducts('top-selling');
+    console.log('cachedProducts', cachedProducts);
+
+    if (cachedProducts && cachedProducts.length > 0) {
+      this.products$ = of(cachedProducts);
+    } else {
+      this.products$ = this.productService.getProducts(this.pageNumber, this.pageSize).pipe(
+        tap(async (data) => {
+          await this.indexedDBService.setTopSellingProducts(data);
+        })
+      );
+    }
   }
 }

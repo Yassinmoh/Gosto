@@ -5,18 +5,21 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { SliderService } from '../../../core/services/slider.service';
 import { SlideItemComponent } from '../slide-item/slide-item.component';
 import { Slide } from '../../../core/models/Slide';
+import { IndexedDBService } from '../../../core/services/indexeddb.service';
 
 @Component({
   selector: 'Gosto-main-slider',
   standalone: true,
-  imports: [CommonModule,CarouselModule,SlideItemComponent],
+  imports: [CommonModule, CarouselModule, SlideItemComponent],
   templateUrl: './main-slider.component.html',
   styleUrl: './main-slider.component.scss',
 })
 export class MainSliderComponent implements OnInit {
 
   slidesService = inject(SliderService);
-  slides:Slide[] = []
+  indexedDBService = inject(IndexedDBService);
+
+  slides: Slide[] = []
   customOptions: OwlOptions = {
     loop: true,
     autoplay: true,
@@ -39,8 +42,19 @@ export class MainSliderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.slidesService.getSlidesData().subscribe(res =>{
-      this.slides =res
-    })
+    this.loadSlides()
   }
+
+  async loadSlides() {
+    const cachedSlides = await this.indexedDBService.getSlides('slider-images');
+    if (cachedSlides) {
+      this.slides = JSON.parse(cachedSlides);
+    } else {
+      this.slidesService.getSlidesData().subscribe(async (data) => {
+        this.slides = data;
+        await this.indexedDBService.setSlides('slider-images', JSON.stringify(data));
+      })
+    }
+  }
+
 }
