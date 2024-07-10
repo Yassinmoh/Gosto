@@ -59,8 +59,6 @@ export class TopSellingProductsComponent implements OnInit {
 
   async loadProducts() {
     const cachedProducts = await this.indexedDBService.getTopSellingProducts('top-selling');
-    console.log('cachedProducts', cachedProducts);
-
     if (cachedProducts && cachedProducts.length > 0) {
       this.products$ = of(cachedProducts);
     } else {

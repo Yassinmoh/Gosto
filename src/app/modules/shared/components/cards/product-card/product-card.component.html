@@ -1,7 +1,9 @@
 <div class="card">
   <div class="img__box">
-    <img src="../../../../../../assets/images/products/test.jpg" alt="">
-    <div class="onSale"><span>Sale!</span></div>
+    <img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
+    @if(product.sale){
+      <div class="onSale"><span>Sale! {{product.sale}}%</span></div>
+    }
   </div>
   <div class="btns">
     <div>
@@ -20,9 +22,11 @@
       </svg>
     </div>
   </div>
-  <p class="title">Light Lantern Geometric</p>
+  <p class="title">{{product.name}}</p>
   <div class="price">
-    <p class="new">$100</p>
-    <p class="old">$150</p>
+    <p class="new">${{product.price | salePrice:product.sale}}</p>
+    @if(product.hasSale && product.sale != null){
+      <p class="old">${{product.price}}</p>
+    }
   </div>
 </div>

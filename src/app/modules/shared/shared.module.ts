@@ -10,6 +10,7 @@ import { SellingProductCardComponent } from './components/cards/selling-product-
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 import { WishlistPopupComponent } from './components/popups/wishlist-popup/wishlist-popup.component';
 import { ProductCardComponent } from './components/cards/product-card/product-card.component';
+import { SalePricePipe } from './pipes/sale-price.pipe';
 
 
 
@@ -26,7 +27,8 @@ import { ProductCardComponent } from './components/cards/product-card/product-ca
     SellingProductCardComponent,
     ScrollTopComponent,
     WishlistPopupComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    SalePricePipe
   ],
   exports:[
     MiniHeaderComponent,
@@ -38,7 +40,8 @@ import { ProductCardComponent } from './components/cards/product-card/product-ca
     SellingProductCardComponent,
     ScrollTopComponent,
     WishlistPopupComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    SalePricePipe
   ]
 })
 export class SharedModule { }

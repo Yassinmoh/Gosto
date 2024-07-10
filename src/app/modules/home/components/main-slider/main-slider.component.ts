@@ -48,11 +48,11 @@ export class MainSliderComponent implements OnInit {
   async loadSlides() {
     const cachedSlides = await this.indexedDBService.getSlides('slider-images');
     if (cachedSlides) {
-      this.slides = JSON.parse(cachedSlides);
+      this.slides = cachedSlides;
     } else {
       this.slidesService.getSlidesData().subscribe(async (data) => {
         this.slides = data;
-        await this.indexedDBService.setSlides('slider-images', JSON.stringify(data));
+        await this.indexedDBService.setSlides('slider-images', data);
       })
     }
   }

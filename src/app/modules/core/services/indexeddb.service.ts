@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { openDB, DBSchema, IDBPDatabase } from 'idb';
 import { Product } from '../models/product';
+import { Slide } from '../models/Slide';
 
 interface MyDB extends DBSchema {
   'IntroSlider': {
     key: string;
-    value: string;
+    value: Slide[];
   };
 
   'TopSellingProducts': {
@@ -31,12 +32,12 @@ export class IndexedDBService {
 
   //****************** Store Intro slider Slides ******************
 
-  async setSlides(key: string, value: string) {
+  async setSlides(key: string, value: Slide[]) {
     const db = await this.dbPromise;
     return db.put('IntroSlider', value, key);
   }
 
-  async getSlides(key: string): Promise<string | undefined> {
+  async getSlides(key: string): Promise<Slide[] | undefined> {
     const db = await this.dbPromise;
     return db.get('IntroSlider', key);
   }

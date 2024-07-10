@@ -7,7 +7,7 @@
   <div class="shop__header">
     <p class="title">SHOP</p>
     <div class="filter_tags">
-      <div class="tag" *ngFor="let tag of tags;let i =index" (click)="select(i)"
+      <div class="tag" *ngFor="let tag of tags;let i =index" (click)="selectTag(i)"
         [ngClass]="{'active': i == currentIndex}">
         <span>{{tag}}</span>
       </div>
@@ -90,9 +90,15 @@
         </div>
       </form>
     </div>
-    <div class="products__container">
-      <Gosto-product-card *ngFor="let item of [].constructor(12)"></Gosto-product-card>
-    </div>
+    @if (products$ | async) {
+      <div class="products__container">
+        @for (product of (products$ | async); track product.id) {
+          <Gosto-product-card [product]="product"></Gosto-product-card>
+        }
+      </div>
+    } @else {
+      <p>No Products</p>
+    }
   </div>
 </section>
 
