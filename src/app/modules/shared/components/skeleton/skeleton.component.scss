@@ -1,0 +1,35 @@
+@import 'common';
+.conytainer{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .item{
+    display: block;
+    width: 100%;
+
+    ::ng-deep p-skeleton{
+      width: 100%;
+      display: block;
+
+      div{
+        width:100%;
+        margin: 0.5rem 0;
+      }
+    }
+  }
+}
+
+@include DesktopScreen {
+  :host{
+    .conytainer{
+      .item{
+        width: 24%;
+      }
+    }
+  }
+}
+
+

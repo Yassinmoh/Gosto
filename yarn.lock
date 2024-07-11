@@ -5259,6 +5259,11 @@ postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
     picocolors "^1.0.0"
     source-map-js "^1.2.0"
 
+primeicons@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/primeicons/-/primeicons-7.0.0.tgz"
+  integrity sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==
+
 primeng@^17.18.1:
   version "17.18.1"
   resolved "https://registry.npmjs.org/primeng/-/primeng-17.18.1.tgz"

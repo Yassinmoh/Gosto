@@ -9,3 +9,4 @@ export const wishlistPopup = createSelector(appFeatureState,state => state.toggl
 export const filterPopup = createSelector(appFeatureState, state => state.toggleFilterPopup)
 export const filterDialog = createSelector(appFeatureState, state => state.toggleFilterDialog)
 export const getAppLang = createSelector(appFeatureState,state => state.Lang)
+export const getViewMode = createSelector(appFeatureState,state => state.viewMode)

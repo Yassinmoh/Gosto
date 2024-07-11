@@ -9,6 +9,7 @@ export interface AppState {
   toggleFilterPopup: boolean;
   toggleFilterDialog: boolean;
   Lang: string | null;
+  viewMode:string
 }
 
 const initState = {
@@ -19,7 +20,8 @@ const initState = {
   toggleFilterDialog:false,
   Lang: localStorage.getItem(environment.Storage.Lang)
       ? localStorage.getItem(environment.Storage.Lang)
-      : Lang.English
+      : Lang.English,
+  viewMode:'four-col'
 }
 
 
@@ -58,6 +60,12 @@ export const appReducer = createReducer(initState,
     return {
       ...state,
       Lang:action.lang
+    }
+  }),
+  on(appActions.setViewMode,(state:AppState,action)=>{
+    return{
+      ...state,
+      viewMode:action.mode
     }
   })
 )

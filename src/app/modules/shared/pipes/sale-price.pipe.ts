@@ -10,7 +10,7 @@ export class SalePricePipe implements PipeTransform {
     if (!salePercentage || salePercentage <= 0) {
       return price;
     }
-    return price - (price * (salePercentage / 100));
+    return Number((price - (price * (salePercentage / 100))).toFixed(2));
   }
 
 }
