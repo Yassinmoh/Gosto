@@ -37,8 +37,7 @@
     </div>
     <Gosto-filter-dialog *ngIf="showFilterDialog$ | async"></Gosto-filter-dialog>
     @if (products$ | async) {
-    <div class="products__container"
-      [ngClass]="{
+    <div class="products__container" [ngClass]="{
       'two-col':(viewMode$ |async) == 'two-col',
       'three-col':(viewMode$ |async) == 'three-col',
       'four-col':(viewMode$ |async) == 'four-col'}">

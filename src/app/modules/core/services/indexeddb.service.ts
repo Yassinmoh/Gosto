@@ -13,6 +13,11 @@ interface MyDB extends DBSchema {
     key: string;
     value: Product[];
   };
+
+  'Products': {
+    key: string;
+    value: Product[];
+  };
 }
 
 @Injectable({
@@ -26,6 +31,7 @@ export class IndexedDBService {
       upgrade(db) {
         db.createObjectStore('TopSellingProducts');
         db.createObjectStore('IntroSlider');
+        db.createObjectStore('Products');
       },
     });
   }
@@ -54,6 +60,17 @@ export class IndexedDBService {
     return db.get('TopSellingProducts', key);
   }
 
+    //****************** Store pageNumber 1 in Shop ******************
+
+async setProducts(products: Product[]) {
+    const db = await this.dbPromise;
+    return db.put('Products', products, 'Products');
+  }
+
+  async getProducts(key: string): Promise<Product[] | undefined> {
+    const db = await this.dbPromise;
+    return db.get('Products', key);
+  }
 }
 
 
