@@ -30,7 +30,8 @@
 
   .info__box {
     .product-title {
-      @include textStyle(16px, 20.8px, #000, 500)
+      @include textStyle(16px, 20.8px, #000, 500);
+      cursor: pointer;
     }
 
     .rate {

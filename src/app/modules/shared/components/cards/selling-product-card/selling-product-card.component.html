@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="info__box">
-    <p class="product-title">{{product.name}}</p>
+    <p class="product-title" [routerLink]="['/shop/product',product.id]">{{product.name}}</p>
     <div class="rate">
       <div *ngFor="let star of [].constructor(5);let i = index;" [ngClass]="{'selected' : product.rating > i }"><svg><use href="#star"></use></svg></div>
     </div>

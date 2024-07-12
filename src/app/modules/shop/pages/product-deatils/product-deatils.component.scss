@@ -1,0 +1,247 @@
+@import 'common';
+
+.product__details {
+  padding-top: 3rem;
+
+  .product_slider {
+    cursor: crosshair;
+  }
+
+  .product_info {
+    margin-top: 3rem;
+    padding: 1rem;
+
+    .product__title {
+      @include textStyle(30px, 30px, #0A2748, 500);
+      text-align: center;
+    }
+
+    .product__price {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 0;
+      @include textStyle(25px, 25px, #0A2748, 500);
+
+      p:nth-child(3) {
+        text-decoration: line-through;
+      }
+    }
+
+    .short_description {
+      @include textStyle(14px, 26px, #4F4F4F, 400);
+      text-align: center;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .colors {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+
+      >span {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+
+      span:nth-child(1) {
+        background: red;
+      }
+
+      span:nth-child(2) {
+        background: green;
+      }
+
+      span:nth-child(3) {
+        background: #0A2748;
+      }
+    }
+
+    .stokc {
+      @include textStyle(15px, 27px, #B3AF54, 400);
+      text-align: center;
+    }
+
+    .add_toCard {
+      margin: 1rem 0;
+
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        .counter {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1.2rem;
+          border: 1px solid #e1e1e1;
+          width: 30%;
+          padding: 0.5rem 0.8rem;
+          @include textStyle(15px, 27px, #000, 600);
+
+        }
+
+        button {
+          border: 0;
+          outline: none;
+          @include textStyle(15px, 27px, #fff, 600);
+          background: #0A2748;
+          padding: 0.6rem 1rem;
+          width: 53%;
+
+        }
+
+      }
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 0.8rem 0;
+
+      >div {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        span {
+          @include textStyle(12px, 22px, #0A2748, 600);
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    .sku {
+      text-align: center;
+      @include textStyle(13px, 20px, #6B6B6B, 600);
+
+      span {
+        @include textStyle(14px, 26px, #4F4F4F, 400);
+      }
+    }
+
+    .categories {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+
+
+      p {
+        @include textStyle(13px, 20px, #6B6B6B, 600);
+      }
+
+      span {
+        @include textStyle(14px, 26px, #4F4F4F, 400);
+      }
+    }
+
+    .tab-menu {
+      width: 100%;
+      padding: 1rem;
+
+      .tab-header {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        div {
+          padding: 10px 10px;
+          cursor: pointer;
+          width: 180px;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          @include textStyle(13px, 18.26px, #78878f, 500);
+
+
+          &.active {
+            font-weight: bold;
+            border-bottom: 2px solid #c6452c;
+            @include textStyle(13px, 18.26px, #0A2748, bold);
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .tab-content {
+        width: 100%;
+        height: auto;
+        padding: 2rem 0;
+
+        .title {
+          @include textStyle(13px, 24px, #0A2748, 600);
+          padding: 1rem 0;
+        }
+
+        p {
+          @include textStyle(16px, 24px, #4F4F4F, 400);
+        }
+
+        table {
+          width: 100%;
+
+          tbody {
+            tr {
+              margin: 0.4rem 0;
+
+              th {
+                @include textStyle(16px, 24px, #4F4F4F, 700);
+                text-align: left
+              }
+
+              td {
+                @include textStyle(16px, 24px, #4F4F4F, 400);
+                font-style: italic;
+              }
+            }
+          }
+        }
+
+        .No_review {
+          p:nth-child(1) {
+            @include textStyle(16px, 29px, #4F4F4F, 400);
+            padding: 0.4rem 0;
+          }
+
+          p:nth-child(2) {
+            @include textStyle(20px, 26px, #0A2748, 600);
+            padding: 0.4rem 0;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+
+@include DesktopScreen {
+  :host {
+    .product__details {
+      .product_info {
+        padding: 0 10%;
+      }
+    }
+  }
+}

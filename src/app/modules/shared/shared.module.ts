@@ -12,6 +12,7 @@ import { WishlistPopupComponent } from './components/popups/wishlist-popup/wishl
 import { ProductCardComponent } from './components/cards/product-card/product-card.component';
 import { SalePricePipe } from './pipes/sale-price.pipe';
 import { SkeletonComponent } from './components/skeleton/skeleton.component';
+import { RecommendedProductsComponent } from './components/recommended-products/recommended-products.component';
 
 
 
@@ -30,7 +31,8 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     WishlistPopupComponent,
     ProductCardComponent,
     SalePricePipe,
-    SkeletonComponent
+    SkeletonComponent,
+    RecommendedProductsComponent
   ],
   exports:[
     MiniHeaderComponent,
@@ -44,7 +46,8 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
     WishlistPopupComponent,
     ProductCardComponent,
     SalePricePipe,
-    SkeletonComponent
+    SkeletonComponent,
+    RecommendedProductsComponent
   ]
 })
 export class SharedModule { }
