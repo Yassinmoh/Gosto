@@ -1,1 +1,15 @@
-<p>recommended-products works!</p>
+<section class="recommended">
+<p class="title">YOU MAY ALSO LIKE…</p>
+<div class="buttom__section">
+  <div class="products" *ngIf="products$ | async as products">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let product of products; let i= index">
+        <ng-template class="slide" carouselSlide [id]="(i+1).toString()">
+          <Gosto-recommended-product-card [product]="product"></Gosto-recommended-product-card>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+</div>
+</section>

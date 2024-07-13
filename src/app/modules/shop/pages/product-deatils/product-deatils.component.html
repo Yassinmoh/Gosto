@@ -1,4 +1,4 @@
-<section class="product__details">
+<section class="product__details" *ngIf="product$ |async as product">
   <div class="product_slider">
     <owl-carousel-o [options]="customOptions">
       <ng-container *ngFor="let img of _album; let i= index">
@@ -9,19 +9,19 @@
     </owl-carousel-o>
   </div>
   <div class="product_info">
-      <p class="product__title">Person Dining Set</p>
+      <p class="product__title">{{product.name}}</p>
       <div class="product__price">
         <p class="new">$145.00</p>
         <p>-</p>
-        <p class="old">$180.00</p>
+        <p class="old">${{product.price}}</p>
       </div>
-      <p class="short_description">Unika is a mouth blown series of small, glass pendant lamps, originally designed for the Restaurant Gronbech and Churchill.</p>
+      <p class="short_description">{{product.short_description}}</p>
       <div class="colors">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <p class="stokc">131 in stock</p>
+      <p class="stokc">{{product.stock}} in stock</p>
       <div class="add_toCard">
         <form action="">
           <div class="counter">
@@ -45,9 +45,9 @@
       <p class="sku">SKU: <span>ADDF</span></p>
       <div class="categories">
         <p>CATEGORIES:</p>
-        <span>One</span>
-        <span>two</span>
-        <span>three</span>
+        @for(cat of product.category;track cat){
+          <span>{{cat}}</span>
+        }
       </div>
       <div class="tab-menu">
         <div class="tab-header">
@@ -64,7 +64,7 @@
         @if(activeTab === 1){
         <div class="tab-content">
           <p class="title">Products Description</p>
-          <p>Designed by Puik in 1949 as one of the first models created especially for Carl Hansen & Son, and produced since 1950. The last of a series of chairs wegner designed based on inspiration from antique chinese armchairs.</p>
+          <p>{{product.long_description}}</p>
           <p class="title">Products BRAND</p>
           <p>Form is an armless modern chair with a minimalistic expression. With a simple and contemporary design Form Chair has a soft and welcoming silhouette and a distinctly residential look. The legs appear almost as if they are growing out of the shell. This gives the design flexibility and makes it possible to vary the frame.</p>
         </div>
@@ -99,5 +99,7 @@
         }
       </div>
   </div>
-  <Gosto-recommended-products></Gosto-recommended-products>
+  <div class="recommended">
+    <Gosto-recommended-products></Gosto-recommended-products>
+  </div>
 </section>

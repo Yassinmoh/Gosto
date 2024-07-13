@@ -74,13 +74,6 @@ export class ShopPageComponent implements OnInit {
   }
 
 
-  // getProducts() {
-  //   this.products$ = this.productService.getProducts(this.pageNumber, this.pageSize).pipe(
-  //     tap(data => console.log("Incoming data", data)
-  //     )
-  //   )
-  // }
-
   async loadProducts() {
     const cachedData = await this.indexedDBService.getProducts('Products')
     if (cachedData && cachedData.length > 0) {

@@ -1,0 +1,12 @@
+<section class="card">
+  <div class="img__box">
+    <img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
+  </div>
+  <div class="info__box">
+    <p class="product-title" [routerLink]="['/shop/product',product.id]">{{product.name}}</p>
+    <div class="rate">
+      <div *ngFor="let star of [].constructor(5);let i = index;" [ngClass]="{'selected' : product.rating > i }"><svg><use href="#star"></use></svg></div>
+    </div>
+    <p class="product-price">${{product.price}}</p>
+  </div>
+</section>

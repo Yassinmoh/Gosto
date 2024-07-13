@@ -163,7 +163,6 @@
         div {
           padding: 10px 10px;
           cursor: pointer;
-          width: 180px;
           display: flex;
           align-items: center;
           gap: 0.5rem;
@@ -241,6 +240,26 @@
     .product__details {
       .product_info {
         padding: 0 10%;
+        .add_toCard{
+          form{
+            .counter{
+              width: 15%;
+            }
+            button{
+              width: 25%;
+            }
+          }
+        }
+
+        .tab-menu{
+          .tab-content{
+            width: 70%;
+          }
+        }
+      }
+      .recommended{
+        width: 80%;
+        margin: 5% auto;
       }
     }
   }

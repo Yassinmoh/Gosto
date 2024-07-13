@@ -1,0 +1,44 @@
+@import 'common';
+.card{
+  .img__box{
+    width: 89%;
+    height: 335px;
+    margin: 0 auto;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .info__box {
+    padding: 1.5rem;
+    .product-title {
+      @include textStyle(16px, 20.8px, #000, 500);
+      cursor: pointer;
+    }
+
+    .rate {
+      display: flex;
+      align-items: center;
+      padding: 0.2rem 0;
+
+      >div {
+        svg {
+          width: 15px;
+          height: 20px;
+          fill: transparent;
+        }
+
+        &:is(.selected) {
+          svg {
+            fill: gold;
+          }
+        }
+      }
+    }
+
+    .product-price {
+      @include textStyle(16px, 29px, #0A2748, 400);
+    }
+  }
+}
