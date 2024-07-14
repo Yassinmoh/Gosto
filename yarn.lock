@@ -191,7 +191,7 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@ ^18.0.0-rc.0 || ^18.0.0", "@angular/common@^17.0.0 || ^18.0.0", "@angular/common@^18.0.0", "@angular/common@^18.0.0 || ^19.0.0", "@angular/common@>=16.0.0", "@angular/common@18.0.2":
+"@angular/common@ ^18.0.0-rc.0 || ^18.0.0", "@angular/common@^17.0.0 || ^18.0.0", "@angular/common@^18.0.0", "@angular/common@^18.0.0 || ^19.0.0", "@angular/common@>=16.0.0", "@angular/common@>=16.0.0-0", "@angular/common@18.0.2":
   version "18.0.2"
   resolved "https://registry.npmjs.org/@angular/common/-/common-18.0.2.tgz"
   integrity sha512-7CK5sFptUFWE3ZrKl8MjgoKjYKC20SN089F4xQIYtP2qM3IoJH/X7qa+5Eidk4PovS1SuCJHrB5AoREWwtWJHA==
@@ -219,7 +219,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^17.0.0 || ^18.0.0", "@angular/core@^18.0.0", "@angular/core@^18.0.0 || ^19.0.0", "@angular/core@^18.0.0-rc.0", "@angular/core@^18.0.0-rc.0 || ^18.0.0", "@angular/core@>=16.0.0", "@angular/core@18.0.2":
+"@angular/core@^17.0.0 || ^18.0.0", "@angular/core@^18.0.0", "@angular/core@^18.0.0 || ^19.0.0", "@angular/core@^18.0.0-rc.0", "@angular/core@^18.0.0-rc.0 || ^18.0.0", "@angular/core@>=16.0.0", "@angular/core@>=16.0.0-0", "@angular/core@18.0.2":
   version "18.0.2"
   resolved "https://registry.npmjs.org/@angular/core/-/core-18.0.2.tgz"
   integrity sha512-5VtFaYz97X9sQpxRuFUBKu2gqgFVU/Obgk/Q8ZRw+TBhFnU4e9NFod7dtAJH9scCOWZYnU07+aeI6ChiRSKrZw==
@@ -240,7 +240,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@^18.0.0", "@angular/platform-browser@18.0.2":
+"@angular/platform-browser@^18.0.0", "@angular/platform-browser@>=16.0.0-0", "@angular/platform-browser@18.0.2":
   version "18.0.2"
   resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-18.0.2.tgz"
   integrity sha512-IdNyRMFtM5GCvueNFrXmwA1C5LUMi6aSccdA1fpsTFAGDleeT5oiKU82iIcVmdj+Kse233KQFU0HFyijy4W2/Q==
@@ -4772,6 +4772,13 @@ ngx-owl-carousel-o@^18.0.0:
   version "18.0.0"
   resolved "https://registry.npmjs.org/ngx-owl-carousel-o/-/ngx-owl-carousel-o-18.0.0.tgz"
   integrity sha512-3ukc6mDGseUXvYrpfV+Hm2O6cBOgV0p1bT51fykQQxAMZptbnzIQJ+U6ADbeds4tkZiwAHLK2a3qItlHz5YVOg==
+  dependencies:
+    tslib "^2.3.0"
+
+ngx-toastr@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-19.0.0.tgz"
+  integrity sha512-6pTnktwwWD+kx342wuMOWB4+bkyX9221pAgGz3SHOJH0/MI9erLucS8PeeJDFwbUYyh75nQ6AzVtolgHxi52dQ==
   dependencies:
     tslib "^2.3.0"
 

@@ -8,7 +8,11 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProductService } from '../../../core/services/product.service';
 import { Observable, throwError } from 'rxjs';
 import { Product } from '../../../core/models/product';
-
+import { CartService } from '../../../core/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
+import * as AppActions from '../../../../store/App/app.actions'
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../../store/App/app.reeducer';
 
 @Component({
   selector: 'Gosto-product-deatils',
@@ -21,6 +25,10 @@ export class ProductDeatilsComponent implements OnInit {
 
   _route = inject(ActivatedRoute)
   _productService = inject(ProductService)
+  _cartService = inject(CartService)
+  _toastr = inject(ToastrService)
+  store = inject(Store<AppState>)
+
 
   activeTab: number = 1;
   product$!: Observable<Product>
@@ -97,5 +105,12 @@ export class ProductDeatilsComponent implements OnInit {
   selectTab(tabIndex: number): void {
     this.activeTab = tabIndex;
     this.activeTab == 1
+  }
+
+  addToCart(product: any,event:any) {
+    event.preventDefault()
+    this._cartService.addToCart(product);
+    this._toastr.success('Product added successfully')
+
   }
 }

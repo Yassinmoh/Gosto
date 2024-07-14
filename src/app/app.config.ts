@@ -9,6 +9,7 @@ import { provideStore } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideStore(reducers, { metaReducers }),
     provideHttpClient(),
     provideAnimations(),
-    importProvidersFrom(TranslateModule.forRoot())
+    importProvidersFrom(TranslateModule.forRoot()),
+    provideToastr({ closeButton: false }),
   ]
 };

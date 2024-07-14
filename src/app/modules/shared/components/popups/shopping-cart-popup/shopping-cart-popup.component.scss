@@ -15,6 +15,7 @@
     height: 100%;
     background: #fff;
     padding: 1rem;
+    position: relative;
     .header{
       display: flex;
       align-items: center;
@@ -28,6 +29,21 @@
         width: 20px;
         height: 20px;
         cursor: pointer;
+      }
+    }
+
+    .footer{
+      height: 45px;
+      width: 100%;
+      background: #C6452C;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p{
+        @include textStyle(15px,26px,#FFFFFF,500);
       }
     }
   }

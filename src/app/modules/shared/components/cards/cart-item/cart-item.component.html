@@ -1,0 +1,9 @@
+<div class="cart-item">
+  <div class="img__box">
+    <img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
+  </div>
+  <div class="info__box">
+    <p class="title" (click)="goToProduct()">{{product.name}}</p>
+    <p class="price">1 x <span>${{product.price}}</span></p>
+  </div>
+</div>

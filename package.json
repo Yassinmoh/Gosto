@@ -26,6 +26,7 @@
     "json-server": "^1.0.0-beta.1",
     "ngx-lightbox": "^3.0.0",
     "ngx-owl-carousel-o": "^18.0.0",
+    "ngx-toastr": "^19.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^17.18.1",
     "rxjs": "~7.8.0",

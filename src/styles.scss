@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import './assets/style/general/common.scss';
-
+@import 'ngx-toastr/toastr';
 *{
   padding: 0;
   margin: 0;

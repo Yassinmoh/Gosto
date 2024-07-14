@@ -1,0 +1,30 @@
+@import 'common';
+.cart-item{
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #4f4f4f21;
+  .img__box{
+    width: 70px;
+    height: 70px;
+
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .info__box{
+    .title{
+      @include textStyle(14px,19px,#0A2748,400);
+      cursor:pointer ;
+      &:hover{
+        color: #C6452C;
+      }
+    }
+
+    .price{
+      @include textStyle(14px,26px,#4F4F4F,400);
+    }
+  }
+}
