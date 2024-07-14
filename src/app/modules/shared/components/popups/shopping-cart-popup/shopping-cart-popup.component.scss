@@ -32,6 +32,38 @@
       }
     }
 
+    .content{
+      margin-top: 1rem;
+      .empty__card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+
+        p{
+          @include textStyle(16px,29px,#4F4F4F,600);
+        }
+
+        svg{
+          filter: opacity(0.2);
+          width: 80%;
+          height: auto;
+        }
+        button{
+          border: 0;
+          outline: none;
+          background: #0071E3;
+          width: 70%;
+          height: 50px;
+          cursor: pointer;
+          @include textStyle(12px,18px,#fff,600);
+
+        }
+      }
+    }
+
     .footer{
       height: 45px;
       width: 100%;

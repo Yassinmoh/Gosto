@@ -2,11 +2,23 @@
   <div class="body__box" [@fadeInRight]>
     <div class="header">
       <span>YOUR CART</span>
-      <svg (click)="close()"><use href="#close-icon"></use></svg>
+      <svg (click)="close()">
+        <use href="#close-icon"></use>
+      </svg>
     </div>
     <div class="content">
+      @if((cartItems$ | async).length > 0){
       @for(item of (cartItems$ | async); track item){
-        <Gosto-cart-item [product]="item"></Gosto-cart-item>
+      <Gosto-cart-item [product]="item"></Gosto-cart-item>
+      }
+      }@else {
+      <div class="empty__card">
+        <svg>
+          <use href="#empty-card"></use>
+        </svg>
+        <p>No products in the cart.</p>
+        <button (click)="goToShop()">Return To Shop</button>
+      </div>
       }
     </div>
     <div class="footer">
