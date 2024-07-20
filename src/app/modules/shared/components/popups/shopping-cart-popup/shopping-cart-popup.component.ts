@@ -6,8 +6,10 @@ import { fadeInRight } from '../../../../core/animations';
 import { CartService } from '../../../../core/services/cart.service';
 import { CartItemComponent } from '../../cards/cart-item/cart-item.component';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Router, RouterModule } from '@angular/router';
+import { CartState } from '../../../../../store/Cart/cart.reducer';
+import { getCartItems, getTotal } from '../../../../../store/Cart/cart.selectors';
 
 @Component({
   selector: 'Gosto-shopping-cart-popup',
@@ -19,21 +21,27 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class ShoppingCartPopupComponent implements OnInit {
 
-  store = inject(Store<AppState>);
+  _store = inject(Store<AppState | CartState>);
   _cartService = inject(CartService)
   _router = inject(Router)
+
   cartItems$!: Observable<any>
+  total$!: Observable<number>
 
   ngOnInit(): void {
-    this.cartItems$= this._cartService.getCart()
+    this.cartItems$= this._store.select(getCartItems).pipe(
+      tap((data) => console.log("CART",data)
+      )
+    )
+    this.total$= this._store.select(getTotal)
   }
 
   goToShop(){
     this._router.navigate(['/shop']);
-    this.store.dispatch(appActions.toggleShoppingCartPopup())
+    this._store.dispatch(appActions.toggleShoppingCartPopup())
   }
 
   close() {
-    this.store.dispatch(appActions.toggleShoppingCartPopup())
+    this._store.dispatch(appActions.toggleShoppingCartPopup())
   }
 }

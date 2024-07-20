@@ -10,9 +10,10 @@ import { Observable, throwError } from 'rxjs';
 import { Product } from '../../../core/models/product';
 import { CartService } from '../../../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
-import * as AppActions from '../../../../store/App/app.actions'
+import * as ProductActions from '../../../../store/Cart/cart.actions'
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../store/App/app.reeducer';
+import { CartState } from '../../../../store/Cart/cart.reducer';
 
 @Component({
   selector: 'Gosto-product-deatils',
@@ -27,10 +28,11 @@ export class ProductDeatilsComponent implements OnInit {
   _productService = inject(ProductService)
   _cartService = inject(CartService)
   _toastr = inject(ToastrService)
-  store = inject(Store<AppState>)
+  _store = inject(Store<AppState | CartState>)
 
 
   activeTab: number = 1;
+  quantity: number = 1;
   product$!: Observable<Product>
   _album: any[] = [
     {
@@ -83,11 +85,11 @@ export class ProductDeatilsComponent implements OnInit {
   ngOnInit(): void {
     this._route.paramMap.subscribe(param => {
       const id = Number(param.get('id'));
-      console.log("id",id);
+      console.log("id", id);
 
       if (id) {
         this.product$ = this._productService.getProductById(id)
-      }else{
+      } else {
         throwError('Feaild to get product with id ' + id)
       }
     })
@@ -104,13 +106,22 @@ export class ProductDeatilsComponent implements OnInit {
 
   selectTab(tabIndex: number): void {
     this.activeTab = tabIndex;
-    this.activeTab == 1
   }
 
-  addToCart(product: any,event:any) {
-    event.preventDefault()
-    this._cartService.addToCart(product);
-    this._toastr.success('Product added successfully')
+  increment(){
+    this.quantity++;
+  }
 
+  decrement(){
+    if(this.quantity > 1){
+      this.quantity--;
+    }
+  }
+
+  addToCart(product: any, event: Event) {
+    event.preventDefault()
+    this._store.dispatch(ProductActions.addToCart({product:{...product,quantity:this.quantity}}))
+    this._toastr.success('Product added successfully')
+    this.quantity = 1
   }
 }

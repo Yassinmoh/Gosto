@@ -1,7 +1,7 @@
 <header [ngClass]="{'shop-style':currentUrl==='shop'}">
   <div class="icons__container" *ngIf="isMobile">
     <div (click)="openCart()">
-      <span class="counter">0</span>
+      <span class="counter">{{cartItemCount$ | async}}</span>
       <svg>
         <use href="#shopping-bag"></use>
       </svg>
@@ -9,7 +9,7 @@
   </div>
   <div class="icons__container" *ngIf="!isMobile">
     <div (click)="openCart()">
-      <span class="counter">0</span>
+      <span class="counter">{{cartItemCount$ | async}}</span>
       <svg>
         <use href="#shopping-bag"></use>
       </svg>

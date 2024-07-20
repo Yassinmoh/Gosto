@@ -3,7 +3,10 @@
     <img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
   </div>
   <div class="info__box">
-    <p class="title" (click)="goToProduct()">{{product.name}}</p>
-    <p class="price">1 x <span>${{product.price}}</span></p>
+    <div>
+      <p class="title" (click)="goToProduct()">{{product.name}}</p>
+      <p class="price">{{product.quantity || 1}} x <span>${{product.price}}</span></p>
+    </div>
+    <svg (click)="removeFromCart(product)"><use href="#close-icon"></use></svg>
   </div>
 </div>

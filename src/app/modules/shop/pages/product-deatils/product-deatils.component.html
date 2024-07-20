@@ -25,9 +25,9 @@
       <div class="add_toCard">
         <form action="">
           <div class="counter">
-            <span>--</span>
-            <div class="val">1</div>
-            <span>+</span>
+            <span (click)="decrement()">--</span>
+            <div class="val">{{quantity}}</div>
+            <span (click)="increment()">+</span>
           </div>
           <button (click)="addToCart(product,$event)">ADD TO CART</button>
         </form>

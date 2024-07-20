@@ -6,6 +6,9 @@ import { AppState } from '../../../../store/App/app.reeducer';
 import * as appActions from '../../../../store/App/app.actions'
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { CartState } from '../../../../store/Cart/cart.reducer';
+import { Observable, of } from 'rxjs';
+import { getCartItemsCount } from '../../../../store/Cart/cart.selectors';
 
 
 @Component({
@@ -17,34 +20,38 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  breakpointObserver: BreakpointObserver = inject(BreakpointObserver);
   isMobile!: boolean;
-  currentUrl:string=''
-  store = inject(Store<AppState>)
-  router = inject(Router)
+  currentUrl: string = ''
+  cartItemCount$:Observable<number> = of(0)
+
+  _breakpointObserver: BreakpointObserver = inject(BreakpointObserver);
+  _store = inject(Store<AppState | CartState>)
+  _router = inject(Router)
 
   ngOnInit(): void {
-    this.breakpointObserver.observe([Breakpoints.HandsetPortrait, Breakpoints.HandsetLandscape])
+    this._breakpointObserver.observe([Breakpoints.HandsetPortrait, Breakpoints.HandsetLandscape])
       .subscribe(result => this.isMobile = result.matches);
 
-      this.router.events.subscribe(event => {
-        if (event instanceof NavigationEnd) {
-          this.currentUrl = event.urlAfterRedirects.split('/')[1];
-        }
-      });
+    //Handle header style based on current url
+    this._router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.urlAfterRedirects.split('/')[1];
+      }
+    });
 
-      this.currentUrl = this.router.url.split('/')[1]
+    this.currentUrl = this._router.url.split('/')[1];
+    this.cartItemCount$ = this._store.select(getCartItemsCount)
   }
 
   openCart() {
-    this.store.dispatch(appActions.toggleShoppingCartPopup())
+    this._store.dispatch(appActions.toggleShoppingCartPopup())
   }
 
   openMenu() {
-    this.store.dispatch(appActions.toggleMenuPopup())
+    this._store.dispatch(appActions.toggleMenuPopup())
   }
 
   openWishlist() {
-    this.store.dispatch(appActions.toggleWishlistPopup())
+    this._store.dispatch(appActions.toggleWishlistPopup())
   }
 }
