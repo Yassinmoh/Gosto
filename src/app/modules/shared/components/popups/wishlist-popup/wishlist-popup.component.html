@@ -1,10 +1,29 @@
 <div class="container">
   <div class="body__box" [@fadeInRight]>
     <div class="header">
-      <span>YOUR CART</span>
-      <svg (click)="close()"><use href="#close-icon"></use></svg>
+      <span>YOUR WISHLIST</span>
+      <svg (click)="close()">
+        <use href="#close-icon"></use>
+      </svg>
     </div>
-    <div class="content"></div>
-    <div class="footer"></div>
+    <div class="content">
+      @if((wishListItems$ | async).length > 0){
+      @for(item of (wishListItems$ | async); track item){
+      <Gosto-cart-item [product]="item" [type]="'wishlist'"></Gosto-cart-item>
+      }
+      }@else {
+      <div class="empty__card">
+        <svg>
+          <use href="#empty-card"></use>
+        </svg>
+        <p>No products in the Wishlist.</p>
+        <button (click)="goToShop()">Return To Shop</button>
+      </div>
+      }
+    </div>
+
+    <div class="footer">
+      <p>Free shipping on orders overs $90</p>
+    </div>
   </div>
 </div>

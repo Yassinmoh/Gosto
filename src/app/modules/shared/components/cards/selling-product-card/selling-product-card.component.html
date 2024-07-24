@@ -3,10 +3,10 @@
     <img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
     <div class="btns">
       <div>
-        <svg><use href="#shopping-bag-g"></use></svg>
+        <svg (click)="addToCart(product)"><use href="#shopping-bag-g"></use></svg>
       </div>
       <div>
-        <svg><use href="#heart-icon-g"></use></svg>
+        <svg (click)="addToWishlist(product)"><use href="#heart-icon-g"></use></svg>
       </div>
       <div>
         <svg><use href="#account-icon-g"></use></svg>

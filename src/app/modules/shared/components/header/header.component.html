@@ -15,7 +15,7 @@
       </svg>
     </div>
     <div (click)="openWishlist()">
-      <span class="counter">0</span>
+      <span class="counter">{{wishListCount$ | async}}</span>
       <svg>
         <use href="#heart-icon"></use>
       </svg>

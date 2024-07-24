@@ -9,6 +9,8 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { CartState } from '../../../../store/Cart/cart.reducer';
 import { Observable, of } from 'rxjs';
 import { getCartItemsCount } from '../../../../store/Cart/cart.selectors';
+import { WishlistState } from '../../../../store/Wishlist/wishlist.reducer';
+import { wishListItemsCount } from '../../../../store/Wishlist/wishlist.selectors';
 
 
 @Component({
@@ -22,29 +24,40 @@ export class HeaderComponent implements OnInit {
 
   isMobile!: boolean;
   currentUrl: string = ''
-  cartItemCount$:Observable<number> = of(0)
+  cartItemCount$: Observable<number> = of(0)
+  wishListCount$: Observable<number> = of(0)
 
   _breakpointObserver: BreakpointObserver = inject(BreakpointObserver);
-  _store = inject(Store<AppState | CartState>)
+  _store = inject(Store<AppState | CartState | WishlistState>)
   _router = inject(Router)
 
   ngOnInit(): void {
+    this.handleScreenDimensions()
+    this.getCurrentUrl()
+    this.getCartItemsCount()
+    this.getWishListCount()
+  }
+
+  handleScreenDimensions() {
     this._breakpointObserver.observe([Breakpoints.HandsetPortrait, Breakpoints.HandsetLandscape])
       .subscribe(result => this.isMobile = result.matches);
+  }
 
-    //Handle header style based on current url
+  getCurrentUrl() {
     this._router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.currentUrl = event.urlAfterRedirects.split('/')[1];
+        this.currentUrl = event.urlAfterRedirects.split('/')[1]
       }
     });
-
     this.currentUrl = this._router.url.split('/')[1];
-    this.cartItemCount$ = this._store.select(getCartItemsCount)
   }
 
   openCart() {
     this._store.dispatch(appActions.toggleShoppingCartPopup())
+  }
+
+  getCartItemsCount() {
+    this.cartItemCount$ = this._store.select(getCartItemsCount)
   }
 
   openMenu() {
@@ -53,5 +66,9 @@ export class HeaderComponent implements OnInit {
 
   openWishlist() {
     this._store.dispatch(appActions.toggleWishlistPopup())
+  }
+
+  getWishListCount(){
+    this.wishListCount$=this._store.select(wishListItemsCount)
   }
 }

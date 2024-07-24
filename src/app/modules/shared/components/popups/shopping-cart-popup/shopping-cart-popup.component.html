@@ -9,7 +9,7 @@
     <div class="content">
       @if((cartItems$ | async).length > 0){
       @for(item of (cartItems$ | async); track item){
-      <Gosto-cart-item [product]="item"></Gosto-cart-item>
+      <Gosto-cart-item [product]="item" [type]="'cart'"></Gosto-cart-item>
       }
       }@else {
       <div class="empty__card">

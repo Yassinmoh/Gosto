@@ -22,7 +22,6 @@ import { getCartItems, getTotal } from '../../../../../store/Cart/cart.selectors
 export class ShoppingCartPopupComponent implements OnInit {
 
   _store = inject(Store<AppState | CartState>);
-  _cartService = inject(CartService)
   _router = inject(Router)
 
   cartItems$!: Observable<any>

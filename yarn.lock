@@ -1394,7 +1394,22 @@
   resolved "https://registry.npmjs.org/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.2.tgz"
   integrity sha512-O+6Gs8UeDbyFpbSh2CPEz/UOrrdWPTBYNblZK5CxxLisYt4kGX3Sc+czffFonyjiGSq3jWLwJS/CCJc7tBr4sQ==
 
-"@ngrx/store@^18.0.0", "@ngrx/store@^18.0.0-beta.1":
+"@ngrx/effects@^18.0.1":
+  version "18.0.1"
+  resolved "https://registry.npmjs.org/@ngrx/effects/-/effects-18.0.1.tgz"
+  integrity sha512-ESxJYx31uABixtnWcuDY+HLKyqXKABpPG3LPDMyZrj7lIdjCaTk471QMhRZOme8QQKzlJt0drGfzFo3FM+QYuA==
+  dependencies:
+    "@ngrx/operators" "18.0.1"
+    tslib "^2.0.0"
+
+"@ngrx/operators@18.0.1":
+  version "18.0.1"
+  resolved "https://registry.npmjs.org/@ngrx/operators/-/operators-18.0.1.tgz"
+  integrity sha512-M+QMrHNKgcuiLaRGZxJ4aQi5/OCRfKC4+T/63dsHyLFZ53/FFpF6a/ytSO1Q+tzOplZ5o99S+i8FVaZqNQ3LmQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngrx/store@^18.0.0", "@ngrx/store@^18.0.0-beta.1", "@ngrx/store@18.0.1":
   version "18.0.1"
   resolved "https://registry.npmjs.org/@ngrx/store/-/store-18.0.1.tgz"
   integrity sha512-TxZiQz06fGSxQ0clYfzkH4NCr6tfa8A7zqzkvvOOK1ZezOHHsk0vZJJtgxQcKUqAQxPpbp5+Z7YR8P/Fuid7GQ==

@@ -1,6 +1,6 @@
 @import 'common';
 
-.container{
+.container {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.863);
@@ -10,33 +10,90 @@
   top: 0;
   left: 0;
   z-index: 9999;
-  .body__box{
+
+  .body__box {
     width: 80%;
     height: 100%;
     background: #fff;
     padding: 1rem;
-    .header{
+    position: relative;
+    .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #ebebeb;
       padding: 1rem 1rem;
-      span{
-        @include textStyle(13px,24px,#0A2748,600);
+
+      span {
+        @include textStyle(13px, 24px, #0A2748, 600);
       }
-      svg{
+
+      svg {
         width: 20px;
         height: 20px;
         cursor: pointer;
       }
     }
+
+    .content{
+      margin-top: 1rem;
+      height: 55vh;
+      overflow-y: scroll;
+      .empty__card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+
+        p{
+          @include textStyle(16px,29px,#4F4F4F,600);
+        }
+
+        svg{
+          filter: opacity(0.2);
+          width: 80%;
+          height: auto;
+        }
+        button{
+          border: 0;
+          outline: none;
+          background: #0071E3;
+          width: 70%;
+          height: 50px;
+          cursor: pointer;
+          @include textStyle(12px,18px,#fff,600);
+
+        }
+      }
+    }
+
+
+
+    .footer {
+      height: 45px;
+      width: 100%;
+      background: #C6452C;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        @include textStyle(15px, 26px, #FFFFFF, 500);
+      }
+
+    }
   }
 }
 
-@include tabletScreen{
-  :host{
-    .container{
-      .body__box{
+@include tabletScreen {
+  :host {
+    .container {
+      .body__box {
         width: 20%;
       }
     }

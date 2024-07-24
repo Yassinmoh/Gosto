@@ -6,14 +6,17 @@ import { Lightbox, LightboxModule } from 'ngx-lightbox';
 import { RecommendedProductsComponent } from '../../../shared/components/recommended-products/recommended-products.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProductService } from '../../../core/services/product.service';
-import { Observable, throwError } from 'rxjs';
+import { catchError, combineLatest, map, Observable, of, switchMap, tap, throwError } from 'rxjs';
 import { Product } from '../../../core/models/product';
 import { CartService } from '../../../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import * as ProductActions from '../../../../store/Cart/cart.actions'
+import * as wishlistActions from '../../../../store/Wishlist/wishlist.actions'
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../store/App/app.reeducer';
 import { CartState } from '../../../../store/Cart/cart.reducer';
+import { WishlistState } from '../../../../store/Wishlist/wishlist.reducer';
+import { wishListItems } from '../../../../store/Wishlist/wishlist.selectors';
 
 @Component({
   selector: 'Gosto-product-deatils',
@@ -28,37 +31,22 @@ export class ProductDeatilsComponent implements OnInit {
   _productService = inject(ProductService)
   _cartService = inject(CartService)
   _toastr = inject(ToastrService)
-  _store = inject(Store<AppState | CartState>)
-
+  _store = inject(Store<AppState | CartState | WishlistState>)
+  _lightbox = inject(Lightbox)
 
   activeTab: number = 1;
   quantity: number = 1;
+  isInWishList$!: Observable<any>;
   product$!: Observable<Product>
+  wishlistItems$: Observable<Product[]> = this._store.select(wishListItems)
   _album: any[] = [
-    {
-      src: "./assets/images/1.jpg",
-      caption: "Image 1",
-      thumb: "./assets/images/1.jpg"
-    },
-    {
-      src: "./assets/images/2.jpg",
-      caption: "Image 2",
-      thumb: "./assets/images/2.jpg"
-    },
-    {
-      src: "./assets/images/3.jpg",
-      caption: "Image 3",
-      thumb: "./assets/images/3.jpg"
-    },
-    {
-      src: "./assets/images/4.jpg",
-      caption: "Image 4",
-      thumb: "./assets/images/4.jpg"
-    },
-
-  ]
+    { src: "./assets/images/1.jpg", caption: "Image 1", thumb: "./assets/images/1.jpg" },
+    { src: "./assets/images/2.jpg", caption: "Image 2", thumb: "./assets/images/2.jpg" },
+    { src: "./assets/images/3.jpg", caption: "Image 3", thumb: "./assets/images/3.jpg" },
+    { src: "./assets/images/4.jpg", caption: "Image 4", thumb: "./assets/images/4.jpg" },
+  ];
   images: any[] = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
-  _lightbox = inject(Lightbox)
+
 
   customOptions: OwlOptions = {
     loop: true,
@@ -83,45 +71,69 @@ export class ProductDeatilsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._route.paramMap.subscribe(param => {
-      const id = Number(param.get('id'));
-      console.log("id", id);
-
-      if (id) {
-        this.product$ = this._productService.getProductById(id)
-      } else {
-        throwError('Feaild to get product with id ' + id)
-      }
-    })
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    this.getCureentProductDetails();
+    this.scrollToTop();
   }
 
-  open(index: number) {
+  openLightbox(index: number) {
     this._lightbox.open(this._album, index);
   }
 
-  close(): void {
+  closeLightbox(): void {
     this._lightbox.close();
+  }
+
+  getCureentProductDetails() {
+    this.product$ = this._route.paramMap.pipe(
+      map(param => Number(param.get('id'))),
+      switchMap(id => {
+        if (id) {
+          return this._productService.getProductById(id).pipe(
+            catchError(error => {
+              return throwError(error);
+            })
+          );
+        } else {
+          return throwError('Invalid product ID');
+        }
+      })
+    );
+
+    this.isInWishList$ = combineLatest([this.product$, this.wishlistItems$]).pipe(
+      map(([product, wishlist]) => {
+        return !!wishlist.find(item => item.id === product.id)
+      }))
+  }
+
+  /* Nedd to Convert this to Directive*/
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   selectTab(tabIndex: number): void {
     this.activeTab = tabIndex;
   }
 
-  increment(){
+  increment() {
     this.quantity++;
   }
 
-  decrement(){
-    if(this.quantity > 1){
+  decrement() {
+    if (this.quantity > 1) {
       this.quantity--;
     }
   }
 
   addToCart(product: any, event: Event) {
     event.preventDefault()
-    this._store.dispatch(ProductActions.addToCart({product:{...product,quantity:this.quantity}}))
+    this._store.dispatch(ProductActions.addToCart({ product: { ...product, quantity: this.quantity } }))
     this._toastr.success('Product added successfully')
     this.quantity = 1
   }
+
+  toggleToWishlist(product: Product) {
+    this._store.dispatch(wishlistActions.toggleAddtoWishlist({ product }));
+    this._toastr.success('Product Added To Wishlist successfully')
+  }
+
 }

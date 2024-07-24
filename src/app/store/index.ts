@@ -12,13 +12,13 @@ import { wishlistReducer } from './Wishlist/wishlist.reducer';
 export interface State {
   App: any;
   Cart: any,
-  Wishlist:any
+  WishList:any
 }
 
 // Store and sync the state with local storage without any subscriptions
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({
-    keys: ['Cart','Wishlist'],
+    keys: ['Cart','WishList'],
     rehydrate: true,
     checkStorageAvailability: true,
   })(reducer);
@@ -29,7 +29,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 export const reducers: ActionReducerMap<State> = {
   App: appReducer,
   Cart: cartReducer,
-  Wishlist:wishlistReducer
+  WishList:wishlistReducer
 };
 
 
