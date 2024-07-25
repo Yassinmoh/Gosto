@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th class="product-remove" style="width: 40px;"></th>
+      <th class="product-thumbnail" style="width: 80px;"></th>
+      <th class="product-name">PRODUCT NAME</th>
+      <th class="product-price">PRODUCT PRICE</th>
+      <th class="product-stock-status">SYOCK STATUS</th>
+      <th class="product-addTo-cart"></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="wishListItems$ | async as wishListItems">
+    @for(wishItem of wishListItems;track wishItem.id){
+      <tr>
+        <td><svg (click)="removeFromWishlist(wishItem)"><use href="#close-icon"></use></svg></td>
+        <td><img [src]="'../../../../../assets/images/products/'+wishItem.imageUrl" [alt]="wishItem.name"></td>
+        <td>{{wishItem.name}}</td>
+        <td>${{wishItem.price}}</td>
+        <td>in stock</td>
+        <td><button (click)="addToCard(wishItem)">Add To Card</button></td>
+      </tr>
+    }@empty {
+      <td><p>No Products in Wishlist</p></td>
+    }
+  </tbody>
+</table>

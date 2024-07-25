@@ -1,0 +1,71 @@
+@import 'common';
+
+.wishlist__grid__card{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eee;
+  .img-box{
+    width: 90px;
+    height: 90px;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .product__info{
+    .title{
+      @include textStyle(16px, 20px, #0A2748, 500);
+      transition: 0.2s all ease-in-out;
+      &:hover{
+        color: #BB432E;
+      }
+    }
+
+    > div {
+      div:nth-child(1),
+      div:nth-child(2){
+        span{
+          @include textStyle(14px, 21px, #222222, 400);
+        }
+
+        span:nth-child(2){
+          padding-left: 1rem;
+        }
+      }
+
+      button{
+        border: 0;
+        outline: none;
+        background: #0a2748;
+        width: 130px;
+        height: 34px;
+        @include textStyle(12px, 18px, #fff, 500);
+        transition: 0.2s all ease-in-out;
+        &:hover{
+          background: #C3442C;
+        }
+      }
+    }
+  }
+
+  .close{
+    >div{
+      padding: 0.5rem;
+      border: 1px solid #000;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg{
+        width: 16px;
+        height: 28px;
+      }
+    }
+  }
+}

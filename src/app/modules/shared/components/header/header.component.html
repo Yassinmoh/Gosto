@@ -1,4 +1,4 @@
-<header [ngClass]="{'shop-style':currentUrl==='shop'}">
+<header [ngClass]="{'shop-style':currentUrl !=='home'}">
   <div class="icons__container" *ngIf="isMobile">
     <div (click)="openCart()">
       <span class="counter">{{cartItemCount$ | async}}</span>

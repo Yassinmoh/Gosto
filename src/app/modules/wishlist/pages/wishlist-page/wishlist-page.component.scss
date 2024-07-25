@@ -1,0 +1,38 @@
+@import 'common';
+
+.wishlist__page {
+  position: relative;
+  padding: 35% 0.5rem 1rem 0.5rem;
+  min-height: 100vh;
+
+  .title {
+    @include textStyle(36px, 46px, #0A2748, 400);
+    text-align: center;
+  }
+
+  .wishlist__container {
+    padding: 1rem;
+
+    .row__mode {
+      display: none;
+
+    }
+  }
+}
+
+
+@include DesktopScreen {
+  :host {
+    .wishlist__page {
+      padding: 10% 0.5rem 1rem 0.5rem;
+
+      .wishlist__container {
+        .row__mode {
+          width: 70%;
+          margin: 1rem auto;
+          display: block;
+        }
+      }
+    }
+  }
+}

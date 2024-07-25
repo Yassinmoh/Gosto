@@ -1,0 +1,62 @@
+@import 'common';
+
+table {
+  border-collapse: collapse;
+  thead {
+    tr {
+      border-bottom: 1px solid #ebebeb;
+      th {
+        white-space: nowrap;
+        padding: 1rem 4rem;
+        @include textStyle(15px, 19px, #0A2748, 600);
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #ebebeb;
+      transition: 0.1s all ease-in-out;
+
+      &:hover{
+        background: #cccccc23;
+      }
+      td {
+        padding: 1rem 4rem;
+        @include textStyle(14px, 21px, #0A2748, 500);
+        transition: 0.3s all ease-in-out;
+        &:hover{
+          color:#C6452C;
+        }
+      }
+
+      td:nth-child(1) {
+        svg {
+          width: 14px;
+          height: 18px;
+          filter: opacity(0.5);
+          cursor: pointer;
+        }
+      }
+
+      td:nth-child(2) {
+        img {
+          width: 65px;
+          height: auto;
+        }
+      }
+
+      td:nth-child(6) {
+        button {
+          width: 220px;
+          height: 50px;
+          border: 0;
+          outline: none;
+          background: #0A2748;
+          @include textStyle(12px, 18px, #fff, 600);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

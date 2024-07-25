@@ -1,0 +1,13 @@
+<section class="wishlist__page">
+  <p class="title">Wishlist</p>
+  <div class="wishlist__container">
+    @for(item of (wishListItems$ |async);track item.id){
+      <Gosto-wishlist-grid-card [product]="item"/>
+    }@empty {
+      <p>No Products in Wishlist</p>
+    }
+    <div class="row__mode">
+      <Gosto-wishlist-row />
+    </div>
+  </div>
+</section>

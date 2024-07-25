@@ -1,0 +1,24 @@
+<div class="wishlist__grid__card">
+<div class="img-box">
+  <img [src]="'../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
+</div>
+<div class="product__info">
+  <p class="title">{{product.name}}</p>
+  <div>
+    <div>
+      <span>Price:</span>
+      <span>${{product.price}}</span>
+    </div>
+    <div>
+      <span>Stock:</span>
+      <span>In Stock</span>
+    </div>
+    <button (click)="addToCard(product)">Add To Cart</button>
+  </div>
+</div>
+<div class="close">
+  <div>
+    <svg (click)="removeFromWishlist(product)"><use href="#close-icon"></use></svg>
+  </div>
+</div>
+</div>
