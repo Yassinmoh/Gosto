@@ -1,0 +1,28 @@
+<div class="cartitem__grid__card">
+  <div class="img-box">
+    <img [src]="'../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
+  </div>
+  <div class="product__info">
+    <p class="title">{{product.name}}</p>
+    <div>
+      <div>
+        <span>Total:</span>
+        <span>${{getTotalPrice(product.price,product.quantity ?? 1)}}</span>
+      </div>
+      <div>
+        <span>Stock:</span>
+        <span>In Stock</span>
+      </div>
+      <div class="counter">
+        <span (click)="decrement(product.id)">-</span>
+        <div class="val">{{getQuantity(product.quantity ?? 1)}}</div>
+        <span (click)="increment(product.id)">+</span>
+      </div>
+    </div>
+  </div>
+  <div class="close">
+    <div>
+      <svg (click)="removeFromCart(product)"><use href="#close-icon"></use></svg>
+    </div>
+  </div>
+  </div>

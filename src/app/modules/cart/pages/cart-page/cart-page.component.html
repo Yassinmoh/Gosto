@@ -1,1 +1,22 @@
-<p>cart-page works!</p>
+<section class="cart__page">
+  <p class="title">Shopping Cart </p>
+  <div class="container" *ngIf="cartItems$ |async as cartItems">
+    <div class="left__part">
+      @for(item of cartItems;track item.id){
+      <div class="grid-mode">
+        <Gosto-cartitem-grid-card [product]="item" />
+      </div>
+      }@empty {
+        <p class="empty">No Product in Cart</p>
+      }
+      <div class="row-mode">
+        <Gosto-cart-table-mode [cartItems]="cartItems" />
+      </div>
+    </div>
+    <div class="right__part">
+      <div class="cart__totals">
+        <Gosto-cart-totals />
+      </div>
+    </div>
+  </div>
+</section>

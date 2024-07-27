@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { Observable, tap } from 'rxjs';
 import { Router, RouterModule } from '@angular/router';
 import { CartState } from '../../../../../store/Cart/cart.reducer';
-import { getCartItems, getTotal } from '../../../../../store/Cart/cart.selectors';
+import { getCartItems, getSubTotal } from '../../../../../store/Cart/cart.selectors';
 
 @Component({
   selector: 'Gosto-shopping-cart-popup',
@@ -28,11 +28,8 @@ export class ShoppingCartPopupComponent implements OnInit {
   total$!: Observable<number>
 
   ngOnInit(): void {
-    this.cartItems$= this._store.select(getCartItems).pipe(
-      tap((data) => console.log("CART",data)
-      )
-    )
-    this.total$= this._store.select(getTotal)
+    this.cartItems$= this._store.select(getCartItems)
+    this.total$= this._store.select(getSubTotal)
   }
 
   goToShop(){
@@ -41,6 +38,11 @@ export class ShoppingCartPopupComponent implements OnInit {
   }
 
   close() {
+    this._store.dispatch(appActions.toggleShoppingCartPopup())
+  }
+
+  navigateTo(destination:string){
+    this._router.navigate([destination]);
     this._store.dispatch(appActions.toggleShoppingCartPopup())
   }
 }

@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { Component, inject, Input } from '@angular/core';
 import { Product } from '../../../core/models/product';
 import { Store } from '@ngrx/store';
@@ -11,7 +12,7 @@ import * as CartActions from '../../../../store/Cart/cart.actions'
 @Component({
   selector: 'Gosto-wishlist-grid-card',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './wishlist-grid-card.component.html',
   styleUrl: './wishlist-grid-card.component.scss'
 })

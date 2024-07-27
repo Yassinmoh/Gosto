@@ -27,8 +27,8 @@
         <p>${{total$ | async}}</p>
       </div>
       <div class="cta_btns">
-        <button>VIEW CART</button>
-        <button>CHECKOUT</button>
+        <button (click)="navigateTo('cart')">VIEW CART</button>
+        <button (click)="navigateTo('checkout')">CHECKOUT</button>
       </div>
     </div>
     <div class="footer">

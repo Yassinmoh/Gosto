@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th class="product-remove" style="width: 40px;"></th>
+      <th class="product-thumbnail" style="width: 80px;"></th>
+      <th class="product-name">PRODUCT</th>
+      <th class="product-price">PRICE</th>
+      <th class="product-quantity">QUANTITY</th>
+      <th class="product-total">TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(cartItem of cartItems;track cartItem.id){
+    <tr>
+      <td><svg (click)="removeFromCart(cartItem)">
+          <use href="#close-icon"></use>
+        </svg></td>
+      <td><img [src]="'../../../../../assets/images/products/'+cartItem.imageUrl" [alt]="cartItem.name"></td>
+      <td>{{cartItem.name}}</td>
+      <td>${{cartItem.price}}</td>
+      <td>
+        <div class="counter">
+          <span (click)="decrement(cartItem.id)">-</span>
+          <div class="val">{{getQuantity(cartItem.quantity ?? 1)}}</div>
+          <span (click)="increment(cartItem.id)">+</span>
+        </div>
+      </td>
+      <td>${{getTotalPrice( cartItem.price,cartItem.quantity ?? 1)}}</td>
+    </tr>
+    }@empty {
+    <td colspan="6" style="text-align: center; padding: 1rem 0;">
+      <p class="empty">No Products in Cart</p>
+    </td>
+    }
+  </tbody>
+</table>
