@@ -20,7 +20,7 @@ export interface State {
 // Store and sync the state with local storage without any subscriptions
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({
-    keys: ['Cart','WishList'],
+    keys: ['Cart','WishList','Shipping'],
     rehydrate: true,
     checkStorageAvailability: true,
   })(reducer);

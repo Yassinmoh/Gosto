@@ -3,11 +3,14 @@ import * as ShippingActions from './shipping.actions'
 import { ShippingType } from "../../modules/core/enums/ShippingTypes.enum"
 
 export interface ShippingState {
-  cost: number
+  cost: number,
+  shippingAddress: { country: string; state: string; city: string; postcode: string };
 }
 
 const initState = {
-  cost: 0
+  cost: 0,
+  shippingAddress: { country: '', state: '', city: '', postcode: '' }
+
 }
 
 const ShippingTypsMap = {
@@ -22,6 +25,14 @@ export const shippingReducer = createReducer(initState,
     return {
       ...state,
       cost:cost
+    }
+  }),
+  on(ShippingActions.setShippingAddress,(state:ShippingState,action)=>{
+    console.log(action.shippingAddress);
+
+    return{
+      ...state,
+      shippingAddress:action.shippingAddress
     }
   })
 )

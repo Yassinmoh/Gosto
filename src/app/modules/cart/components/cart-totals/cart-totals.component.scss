@@ -5,7 +5,7 @@
   position: relative;
   width: 100%;
   background: #f6f6f6;
-  min-height: 70vh;
+  min-height: 85vh;
   padding: 2rem;
 
   &::before {
@@ -59,52 +59,57 @@
       form {
         .form-field {
           padding: 0.2rem 0;
+
           label {
             @include textStyle(15px, 21px, #4F4F4F, 400);
             padding: 0.5rem;
+
             span {
-            @include textStyle(15px, 21px, #0A2748, 700);
+              @include textStyle(15px, 21px, #0A2748, 700);
             }
           }
-          input {}
         }
       }
 
-      .shippingTo{
+      .shippingTo {
         padding: 0.5rem 0;
       }
     }
   }
 
-  .shipping__address{
+  .shipping__address {
     z-index: 100000;
     position: relative;
     margin-top: 2rem;
 
     ::ng-deep .p-accordion {
-      p-accordiontab{
-        .p-accordion-tab{
-          .p-accordion-header{
+      p-accordiontab {
+        .p-accordion-tab {
+          .p-accordion-header {
 
-            .p-accordion-header-link{
+            .p-accordion-header-link {
               justify-content: space-between;
               flex-direction: row-reverse;
               @include textStyle(16px, 24px, #4F4F4F, 500);
               border: 0;
+              background: #f6f6f6;
             }
           }
         }
       }
 
-      .p-accordion-content{
+      .p-accordion-content {
         background: transparent;
         border: 0;
         margin-top: 1rem;
-        form{
+
+        form {
           width: 100%;
-          .form-field{
+
+          .form-field {
             margin: 0.8rem 0;
-            input{
+
+            input {
               width: 100%;
               height: 50px;
               border: 0;
@@ -114,15 +119,47 @@
             }
           }
 
-          button{
+          button {
             width: 100%;
             height: 50px;
             padding: 1rem;
             border: 0;
             background: #0A2748;
+            @include textStyle(12px, 18px, #FFFFFF, 600);
+
           }
         }
       }
     }
+  }
+
+  .total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      @include textStyle(16px, 24px, #4F4F4F, 500);
+    }
+
+    p:nth-child(2) {
+      @include textStyle(20px, 21px, #0A2748, 600);
+    }
+  }
+
+  .PTcheckout {
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%);
+    height: 50px;
+    margin: 1rem  auto;
+    padding: 1rem;
+    border: 0;
+    background: #0A2748;
+    cursor: pointer;
+    @include textStyle(15px, 18px, #FFFFFF, 600);
+    z-index: 500000;
   }
 }

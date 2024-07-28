@@ -2,7 +2,7 @@
   <p class="title">Cart Totals</p>
   <div class="subtotal__info">
     <p class="text">Subtotal:</p>
-    <p class="price">$584</p>
+    <p class="price">${{subtotal$ | async}}</p>
   </div>
   <div class="shipping__info">
     <p class="text">Shipping</p>
@@ -15,29 +15,34 @@
           </div>
         }
       </form>
-      <p class="shippingTo"><span>Shipping to</span> to Giza, 12611, Ecuador</p>
-      <p>Cost: ${{shippingCost$ | async}}</p>
+      <p class="shippingTo">{{(shippingAddress$ | async)?.city}}, {{(shippingAddress$ | async)?.postcode}}, {{(shippingAddress$ | async)?.country}}</p>
     </div>
   </div>
   <div class="shipping__address">
     <p-accordion>
       <p-accordionTab header="Change Address">
-        <form>
+        <form [formGroup]="shippingAddressForm">
           <div class="form-field">
-            <input type="text"  placeholder="Country"/>
+            <input type="text"  formControlName="country" placeholder="Country"/>
           </div>
           <div class="form-field">
-            <input type="text"  placeholder="State"/>
+            <input type="text"  formControlName="state" placeholder="State"/>
           </div>
           <div class="form-field">
-            <input type="text"  placeholder="City"/>
+            <input type="text" formControlName="city" placeholder="City"/>
           </div>
           <div class="form-field">
-            <input type="text"  placeholder="Postcode / ZIP"/>
+            <input type="text" formControlName="postcode" placeholder="Postcode / ZIP"/>
           </div>
-          <button>Update</button>
+          <button (click)="updateAddress($event)">Update</button>
         </form>
       </p-accordionTab>
   </p-accordion>
   </div>
+  <div class="total">
+    <p class="title">TOTAL</p>
+    <p>${{total$ | async}}</p>
+  </div>
+
+  <button class="PTcheckout">Proceed to checkout</button>
 </div>
