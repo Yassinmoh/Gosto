@@ -7,12 +7,14 @@ import { appReducer } from './App/app.reeducer';
 import { cartReducer } from './Cart/cart.reducer';
 import {localStorageSync } from 'ngrx-store-localstorage';
 import { wishlistReducer } from './Wishlist/wishlist.reducer';
+import { shippingReducer } from './Shipping/shipping.reducer';
 
 
 export interface State {
   App: any;
   Cart: any,
-  WishList:any
+  WishList:any,
+  Shipping:any
 }
 
 // Store and sync the state with local storage without any subscriptions
@@ -29,7 +31,8 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 export const reducers: ActionReducerMap<State> = {
   App: appReducer,
   Cart: cartReducer,
-  WishList:wishlistReducer
+  WishList:wishlistReducer,
+  Shipping:shippingReducer
 };
 
 

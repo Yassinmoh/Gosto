@@ -7,21 +7,37 @@
   <div class="shipping__info">
     <p class="text">Shipping</p>
     <div>
-      <form>
-        <div class="form-field">
-          <label for="">Flat rate:<span>$10.00</span></label>
-          <input type="radio" name="s" id="">
-        </div>
-        <div class="form-field">
-          <label for="">Free shipping</label>
-          <input type="radio" name="4" id="">
-        </div>
-        <div class="form-field">
-          <label for="">Local pickup:<span>$10.00</span></label>
-          <input type="radio" name="7" id="">
-        </div>
+      <form [formGroup]="shippingCostForm">
+        @for(item of formData;track item.id){
+          <div class="form-field">
+            <label [for]="item.id">{{item.label}}: <span>${{item.cost == '00:00' ? '0' : item.cost}}</span></label>
+            <input type="radio" formControlName="shippingOption" [id]="item.id" [value]="item.value">
+          </div>
+        }
       </form>
       <p class="shippingTo"><span>Shipping to</span> to Giza, 12611, Ecuador</p>
+      <p>Cost: ${{shippingCost$ | async}}</p>
     </div>
+  </div>
+  <div class="shipping__address">
+    <p-accordion>
+      <p-accordionTab header="Change Address">
+        <form>
+          <div class="form-field">
+            <input type="text"  placeholder="Country"/>
+          </div>
+          <div class="form-field">
+            <input type="text"  placeholder="State"/>
+          </div>
+          <div class="form-field">
+            <input type="text"  placeholder="City"/>
+          </div>
+          <div class="form-field">
+            <input type="text"  placeholder="Postcode / ZIP"/>
+          </div>
+          <button>Update</button>
+        </form>
+      </p-accordionTab>
+  </p-accordion>
   </div>
 </div>
