@@ -10,12 +10,13 @@ import { getShippingAddress, getShippingCost } from '../../../../store/Shipping/
 import { ShippingType } from '../../../core/enums/ShippingTypes.enum';
 import { AccordionModule } from 'primeng/accordion';
 import { CartState } from '../../../../store/Cart/cart.reducer';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'Gosto-cart-totals',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, AccordionModule],
+  imports: [CommonModule, ReactiveFormsModule, AccordionModule,RouterModule],
   templateUrl: './cart-totals.component.html',
   styleUrl: './cart-totals.component.scss'
 })
@@ -93,5 +94,6 @@ export class CartTotalsComponent implements OnInit {
       map(([total ,shippingCost])=> total + shippingCost)
     )
   }
+
 
 }

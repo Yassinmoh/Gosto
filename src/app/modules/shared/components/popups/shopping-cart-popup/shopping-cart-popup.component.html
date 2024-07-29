@@ -24,7 +24,7 @@
     <div class="subtotal">
       <div class="total">
         <p>Subtotal:</p>
-        <p>${{total$ | async}}</p>
+        <p>${{(total$ | async)?.toFixed(2)}}</p>
       </div>
       <div class="cta_btns">
         <button (click)="navigateTo('cart')">VIEW CART</button>

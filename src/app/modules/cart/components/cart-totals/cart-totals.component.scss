@@ -5,7 +5,7 @@
   position: relative;
   width: 100%;
   background: #f6f6f6;
-  min-height: 85vh;
+  min-height: 70vh;
   padding: 2rem;
 
   &::before {
@@ -17,6 +17,18 @@
     background: url(../../../../../assets/images/zigzag.png);
     background-repeat: repeat-x;
     z-index: 999;
+  }
+
+  &::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background: url(../../../../../assets/images/zigzag.png);
+    background-repeat: repeat-x;
+    z-index: 999;
+    transform: rotate(180deg);
   }
 
   .title {
@@ -69,6 +81,12 @@
             }
           }
         }
+      }
+
+      .no_address{
+        @include textStyle(14px, 21px, #0A2748, 500);
+        text-align: center;
+        margin: 0.5rem auto;
       }
 
       .shippingTo {
@@ -124,7 +142,8 @@
             height: 50px;
             padding: 1rem;
             border: 0;
-            background: #0A2748;
+            background: #C6452C;
+            cursor: pointer;
             @include textStyle(12px, 18px, #FFFFFF, 600);
 
           }
@@ -147,19 +166,30 @@
     }
   }
 
-  .PTcheckout {
-    width: 70%;
-    position: absolute;
-    left: 50%;
-    bottom: 2%;
-    transform: translateX(-50%);
-    height: 50px;
-    margin: 1rem  auto;
-    padding: 1rem;
-    border: 0;
-    background: #0A2748;
-    cursor: pointer;
-    @include textStyle(15px, 18px, #FFFFFF, 600);
-    z-index: 500000;
+  .PTcheckout_btn{
+    position: relative;
+    z-index: 10000000;
+    width: 100%;
+    .PTcheckout {
+      width: 100%;
+      height: 50px;
+      margin: 1rem  auto;
+      padding: 1rem;
+      border: 0;
+      background: #0A2748;
+      cursor: pointer;
+      @include textStyle(15px, 18px, #FFFFFF, 600);
+      z-index: 500000;
+    }
+  }
+
+}
+
+
+@include DesktopScreen {
+  :host{
+    .cart__totals {
+
+    }
   }
 }
