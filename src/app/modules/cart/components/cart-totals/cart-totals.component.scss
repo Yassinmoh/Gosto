@@ -11,23 +11,23 @@
   &::before {
     content: '';
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 100%;
     top: 0;
     background: url(../../../../../assets/images/zigzag.png);
     background-repeat: repeat-x;
-    z-index: 999;
+    z-index: 100;
   }
 
   &::after{
     content: '';
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 100%;
     bottom: 0;
     background: url(../../../../../assets/images/zigzag.png);
     background-repeat: repeat-x;
-    z-index: 999;
+    z-index: 100;
     transform: rotate(180deg);
   }
 
@@ -168,7 +168,7 @@
 
   .PTcheckout_btn{
     position: relative;
-    z-index: 10000000;
+    z-index: 500;
     width: 100%;
     .PTcheckout {
       width: 100%;
@@ -179,7 +179,7 @@
       background: #0A2748;
       cursor: pointer;
       @include textStyle(15px, 18px, #FFFFFF, 600);
-      z-index: 500000;
+
     }
   }
 

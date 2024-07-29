@@ -17,7 +17,7 @@
         </svg></td>
       <td><img [src]="'../../../../../assets/images/products/'+cartItem.imageUrl" [alt]="cartItem.name"></td>
       <td>{{cartItem.name}}</td>
-      <td>${{cartItem.price}}</td>
+      <td>${{(cartItem.price).toFixed(2)}}</td>
       <td>
         <div class="counter">
           <span (click)="decrement(cartItem.id)">-</span>
@@ -25,7 +25,7 @@
           <span (click)="increment(cartItem.id)">+</span>
         </div>
       </td>
-      <td>${{getTotalPrice( cartItem.price,cartItem.quantity ?? 1)}}</td>
+      <td>${{getTotalPrice( cartItem.price,cartItem.quantity ?? 1).toFixed(2)}}</td>
     </tr>
     }@empty {
     <td colspan="6" style="text-align: center; padding: 1rem 0;">

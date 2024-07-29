@@ -1,1 +1,25 @@
-<p>checkout-page works!</p>
+<section class="checkout__page">
+  <p class="title">Checkout</p>
+  <div class="coupon__section">
+    <p-accordion>
+      <p-accordionTab header="Have a coupon? Click here to enter your code">
+        <form [formGroup]="couponForm">
+          <div class="form-field">
+            <label for="coupon">If you have a coupon code, please apply it
+              below.</label>
+            <input type="text" id="coupon" formControlName="coupon"
+              placeholder="Coupon Code" />
+          </div>
+          <button (click)="applayCoupon($event)">APPLY COUPON</button>
+        </form>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+
+  <div class="container">
+    <div class="left__part">
+      <Gosto-billing-details />
+    </div>
+    <div class="right__part"></div>
+  </div>
+</section>

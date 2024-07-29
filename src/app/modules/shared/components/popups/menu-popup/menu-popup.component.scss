@@ -1,5 +1,10 @@
 @import 'common';
 
+:host{
+  position: relative;
+  z-index: 1000001;
+}
+
 .container{
   width: 100%;
   height: 100vh;
