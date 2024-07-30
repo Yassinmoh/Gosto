@@ -130,15 +130,15 @@
 
       .container {
         width: 70%;
-        margin: 3rem auto;
+        margin: 4rem auto;
         min-height: 100vh;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: row;
         gap: 1rem;
 
         .left__part {
-          width: 70%;
+          width: 65%;
           min-height: 100vh;
         }
 

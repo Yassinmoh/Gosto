@@ -1,0 +1,111 @@
+@import 'common';
+
+.billing__details {
+
+  .title {
+    @include textStyle(30px, 22px, #0A2748, 400);
+    text-align: left;
+  }
+
+  form {
+    .form-field {
+      margin: 1rem 0;
+      width: 100%;
+
+      label {
+        @include textStyle(16px, 32px, #222222, 400);
+      }
+
+      input {
+        width: 100%;
+        height: 50px;
+        padding: 1rem;
+        outline: none;
+        border: 1px solid #ddd;
+        margin: 0.2rem 0;
+      }
+
+      textarea {
+        display: block;
+        width: 100%;
+        height: 180px;
+        border: 1px solid #ddd;
+        padding: 1rem;
+      }
+    }
+    .shipping__address {
+      z-index: 100000;
+      position: relative;
+      margin-top: 2rem;
+
+      ::ng-deep .p-accordion {
+        p-accordiontab {
+          .p-accordion-tab {
+            .p-accordion-header {
+
+              .p-accordion-header-link {
+                justify-content: space-between;
+                flex-direction: row-reverse;
+                @include textStyle(16px, 24px, #4F4F4F, 500);
+                border: 0;
+                background: transparent;
+
+                .p-accordion-toggle-icon{
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+
+        .p-accordion-content {
+          background: transparent;
+          border: 0;
+          margin-top: 1rem;
+
+          form {
+            width: 100%;
+
+            .form-field {
+              margin: 0.8rem 0;
+              border: 1px solid #ddd;
+              input {
+                width: 100%;
+                height: 50px;
+                border: 0;
+                outline: none;
+                padding: 0.5rem 1rem;
+
+              }
+            }
+
+            button {
+              width: 100%;
+              height: 50px;
+              padding: 1rem;
+              border: 0;
+              background: #C6452C;
+              cursor: pointer;
+              @include textStyle(12px, 18px, #FFFFFF, 600);
+
+            }
+          }
+        }
+      }
+    }
+
+    .country__field{
+      display: flex;
+      flex-direction: column;
+
+      ::ng-deep p-dropdown {
+        .p-inputwrapper{
+          padding-top: 0.7rem;
+          padding-left: 0.6rem;
+          width: 45%;
+          height: 50px;
+        }
+      }
+    }
+  }
+}

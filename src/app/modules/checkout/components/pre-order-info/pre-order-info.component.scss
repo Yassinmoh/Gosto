@@ -1,0 +1,195 @@
+@import 'common';
+
+
+.cart__totals {
+  position: relative;
+  width: 100%;
+  background: #f6f6f6;
+  min-height: 70vh;
+  padding: 2rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    top: 0;
+    background: url(../../../../../assets/images/zigzag.png);
+    background-repeat: repeat-x;
+    z-index: 100;
+  }
+
+  &::after{
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    bottom: 0;
+    background: url(../../../../../assets/images/zigzag.png);
+    background-repeat: repeat-x;
+    z-index: 100;
+    transform: rotate(180deg);
+  }
+
+  .title {
+    @include textStyle(30px, 30px, #0A2748, 600);
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .subtotal__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #cccccc93;
+
+    .text {
+      @include textStyle(16px, 24px, #4F4F4F, 500);
+    }
+
+    .price {
+      @include textStyle(14px, 24px, #0A2748, 600);
+    }
+  }
+
+  .shipping__info {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #cccccc93;
+    z-index: 1000;
+
+    .text {
+      @include textStyle(16px, 24px, #4F4F4F, 500);
+    }
+
+    >div {
+      text-align: end;
+
+      form {
+        .form-field {
+          padding: 0.2rem 0;
+
+          label {
+            @include textStyle(15px, 21px, #4F4F4F, 400);
+            padding: 0.5rem;
+
+            span {
+              @include textStyle(15px, 21px, #0A2748, 700);
+            }
+          }
+        }
+      }
+
+      .no_address{
+        @include textStyle(14px, 21px, #0A2748, 500);
+        text-align: center;
+        margin: 0.5rem auto;
+      }
+
+      .shippingTo {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+
+  .shipping__address {
+    z-index: 100000;
+    position: relative;
+    margin-top: 2rem;
+
+    ::ng-deep .p-accordion {
+      p-accordiontab {
+        .p-accordion-tab {
+          .p-accordion-header {
+
+            .p-accordion-header-link {
+              justify-content: space-between;
+              flex-direction: row-reverse;
+              @include textStyle(16px, 24px, #4F4F4F, 500);
+              border: 0;
+              background: #f6f6f6;
+            }
+          }
+        }
+      }
+
+      .p-accordion-content {
+        background: transparent;
+        border: 0;
+        margin-top: 1rem;
+
+        form {
+          width: 100%;
+
+          .form-field {
+            margin: 0.8rem 0;
+
+            input {
+              width: 100%;
+              height: 50px;
+              border: 0;
+              outline: none;
+              padding: 0.5rem 1rem;
+
+            }
+          }
+
+          button {
+            width: 100%;
+            height: 50px;
+            padding: 1rem;
+            border: 0;
+            background: #C6452C;
+            cursor: pointer;
+            @include textStyle(12px, 18px, #FFFFFF, 600);
+
+          }
+        }
+      }
+    }
+  }
+
+  .total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      @include textStyle(16px, 24px, #4F4F4F, 500);
+    }
+
+    p:nth-child(2) {
+      @include textStyle(20px, 21px, #0A2748, 600);
+    }
+  }
+
+  .PTcheckout_btn{
+    position: relative;
+    z-index: 500;
+    width: 100%;
+    .PTcheckout {
+      width: 100%;
+      height: 50px;
+      margin: 1rem  auto;
+      padding: 1rem;
+      border: 0;
+      background: #0A2748;
+      cursor: pointer;
+      @include textStyle(15px, 18px, #FFFFFF, 600);
+
+    }
+  }
+
+}
+
+
+@include DesktopScreen {
+  :host{
+    .cart__totals {
+
+    }
+  }
+}
