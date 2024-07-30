@@ -1,1 +1,47 @@
-<p>billing-details works!</p>
+<div class="billing__details">
+  <p class="title">Billing details</p>
+  <form [formGroup]="billingForm">
+    <div class="form-field">
+      <label for="">First name</label>
+      <input type="text" formControlName="firstName">
+    </div>
+    <div class="form-field">
+      <label for="">Last name</label>
+      <input type="text" formControlName="lastName">
+    </div>
+    <div class="form-field">
+      <label for="">Company name (optional)</label>
+      <input type="text" formControlName="companyName">
+    </div>
+    <div class="form-field">
+      <label for="">Country / Region</label>
+      <p-dropdown
+      [options]="cities"
+      optionLabel="name"
+      [(ngModel)]="selectedCity"
+      formControlName="country"
+      placeholder="Select a City" />
+    </div>
+    <div class="form-field">
+      <label for="">Street address </label>
+      <input type="text" formControlName="streetNumber">
+      <input type="text" formControlName="streetName">
+    </div>
+    <div class="form-field">
+      <label for="">Town / City</label>
+      <input type="text">
+    </div>
+    <div class="form-field">
+      <label for="">Email / City</label>
+      <input type="email">
+    </div>
+    <div class="form-field">
+      <label for="">ZIP Code</label>
+      <input type="text">
+    </div>
+    <div class="form-field">
+      <label for="">Order notes (optional)</label>
+      <textarea name="" id=""></textarea>
+    </div>
+  </form>
+</div>
