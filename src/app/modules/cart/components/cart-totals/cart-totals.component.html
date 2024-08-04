@@ -8,7 +8,7 @@
     <p class="text">Shipping</p>
     <div>
       <form [formGroup]="shippingCostForm">
-        @for(item of formData;track item.id){
+        @for(item of shippingFormData;track item.id){
           <div class="form-field">
             <label [for]="item.id">{{item.label}}: <span>${{item.cost == '00:00' ? '0' : item.cost}}</span></label>
             <input type="radio" formControlName="shippingOption" [id]="item.id" [value]="item.value">

@@ -12,6 +12,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { WishlistEffect } from './store/Wishlist/wishlist.effect';
 import { provideEffects } from '@ngrx/effects';
+import { OrderEffects } from './store/Order/order.effect';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,6 +23,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     importProvidersFrom(TranslateModule.forRoot()),
     provideToastr({ closeButton: false }),
-    provideEffects([WishlistEffect])
+    provideEffects([WishlistEffect,OrderEffects])
   ]
 };

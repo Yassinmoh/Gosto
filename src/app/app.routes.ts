@@ -31,6 +31,10 @@ export const routes: Routes = [
         path:'wishlist',
         loadChildren: () => import('./modules/wishlist/wishlist.module').then(m => m.WishlistModule)
       },
+      {
+        path:'order',
+        loadChildren: () => import('./modules/orders/orders.module').then(m => m.OrdersModule)
+      }
     ]
   }
 ];

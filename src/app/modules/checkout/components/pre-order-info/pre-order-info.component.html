@@ -1,20 +1,37 @@
 <div class="cart__totals">
   <p class="title">Cart Totals</p>
-  <div class="subtotal__info">
-    <p class="text">Subtotal:</p>
-    <p class="price">${{(subtotal$ | async)?.toFixed(2)}}</p>
+  <div class="subtotal__header">
+    <p class="text">PRODUCT</p>
+    <p class="price">SUBTOTAL</p>
+  </div>
+  <div class="products__in__cart">
+    @for(product of (cartItems$ | async); track product){
+    <div>
+      <p class="product">{{product.quantity || 1}} X {{product.name}}</p>
+      <p class="subtotal">${{((product.quantity || 1) * (product.price)).toFixed(2)}}</p>
+    </div>
+    }
+  </div>
+  <div class="subtotal__section">
+    <p class="price">SUBTOTAL</p>
+    <p class="text">${{(subtotal$ | async)?.toFixed(2)}}</p>
   </div>
   <div class="shipping__info">
     <p class="text">Shipping</p>
-    <div>
-    </div>
+    <form [formGroup]="shippingCostForm">
+      @for(item of shippingFormData;track item.id){
+      <div class="form-field">
+        <label [for]="item.id">{{item.label}}: <span>${{item.cost == '00:00' ? '0' : item.cost}}</span></label>
+        <input type="radio" formControlName="shippingOption" [id]="item.id" [value]="item.value">
+      </div>
+      }
+    </form>
   </div>
   <div class="total">
     <p class="title">TOTAL</p>
     <p>${{(total$ | async)?.toFixed(2)}}</p>
   </div>
   <div class="PTcheckout_btn">
-    <button [routerLink]="['/checkout']" class="PTcheckout">Place order</button>
+    <button [routerLink]="['/order']" (click)="onPlaceOrder()" class="PTcheckout">Place order</button>
   </div>
 </div>
-

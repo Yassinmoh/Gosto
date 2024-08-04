@@ -33,7 +33,7 @@ export class CartTotalsComponent implements OnInit {
   total$: Observable<number> = of(0);
 
 
-  formData = [
+  shippingFormData = [
     { id: 'flatRate', label: 'Flat rate', value: ShippingType.Flat, cost: '20:00' },
     { id: 'freeShipping', label: 'Free shipping', value: ShippingType.Free, cost: '00:00' },
     { id: 'localPickup', label: 'Local pickup', value: ShippingType.Local, cost: '10:00' },
@@ -75,15 +75,12 @@ export class CartTotalsComponent implements OnInit {
 
   getShippingAddress() {
     this.shippingAddress$ = this._store.select(getShippingAddress).pipe(
-      tap(address => this.shippingAddressForm.patchValue(address)),
-      tap(data => console.log("DATA",data)
-      )
+      tap(address => this.shippingAddressForm.patchValue(address))
     )
   }
 
   updateAddress(event: Event) {
     event.preventDefault()
-    console.log("Form Data",this.shippingAddressForm.value);
     const { city, state, postcode, country } = this.shippingAddressForm.value;
     this._store.dispatch(ShippingActions.setShippingAddress({shippingAddress:{city:city,state:state,postcode:postcode,country:country}}))
   }

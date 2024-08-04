@@ -1,15 +1,15 @@
 <div class="billing__details">
   <p class="title">Billing details</p>
   <form [formGroup]="billingForm">
-    <div class="form-field">
+    <div class="form-field required">
       <label for="">First name</label>
       <input type="text" formControlName="firstName">
     </div>
-    <div class="form-field">
+    <div class="form-field required">
       <label for="">Last name</label>
       <input type="text" formControlName="lastName">
     </div>
-    <div class="form-field">
+    <div class="form-field required">
       <label for="">Phone</label>
       <input type="number" formControlName="phone">
     </div>
@@ -17,7 +17,7 @@
       <label for="">Company name (optional)</label>
       <input type="text" formControlName="companyName">
     </div>
-    <div class="form-field country__field">
+    <div class="form-field country__field required">
       <label for="">Country / Region</label>
       <p-dropdown
       [options]="cities"
@@ -26,7 +26,7 @@
       formControlName="country"
       placeholder="Select a Country" />
     </div>
-    <div class="form-field" formGroupName="streetAddress">
+    <div class="form-field required" formGroupName="streetAddress">
       <label for="">Street address </label>
       <input type="text" formControlName="streetNumber">
       <input type="text" formControlName="streetName">
@@ -35,7 +35,7 @@
       <label for="">Town / City</label>
       <input type="text" formControlName="city">
     </div>
-    <div class="form-field">
+    <div class="form-field required">
       <label for="">Email</label>
       <input type="email"  formControlName="email">
     </div>
@@ -62,7 +62,6 @@
             <div class="form-field">
               <input type="text" formControlName="postcode" placeholder="Postcode / ZIP"/>
             </div>
-            <!-- <button (click)="updateShippingAddress($event)">Update</button> -->
           </form>
         </p-accordionTab>
     </p-accordion>

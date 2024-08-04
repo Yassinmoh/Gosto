@@ -18,10 +18,13 @@
 
   <div class="container">
     <div class="left__part">
-      <Gosto-billing-details />
+      <Gosto-billing-details
+        (billingFormUpdated)="onBillingFormUpdated($event)"
+        (shippingFormUpdated)="onShippingFormUpdated($event)" />
     </div>
     <div class="right__part">
-      <Gosto-pre-order-info />
+      <Gosto-pre-order-info
+        (placeOrder)="onPlaceOrder()"/>
     </div>
   </div>
 </section>

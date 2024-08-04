@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { AccordionModule } from 'primeng/accordion';
 
@@ -8,11 +8,14 @@ import { AccordionModule } from 'primeng/accordion';
 @Component({
   selector: 'Gosto-billing-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, DropdownModule, FormsModule,AccordionModule],
+  imports: [CommonModule, ReactiveFormsModule, DropdownModule, FormsModule, AccordionModule],
   templateUrl: './billing-details.component.html',
   styleUrl: './billing-details.component.scss'
 })
 export class BillingDetailsComponent implements OnInit {
+
+  @Output() billingFormUpdated = new EventEmitter<FormGroup>();
+  @Output() shippingFormUpdated = new EventEmitter<FormGroup>();
 
   _fb = inject(FormBuilder);
 
@@ -32,22 +35,24 @@ export class BillingDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.initBillingForm()
     this.initShippingAddressForm()
+    this.handleBillingFormchanges()
+    this.handleShippingFormchanges()
   }
 
   initBillingForm() {
     this.billingForm = this._fb.group({
-      firstName: [''],
-      lastName: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       companyName: [''],
       country: [''],
       streetAddress: this._fb.group({
-        streetNumber: [''],
-        streetName: [''],
+        streetNumber: ['', Validators.required],
+        streetName: ['', Validators.required],
       }),
       city: [''],
       postCode: [''],
-      phone: [''],
-      email: [''],
+      phone: ['', Validators.required],
+      email: ['', Validators.required],
       orderNotes: ['']
     })
   }
@@ -69,8 +74,20 @@ export class BillingDetailsComponent implements OnInit {
     this.isChecked = event.target.checked;
   }
 
-  updateShippingAddress(event:Event){
+  updateShippingAddress(event: Event) {
     event.preventDefault()
+  }
+
+  handleBillingFormchanges() {
+    this.billingForm.valueChanges.subscribe(() => {
+      this.billingFormUpdated.emit(this.billingForm)
+    })
+  }
+
+  handleShippingFormchanges() {
+    this.newShippingForm.valueChanges.subscribe(() => {
+      this.shippingFormUpdated.emit(this.newShippingForm)
+    })
   }
 
 }

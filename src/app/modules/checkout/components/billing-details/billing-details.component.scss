@@ -16,6 +16,20 @@
         @include textStyle(16px, 32px, #222222, 400);
       }
 
+      &:is(.required){
+        label{
+          position: relative;
+          &::before{
+            content: '*';
+            position: absolute;
+            @include textStyle(18px, 20px, red, bolder);
+            right: -30%;
+            top: 55%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+
       input {
         width: 100%;
         height: 50px;
@@ -104,6 +118,12 @@
           padding-left: 0.6rem;
           width: 45%;
           height: 50px;
+        }
+
+        p-dropdownitem{
+          li{
+            padding: 0.2rem 1rem;
+          }
         }
       }
     }
