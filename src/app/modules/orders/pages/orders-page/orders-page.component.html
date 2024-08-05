@@ -1,3 +1,62 @@
 <section class="order__page">
+  <p class="title">Order</p>
 
+  <div class="top__details">
+    <p class="status">Thank you. Your order has been received.</p>
+    <div class="details__box">
+      <table>
+        <thead>
+          <th>Order number:</th>
+          <th>Date:</th>
+          <th>Total:</th>
+          <th>Payment method:</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{(order$ | async).id}}</td>
+            <td>{{date | date: 'MMMM d, y' }}</td>
+            <td>$100.00</td>
+            <td>Cash on delivery</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="bottom__details">
+    <p class="title">Order details</p>
+    <div class="order__details">
+      <table>
+        <thead>
+          <tr>
+            <th>PRODUCT</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Product 1</td>
+            <td>$100</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Subtotal</th>
+            <td>$555</td>
+          </tr>
+          <tr>
+            <th>Subtotal</th>
+            <td>$555</td>
+          </tr>
+          <tr>
+            <th>Subtotal</th>
+            <td>$555</td>
+          </tr>
+          <tr>
+            <th>Subtotal</th>
+            <td>$555</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
 </section>
