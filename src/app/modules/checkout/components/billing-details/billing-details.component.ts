@@ -16,6 +16,8 @@ export class BillingDetailsComponent implements OnInit {
 
   @Output() billingFormUpdated = new EventEmitter<FormGroup>();
   @Output() shippingFormUpdated = new EventEmitter<FormGroup>();
+  @Output() toggleShippingFormAccordion = new EventEmitter<boolean>();
+
 
   _fb = inject(FormBuilder);
 
@@ -72,6 +74,7 @@ export class BillingDetailsComponent implements OnInit {
 
   toggleAccordion(event: any) {
     this.isChecked = event.target.checked;
+    this.toggleShippingFormAccordion.emit(this.isChecked)
   }
 
   updateShippingAddress(event: Event) {

@@ -26,9 +26,6 @@ export class CheckoutPageComponent implements OnInit {
   shippingForm: FormGroup | null = null;
   isChecked = false;
 
-  toggleAccordion(event: any) {
-    this.isChecked = event.target.checked;
-  }
 
   ngOnInit(): void {
     this.initCouponForm()
@@ -51,10 +48,14 @@ export class CheckoutPageComponent implements OnInit {
     this.shippingForm = form
   }
 
+  ontoggleShippingFormAccordion(value:any){
+    this.isChecked = value
+  }
+
   onPlaceOrder() {
     if (this.billingForm?.valid) {
       const billingValue = this.billingForm.value
-      this._store.dispatch(OrderActions.setBillingDetails({ billingDetails: billingValue }))
+      this._store.dispatch(OrderActions.setBillingDetails({billingDetails:billingValue}))
       if (this.isChecked && this.shippingForm?.valid) {
         const newShippingAddress = this.shippingForm.value
         this._store.dispatch(ShoppingActions.setShippingAddress({ shippingAddress: newShippingAddress }))

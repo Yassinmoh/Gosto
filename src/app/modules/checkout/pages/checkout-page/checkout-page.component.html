@@ -20,7 +20,9 @@
     <div class="left__part">
       <Gosto-billing-details
         (billingFormUpdated)="onBillingFormUpdated($event)"
-        (shippingFormUpdated)="onShippingFormUpdated($event)" />
+        (shippingFormUpdated)="onShippingFormUpdated($event)"
+        (toggleShippingFormAccordion)="ontoggleShippingFormAccordion($event)"
+        />
     </div>
     <div class="right__part">
       <Gosto-pre-order-info
