@@ -12,6 +12,7 @@ import { getShippingCost } from '../../../../store/Shipping/shipping.selector';
 import { CartItem } from '../../../core/models/CartItem';
 import { getCartItems, getSubTotal } from '../../../../store/Cart/cart.selectors';
 import * as ShippingActions from '../../../../store/Shipping/shipping.actions'
+import { PaymentMethods } from '../../../core/enums/PaymentMethods.enum';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class PreOrderInfoComponent implements OnInit {
   subtotal$!: Observable<number>;
   shippingCost$!: Observable<number>;
   shippingCostForm!: FormGroup
+  paymentMethodForm!: FormGroup
   cartItems$!: Observable<CartItem[]>;
   shippingFormData = [
     { id: 'flatRate', label: 'Flat rate', value: ShippingType.Flat, cost: '20:00' },
@@ -39,9 +41,15 @@ export class PreOrderInfoComponent implements OnInit {
     { id: 'localPickup', label: 'Local pickup', value: ShippingType.Local, cost: '10:00' },
   ]
 
+  paymentMethodData =[
+    {id:1 , label: 'Direct bank transfer',value: PaymentMethods.DIRECT_BANK_TRANSFER},
+    {id:2 , label: 'Cash on delivery',value: PaymentMethods.CASH_ON_DELIVERY}
+  ]
+
 
   ngOnInit(): void {
     this.initShippingCostForm();
+    this.initPaymentMethodsForm();
     this.getShippingCost();
     this.getCartItems();
     this.getCartSubTotal();
@@ -53,6 +61,12 @@ export class PreOrderInfoComponent implements OnInit {
   initShippingCostForm() {
     this.shippingCostForm = this._fb.group({
       shippingOption: ['']
+    })
+  }
+
+  initPaymentMethodsForm() {
+    this.paymentMethodForm = this._fb.group({
+      methodOption: ['']
     })
   }
 

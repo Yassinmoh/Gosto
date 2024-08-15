@@ -112,6 +112,38 @@
       }
     }
   }
+  .payment_Method__info {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #cccccc93;
+    z-index: 1000;
+
+    .text {
+      @include textStyle(16px, 24px, #4F4F4F, 500);
+      white-space: nowrap;
+    }
+
+
+    text-align: end;
+
+    form {
+      .form-field {
+        padding: 0.2rem 0;
+
+        label {
+          @include textStyle(15px, 21px, #4F4F4F, 400);
+          padding: 0.5rem;
+
+          span {
+            @include textStyle(15px, 21px, #0A2748, 700);
+          }
+        }
+
+      }
+    }
+  }
 
   .shipping__address {
     z-index: 100000;

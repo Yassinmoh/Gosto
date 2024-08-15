@@ -27,6 +27,18 @@
       }
     </form>
   </div>
+
+  <div class="payment_Method__info">
+    <p class="text">Payment Method</p>
+    <form [formGroup]="paymentMethodForm">
+      @for(item of paymentMethodData;track item.id){
+      <div class="form-field">
+        <label [for]="item.id">{{item.label}}</label>
+        <input type="radio" formControlName="methodOption" [id]="item.id" [value]="item.value">
+      </div>
+      }
+    </form>
+  </div>
   <div class="total">
     <p class="title">TOTAL</p>
     <p>${{(total$ | async)?.toFixed(2)}}</p>
