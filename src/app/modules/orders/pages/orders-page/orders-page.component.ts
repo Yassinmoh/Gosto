@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { OrderState } from '../../../../store/Order/order.reducer';
 import { Observable, tap } from 'rxjs';
-import { getOrder } from '../../../../store/Order/order.selectors';
+import { getOrderDetails } from '../../../../store/Order/order.selectors';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,6 +16,7 @@ export class OrdersPageComponent implements OnInit {
 
   _store = inject(Store<OrderState>)
   order$!: Observable<any>
+  orderDetails$!: Observable<any>
   date:any
   ngOnInit(): void {
     this.getOrderDetails()
@@ -23,8 +24,11 @@ export class OrdersPageComponent implements OnInit {
   }
 
   getOrderDetails(){
-    this.order$ =  this._store.select(getOrder).pipe(
-      tap(data => console.log("Order Details",data))
+    // this.order$ =  this._store.select(getOrder).pipe(
+    //   tap(data => console.log("Order",data))
+    // )
+    this.orderDetails$ =  this._store.select(getOrderDetails).pipe(
+      tap(data => console.log("Billing Details",data))
     )
   }
 

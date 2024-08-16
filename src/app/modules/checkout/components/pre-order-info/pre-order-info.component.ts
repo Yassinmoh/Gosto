@@ -12,6 +12,7 @@ import { getShippingCost } from '../../../../store/Shipping/shipping.selector';
 import { CartItem } from '../../../core/models/CartItem';
 import { getCartItems, getSubTotal } from '../../../../store/Cart/cart.selectors';
 import * as ShippingActions from '../../../../store/Shipping/shipping.actions'
+import * as OrderActions from '../../../../store/Order/order.actions'
 import { PaymentMethods } from '../../../core/enums/PaymentMethods.enum';
 
 
@@ -85,6 +86,9 @@ export class PreOrderInfoComponent implements OnInit {
   getUserSelection() {
     this.shippingCostForm.get("shippingOption")?.valueChanges.subscribe(res => {
       this._store.dispatch(ShippingActions.setShippingCost({ shippingType: res }))
+    })
+    this.paymentMethodForm.get("methodOption")?.valueChanges.subscribe(res => {
+      this._store.dispatch(OrderActions.setPaymentMethod({paymentMethod:res}))
     })
   }
 
