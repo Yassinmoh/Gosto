@@ -44,6 +44,7 @@ export class CheckoutPageComponent implements OnInit {
   onBillingFormUpdated(form: FormGroup) {
     this.billingForm = form
   }
+
   onShippingFormUpdated(form: FormGroup) {
     this.shippingForm = form
   }

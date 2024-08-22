@@ -1,4 +1,14 @@
 <section class="order__page">
+  <p
+  name=""
+  style="position: relative; float: right;"
+  id=""
+  class="btn btn-primary"
+  role="button"
+  (click)="downloadReceipt()"
+  id="receipt"
+  ><i class="fa fa-download"></i> Receipt</p
+>
   <p class="title">Order</p>
     <div *ngIf="orderDetails$ | async as orderDetails">
       <div class="top__details">
