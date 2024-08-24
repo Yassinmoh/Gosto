@@ -5,6 +5,23 @@
   padding: 35% 0.5rem 1rem 0.5rem;
   min-height: 100vh;
 
+  #receipt{
+    width: fit-content;
+    background: #0071e3;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    p{
+    @include textStyle(19px, 22px, #fff, 500);
+    }
+  }
+
   .title {
     @include textStyle(50px, 46px, #0A2748, 400);
     text-align: center;
@@ -44,10 +61,10 @@
   }
 
   .bottom__details {
-    margin: 10% 0;
+    margin: 20% 0;
 
     .title {
-      text-align: left;
+      text-align: center;
     }
 
     table {
@@ -103,12 +120,24 @@
     .order__page {
       padding: 8% 20% 1rem 20%;
 
+      #receipt{
+        bottom: 3.5%;
+      }
+
       .top__details {
         margin-top: 5%;
 
         .details__box {
           width: 100%;
           margin: 1.5rem auto 1rem auto;
+        }
+      }
+
+      .bottom__details{
+        margin: 10% 0;
+
+        .title {
+          text-align: left;
         }
       }
     }

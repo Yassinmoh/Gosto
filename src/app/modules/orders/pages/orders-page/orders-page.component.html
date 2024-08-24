@@ -1,14 +1,8 @@
 <section class="order__page">
-  <p
-  name=""
-  style="position: relative; float: right;"
-  id=""
-  class="btn btn-primary"
-  role="button"
-  (click)="downloadReceipt()"
-  id="receipt"
-  ><i class="fa fa-download"></i> Receipt</p
->
+  <div (click)="downloadReceipt()" id="receipt">
+    <p>Receipt</p>
+  </div>
+
   <p class="title">Order</p>
     <div *ngIf="orderDetails$ | async as orderDetails">
       <div class="top__details">
@@ -43,10 +37,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Product 1</td>
-                <td>$100</td>
-              </tr>
+              @for(product of orderDetails.orderdItems; track product){
+                <tr>
+                  <td>{{product.name}}</td>
+                  <td>${{product.price}}</td>
+                </tr>
+              }
             </tbody>
             <tfoot>
               <tr>
