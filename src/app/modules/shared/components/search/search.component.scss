@@ -1,0 +1,42 @@
+@import 'common';
+
+.search {
+  position: relative;
+  form {
+    input {
+      border: 0;
+      outline: none;
+      width: 100%;
+      background: $color-gray;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      color: #fff;
+    }
+  }
+
+  .search__result__suggestion{
+    position: absolute;
+    width: 17.2rem;
+    height: 300px;
+    overflow-y: scroll;
+    top: 3rem;
+    background: #fff;
+    right: 0px;
+    padding: 0.4rem;
+
+    &::-webkit-scrollbar {
+      width: 0.3em;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #C6452C;
+      outline: 1px solid #C6452C;
+      border-radius: 20px;
+    }
+  }
+
+}

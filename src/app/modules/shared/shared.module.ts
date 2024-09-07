@@ -15,6 +15,8 @@ import { SkeletonComponent } from './components/skeleton/skeleton.component';
 import { RecommendedProductsComponent } from './components/recommended-products/recommended-products.component';
 import { RecommendedProductCardComponent } from './components/cards/recommended-product-card/recommended-product-card.component';
 import { CartItemComponent } from './components/cards/cart-item/cart-item.component';
+import { SearchComponent } from './components/search/search.component';
+import { SearchResultCardComponent } from './components/cards/search-result-card/search-result-card.component';
 
 
 
@@ -36,7 +38,9 @@ import { CartItemComponent } from './components/cards/cart-item/cart-item.compon
     SkeletonComponent,
     RecommendedProductsComponent,
     RecommendedProductCardComponent,
-    CartItemComponent
+    CartItemComponent,
+    SearchComponent,
+    SearchResultCardComponent
   ],
   exports:[
     MiniHeaderComponent,
@@ -53,7 +57,9 @@ import { CartItemComponent } from './components/cards/cart-item/cart-item.compon
     SkeletonComponent,
     RecommendedProductsComponent,
     RecommendedProductCardComponent,
-    CartItemComponent
+    CartItemComponent,
+    SearchComponent,
+    SearchResultCardComponent
   ]
 })
 export class SharedModule { }

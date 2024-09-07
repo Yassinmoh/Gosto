@@ -11,12 +11,13 @@ import { Observable, of } from 'rxjs';
 import { getCartItemsCount } from '../../../../store/Cart/cart.selectors';
 import { WishlistState } from '../../../../store/Wishlist/wishlist.reducer';
 import { wishListItemsCount } from '../../../../store/Wishlist/wishlist.selectors';
+import { SearchComponent } from '../search/search.component';
 
 
 @Component({
   selector: 'Gosto-header',
   standalone: true,
-  imports: [CommonModule, LanguageSwitcherComponent, RouterModule],
+  imports: [CommonModule, LanguageSwitcherComponent, RouterModule,SearchComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
   currentUrl: string = ''
   cartItemCount$: Observable<number> = of(0)
   wishListCount$: Observable<number> = of(0)
+
 
   _breakpointObserver: BreakpointObserver = inject(BreakpointObserver);
   _store = inject(Store<AppState | CartState | WishlistState>)
@@ -71,4 +73,5 @@ export class HeaderComponent implements OnInit {
   getWishListCount(){
     this.wishListCount$=this._store.select(wishListItemsCount)
   }
+
 }

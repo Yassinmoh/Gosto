@@ -1,0 +1,30 @@
+@import 'common';
+
+.search__result__card{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: end;
+  border-bottom: 1px solid #ccc;
+  padding: 0.4rem 0.3rem;
+
+  .img__box{
+    width: 50px;
+    height: 50px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  a{
+    @include textStyle(13px, 19px, #0A2748, 400);
+    cursor: pointer;
+    text-decoration: none;
+    &:hover{
+      color: #C6452C;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<div class="search">
+  <form [formGroup]="searchForm">
+    <input type="text" formControlName="searchInput" placeholder="search">
+  </form>
+  <ng-container *ngIf="searchResults$ | async as results">
+      @if(showResults){
+      <div class="search__result__suggestion" *ngIf="results.length">
+        @for(product of results;track product){
+          <Gosto-search-result-card [product]="product" (closedSearchResult)="getShowSearchResultsState($event)"/>
+        }
+      </div>
+    }
+    </ng-container>
+
+</div>

@@ -1,6 +1,6 @@
 @import 'common';
 
-header{
+header {
   width: 100%;
   height: 50px;
   display: flex;
@@ -13,18 +13,19 @@ header{
   top: 1%;
   z-index: 100;
 
-  &:is(.shop-style){
+  &:is(.shop-style) {
     height: 60px;
     background-color: black;
     top: 0;
   }
 
-  .icons__container{
+  .icons__container {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
     gap: 0.5rem;
-    div{
+
+    div:not(.search,.search__result__suggestion) {
       width: 40px;
       height: 40px;
       position: relative;
@@ -34,11 +35,13 @@ header{
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      svg{
+
+      svg {
         width: 18px;
         height: 18px;
       }
-      span{
+
+      span {
         width: 17px;
         height: 17px;
         background: #0071E3;
@@ -46,68 +49,57 @@ header{
         position: absolute;
         top: -10%;
         right: -10%;
-        @include textStyle(13px,15.6px,#fff,500);
+        @include textStyle(13px, 15.6px, #fff, 500);
         display: flex;
         align-items: center;
         justify-content: center;
       }
     }
-
-    form{
-      input{
-        border: 0;
-        outline: none;
-        width: 100%;
-        background: $color-gray;
-        padding: 0.5rem 1.5rem;
-        border-radius: 20px;
-        color: #fff ;
-      }
-    }
   }
 
-  .menu__container{
+  .menu__container {
     margin-left: 13%;
 
-    ul{
+    ul {
       display: flex;
       align-items: center;
       justify-content: center;
       list-style: none;
       gap: 2rem;
-      li{
-        @include textStyle(17px,15.6px,#fff,500);
+
+      li {
+        @include textStyle(17px, 15.6px, #fff, 500);
         cursor: pointer;
       }
     }
   }
 
-  .logo{
+  .logo {
     width: 90px;
     height: 25px;
     cursor: pointer;
 
-    img{
+    img {
       width: 100%;
       height: 100%;
     }
   }
 
-  .burger__menu{
-    svg{
+  .burger__menu {
+    svg {
       width: 25px;
       height: 25px;
     }
   }
 }
 
-@include tabletScreen{
-  :host{
-    header{
+@include tabletScreen {
+  :host {
+    header {
       top: 5%;
       padding: 0.5rem 2.5rem;
 
-      &:is(.shop-style){
+      &:is(.shop-style) {
         top: 0;
       }
     }

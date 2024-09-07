@@ -1,0 +1,4 @@
+<div class="search__result__card">
+  <div class="img__box"><img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name" /></div>
+  <a (click)="clickProduct()" [routerLink]="['/shop/product',this.product.id]">{{product.name}}</a>
+</div>
