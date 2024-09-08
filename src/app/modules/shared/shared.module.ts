@@ -17,6 +17,7 @@ import { RecommendedProductCardComponent } from './components/cards/recommended-
 import { CartItemComponent } from './components/cards/cart-item/cart-item.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchResultCardComponent } from './components/cards/search-result-card/search-result-card.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 
 
@@ -40,7 +41,8 @@ import { SearchResultCardComponent } from './components/cards/search-result-card
     RecommendedProductCardComponent,
     CartItemComponent,
     SearchComponent,
-    SearchResultCardComponent
+    SearchResultCardComponent,
+    PaginatorComponent
   ],
   exports:[
     MiniHeaderComponent,
@@ -59,7 +61,8 @@ import { SearchResultCardComponent } from './components/cards/search-result-card
     RecommendedProductCardComponent,
     CartItemComponent,
     SearchComponent,
-    SearchResultCardComponent
+    SearchResultCardComponent,
+    PaginatorComponent
   ]
 })
 export class SharedModule { }

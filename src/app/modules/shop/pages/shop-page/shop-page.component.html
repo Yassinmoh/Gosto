@@ -49,6 +49,12 @@
     <Gosto-skeleton></Gosto-skeleton>
     }
   </div>
+  <Gosto-paginator
+  [pageNumber]="pageNumber"
+  [pageSize]="pageSize"
+  [totalRecords]="totalRecords"
+  (pageChange)="onPageChange($event)">
+</Gosto-paginator>
 </section>
 
 <Gosto-filter-popup *ngIf="showFilterPopup$ | async"></Gosto-filter-popup>

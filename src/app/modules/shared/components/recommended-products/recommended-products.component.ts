@@ -49,15 +49,20 @@ export class RecommendedProductsComponent implements OnInit {
   }
 
   async loadProducts() {
-    const cashedData = await this.indexedDBService.getProducts('Products');
-    if (cashedData && cashedData.length > 0) {
-      this.products$ = of(cashedData);
+    const cacheKey = `Products_Page_${this.pageNumber}_Size_${this.pageSize}`; // Unique cache key for each page
+
+    const cachedData = await this.indexedDBService.getProducts(cacheKey); // Get cached data for the current page
+
+
+
+    if (cachedData && cachedData.length > 0) {
+      this.products$ = of(cachedData); // Use cached products for this page
     } else {
       this.products$ = this._productService.getProducts(this.pageNumber, this.pageSize).pipe(
-        tap(async (data) =>{
-          await this.indexedDBService.setProducts(data)
+        tap(async (response: any) => {
+          await this.indexedDBService.setProducts(cacheKey, response); // Cache products for this page
         })
-      )
+      );
     }
   }
 }

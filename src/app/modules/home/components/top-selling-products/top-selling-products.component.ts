@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { SellingProductCardComponent } from '../../../shared/components/cards/selling-product-card/selling-product-card.component';
 import { ProductService } from '../../../core/services/product.service';
-import { Observable, of, tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 import { Product } from '../../../core/models/product';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { IndexedDBService } from '../../../core/services/indexeddb.service';
@@ -63,6 +63,7 @@ export class TopSellingProductsComponent implements OnInit {
       this.products$ = of(cachedProducts);
     } else {
       this.products$ = this.productService.getProducts(this.pageNumber, this.pageSize).pipe(
+        map(data => data.items),
         tap(async (data) => {
           await this.indexedDBService.setTopSellingProducts(data);
         })

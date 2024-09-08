@@ -16,7 +16,10 @@ interface MyDB extends DBSchema {
 
   'Products': {
     key: string;
-    value: Product[];
+    value: {
+      id: string; // Cache key (like page number + size)
+      items: Product[]; // Actual products for the page
+    };
   };
 }
 
@@ -31,7 +34,7 @@ export class IndexedDBService {
       upgrade(db) {
         db.createObjectStore('TopSellingProducts');
         db.createObjectStore('IntroSlider');
-        db.createObjectStore('Products');
+        db.createObjectStore('Products',{ keyPath: 'id' });
       },
     });
   }
@@ -60,16 +63,17 @@ export class IndexedDBService {
     return db.get('TopSellingProducts', key);
   }
 
-    //****************** Store pageNumber 1 in Shop ******************
+  //****************** Store pageNumber 1 in Shop ******************
 
-async setProducts(products: Product[]) {
+  async setProducts(cacheKey: string, products: Product[]): Promise<any> {
     const db = await this.dbPromise;
-    return db.put('Products', products, 'Products');
+    return db.put('Products', { id: cacheKey, items: products }); // Ensure 'id' is the cacheKey
   }
 
-  async getProducts(key: string): Promise<Product[] | undefined> {
+  async getProducts(cacheKey: string): Promise<Product[] | undefined> {
     const db = await this.dbPromise;
-    return db.get('Products', key);
+    const result = await db.get('Products', cacheKey);
+    return result ? result.items : undefined; // Return the products array
   }
 }
 
