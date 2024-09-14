@@ -1,0 +1,94 @@
+@import 'common';
+
+
+::ng-deep p-paginator {
+  .p-paginator {
+    margin: 1.5rem 0;
+    background: transparent;
+    gap: 0.5rem;
+    justify-content: center;
+
+    .p-paginator-first,
+    .p-paginator-last {
+      display: none;
+    }
+
+    .p-ripple {
+      border: 2px solid #c6452c;
+      border-radius: 8px;
+      border-radius: 50%;
+
+      .p-paginator-icon {
+        width: 22px;
+        height: auto;
+        color: #c6452c;
+      }
+    }
+
+    .p-paginator-pages {
+      .p-paginator-page {
+        @include textStyle(16px, 18px, #c6452c, 500);
+        background: #fff;
+        margin: 0 0.2rem;
+        border-radius: 50%;
+
+        &:is(.p-highlight) {
+          background: #c6452c;
+          @include textStyle(16px, 18px, #fff, 500);
+        }
+      }
+    }
+
+
+    .p-dropdown {
+      border: 1px solid #c6452c;      // Border style
+      border-radius: 4px;
+      padding: 5px;
+      width: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;                // Set the width of the dropdown
+
+      .p-dropdown-label {
+        color: #c6452c;
+        font-weight: 600;
+      }
+
+      .p-dropdown-trigger{
+        .p-icon{
+          color: #c6452c;
+        }
+      }
+
+      &:hover {
+        background: #c6452c;
+
+        .p-dropdown-label{
+          color: #fff;
+        }
+
+        .p-dropdown-trigger{
+          .p-icon{
+            color: #fff;
+          }
+        }
+      }
+
+      .p-dropdown-panel {
+        background-color: #fff;     // Background of dropdown options
+        border: 1px solid #ccc;
+
+        .p-dropdown-item {
+          padding: 10px;
+          color: #555;
+          border: 0;
+          background: transparent;
+
+          &:hover {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}
