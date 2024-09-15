@@ -1,0 +1,22 @@
+<div class="product__deal__card">
+  <div class="product__deal__card-img">
+    <img [src]="'../../../../../../assets/images/products/'+ product.imageUrl" [alt]="product.name">
+  </div>
+  <div class="product__deal__card-off">
+    <span>{{product.sale}}% off</span>
+    <span>Limited time deal</span>
+  </div>
+  <div class="product__deal__card-price">
+    <div class="product__deal__card-price--new">
+      <span>EGP</span>
+      <span>{{(product.price) | salePrice:product.sale}}</span>
+      <span>00</span>
+    </div>
+    <div class="product__deal__card-price--old">
+      <span>EGP {{(product.price)}}</span>
+    </div>
+  </div>
+  <div class="product__deal__card-name">
+    <p>{{product.name | maxLength:20}}</p>
+  </div>
+</div>

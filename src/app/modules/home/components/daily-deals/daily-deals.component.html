@@ -1,0 +1,15 @@
+<section *ngIf="products$ | async as products">
+  <div class="container">
+    <p class="title">Daily Essentials | Up to 35% off | Low Prices <span [routerLink]="['/shop']">Shop more deals</span></p>
+    <div class="products__container">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let product of products; let i = index">
+          <ng-template carouselSlide>
+            <Gosto-product-deal-card [product]="product"></Gosto-product-deal-card>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+

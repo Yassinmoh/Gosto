@@ -2,7 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Product } from '../models/product';
 import { environment } from '../../../../environment/environment';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable, take, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +43,14 @@ export class ProductService {
   //Search Products:
   search(query:string):Observable<Product[]>{
     return this._http.get<Product[]>(`${environment.apiURL}/Products?name_like=${query}`)
+  }
+
+  //Get Top Products Have Sale:
+  getTopProductsHaveSale():Observable<Product[]>{
+    return this._http.get<Product[]>(`${environment.apiURL}/Products`).pipe(
+      map(res => res.sort((a,b)=>(b.sale - a.sale)).slice(0, 15)),
+      tap(data => console.log("Top Sale",data))
+    )
   }
 
 }
