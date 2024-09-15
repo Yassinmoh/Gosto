@@ -32,16 +32,16 @@
         </div>
       </div>
       <div class="sort">
-        <p-dropdown [options]="labels" optionLabel="name" placeholder="Sort" />
+        <p-dropdown [options]="labels" optionLabel="name"optionValue="code" placeholder="Sort" (onChange)="sort($event)" />
       </div>
     </div>
     <Gosto-filter-dialog *ngIf="showFilterDialog$ | async"></Gosto-filter-dialog>
-    @if (products$ | async) {
+    @if (sortedProducts$ | async) {
     <div class="products__container" [ngClass]="{
       'two-col':(viewMode$ |async) == 'two-col',
       'three-col':(viewMode$ |async) == 'three-col',
       'four-col':(viewMode$ |async) == 'four-col'}">
-      @for (product of (products$ | async); track product.id) {
+      @for (product of (sortedProducts$ | async); track product.id) {
       <Gosto-product-card [product]="product"></Gosto-product-card>
       }
     </div>

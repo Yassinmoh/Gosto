@@ -18,4 +18,6 @@ export interface Product {
   reviews: Review[]
   specifications: Specifications
   description: string[]
+  releaseDate:number
+  popularity:number
 }
