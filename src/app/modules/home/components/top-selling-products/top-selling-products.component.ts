@@ -49,7 +49,6 @@ export class TopSellingProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.products$ = this.productService.getProducts(this.pageNumber,this.pageSize)
     this.loadProducts()
   }
 
