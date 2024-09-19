@@ -70,5 +70,11 @@ table {
     @include textStyle(20px, 20px, #C6452C, 400);
     text-align: center;
     margin: 1.5rem 0 ;
+
+    span{
+      color: #0A2748;
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 }

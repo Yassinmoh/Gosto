@@ -40,7 +40,7 @@ export class TopSellingProductsComponent implements OnInit {
         items: 1,
       },
       600: {
-        items: 2,
+        items: 3,
       },
       1023: {
         items: 4,

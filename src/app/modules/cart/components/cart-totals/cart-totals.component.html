@@ -48,6 +48,6 @@
     <p>${{(total$ | async)?.toFixed(2)}}</p>
   </div>
   <div class="PTcheckout_btn">
-    <button [routerLink]="['/checkout']" class="PTcheckout">Proceed To Checkout</button>
+    <button [disabled]="(subtotal$ | async)?.toFixed(2) == '0.00'" [routerLink]="['/checkout']" class="PTcheckout">Proceed To Checkout</button>
   </div>
 </div>

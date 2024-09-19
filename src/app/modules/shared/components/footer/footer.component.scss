@@ -147,19 +147,23 @@ footer {
     align-items: center;
     text-align: center;
     gap: 1rem;
+
     >div {
-      ul{
+      ul {
         display: none;
       }
     }
-    p{
+
+    p {
       @include textStyle(13px, 26px, #555555, 400);
-      span{
+
+      span {
         color: #0071E3;
       }
     }
   }
-  #space{
+
+  #space {
     display: block;
     height: 70px;
   }
@@ -189,20 +193,29 @@ footer {
         width: 75%;
         margin: 0 auto;
 
-        .about__Store{
-          .cta{
+        .about__Store {
+          .cta {
             margin-top: 0.7rem;
           }
         }
 
         div {
-          flex: 1;
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4) {
+            flex: 1;
+          }
+          &:nth-child(1),
+          &:nth-child(5){
+            flex: 2;
+          }
 
           ul {
             li {
               padding: 0.3rem 0;
               transition: all 0.2s ease-in-out;
-              &:hover{
+
+              &:hover {
                 padding-left: 0.5rem;
                 color: #0071E3;
               }
@@ -215,14 +228,17 @@ footer {
       .bottom__section {
         width: 75%;
         margin: 0 auto;
+
         >div {
           padding: 2rem;
+
           ul {
 
             list-style: none;
             display: flex;
             justify-content: center;
             gap: 1.5rem;
+
             li {
               @include textStyle(13px, 26px, #555555, 400);
               cursor: pointer;
@@ -230,7 +246,8 @@ footer {
           }
         }
       }
-      #space{
+
+      #space {
         display: none;
       }
     }

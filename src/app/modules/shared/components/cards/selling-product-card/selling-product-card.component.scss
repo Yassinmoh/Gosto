@@ -1,7 +1,7 @@
 @import 'common';
 
 .product__card {
-  height: 550px;
+  max-height: 550px;
   width: 93%;
   margin: 0 auto;
   background: #fff;
@@ -99,14 +99,14 @@
 @include DesktopScreen {
   :host {
     .product__card {
-      height: 60vh;
+      // height: 60vh;
       gap: 2rem;
 
       .img__box {
         position: relative;
         cursor: pointer;
         width: 100%;
-        overflow: hidden;
+        // overflow: hidden;
 
         img{
           transition: opacity .5s ease, transform 2s cubic-bezier(0, 0, .44, 1.18), -webkit-transform 2s cubic-bezier(0, 0, .44, 1.18);

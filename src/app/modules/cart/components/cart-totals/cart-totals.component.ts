@@ -34,9 +34,9 @@ export class CartTotalsComponent implements OnInit {
 
 
   shippingFormData = [
-    { id: 'flatRate', label: 'Flat rate', value: ShippingType.Flat, cost: '20:00' },
     { id: 'freeShipping', label: 'Free shipping', value: ShippingType.Free, cost: '00:00' },
     { id: 'localPickup', label: 'Local pickup', value: ShippingType.Local, cost: '10:00' },
+    { id: 'flatRate', label: 'Flat rate', value: ShippingType.Flat, cost: '20:00' },
   ]
 
   ngOnInit(): void {

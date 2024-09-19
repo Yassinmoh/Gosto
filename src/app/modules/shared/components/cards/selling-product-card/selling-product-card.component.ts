@@ -8,11 +8,12 @@ import * as cartActions from '../../../../../store/Cart/cart.actions'
 import * as wishlistActions from '../../../../../store/Wishlist/wishlist.actions'
 import { ToastrService } from 'ngx-toastr';
 import { WishlistState } from '../../../../../store/Wishlist/wishlist.reducer';
+import { MaxlengthPipe } from '../../../pipes/maxlength.pipe';
 
 @Component({
   selector: 'Gosto-selling-product-card',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule,MaxlengthPipe],
   templateUrl: './selling-product-card.component.html',
   styleUrl: './selling-product-card.component.scss'
 })

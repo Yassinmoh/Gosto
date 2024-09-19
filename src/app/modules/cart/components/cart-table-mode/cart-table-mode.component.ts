@@ -7,12 +7,13 @@ import { Product } from '../../../core/models/product';
 import { getCartItems } from '../../../../store/Cart/cart.selectors';
 import { CartItem } from '../../../core/models/CartItem';
 import * as CartActions from '../../../../store/Cart/cart.actions'
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'Gosto-cart-table-mode',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './cart-table-mode.component.html',
   styleUrl: './cart-table-mode.component.scss'
 })

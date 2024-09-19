@@ -75,8 +75,18 @@
 @include DesktopScreen {
   :host {
     .top-selling {
+      margin-bottom: 18%;
+    }
+  }
+}
+
+@include DesktopScreen {
+  :host {
+    .top-selling {
       padding: 5rem 15rem 2rem 15rem;
       height: 92vh;
+      margin-bottom: 11%;
+
       .top__section {
         display: flex;
         align-items: center;
@@ -91,6 +101,7 @@
           flex-wrap: nowrap;
           justify-content: end;
           width: 100%;
+          gap: 0.5rem;
         }
       }
     }
