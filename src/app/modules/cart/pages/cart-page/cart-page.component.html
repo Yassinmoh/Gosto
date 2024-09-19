@@ -1,5 +1,6 @@
 <section class="cart__page">
   <p class="title">Shopping Cart </p>
+  <Gosto-progress-bar-gift />
   <div class="container" *ngIf="cartItems$ |async as cartItems">
     <div class="left__part">
       @for(item of cartItems;track item.id){

@@ -1,0 +1,23 @@
+@import 'common';
+
+
+section{
+    width: 100%;
+    div{
+        width: 65%;
+        height: 8px;
+        position: relative;
+        margin: 5% auto;
+        background: #ddd;
+        &::before{
+            content: '';
+            width: 65%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 0 6px 6px 0;
+            background: green;
+        }
+    }
+}

@@ -8,11 +8,12 @@ import { Store } from '@ngrx/store';
 import { getCartItems } from '../../../../store/Cart/cart.selectors';
 import { CommonModule } from '@angular/common';
 import { CartTotalsComponent } from '../../components/cart-totals/cart-totals.component';
+import { ProgressBarGiftComponent } from '../../components/progress-bar-gift/progress-bar-gift.component';
 
 @Component({
   selector: 'Gosto-cart-page',
   standalone: true,
-  imports: [CommonModule,CartTableModeComponent,CartitemGridCardComponent,CartTotalsComponent],
+  imports: [CommonModule,CartTableModeComponent,CartitemGridCardComponent,CartTotalsComponent,ProgressBarGiftComponent],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.scss'
 })
