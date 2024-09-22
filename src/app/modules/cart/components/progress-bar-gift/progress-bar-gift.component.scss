@@ -1,23 +1,94 @@
 @import 'common';
 
 
-section{
+section {
+  width: 100%;
+  margin-top: 4%;
+
+  .text {
     width: 100%;
-    div{
-        width: 65%;
-        height: 8px;
-        position: relative;
-        margin: 5% auto;
-        background: #ddd;
-        &::before{
-            content: '';
-            width: 65%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            border-radius: 0 6px 6px 0;
-            background: green;
-        }
+    margin: 0 auto;
+
+    p {
+      text-align: center;
+      @include textStyle(18px, 21px, #0A2748, 700);
     }
+  }
+
+  .text__win {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 10%;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 2rem;
+      @include textStyle(20px, 21px, #0A2748, 700);
+
+      span {
+        color: #C6452C;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div:not(.progress, .img__box) {
+      width: 65%;
+      height: 8px;
+      position: relative;
+      margin: 2% 0;
+      background: #ddd;
+
+      .progress {
+        max-width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 0 6px 6px 0;
+        background: green;
+        transition: all 0.5s ease;
+      }
+    }
+
+    .img__box {
+      padding: 10px;
+      border-radius: 50%;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 30px;
+      }
+    }
+  }
+}
+
+
+@include DesktopScreen {
+  :host {
+    section {
+      .bar {
+        .img__box {
+          img {
+            width: 48px;
+            height: 48px;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,3 +1,22 @@
 <section>
-    <div></div>
+      <p style="display: none;">{{(percentage$ | async)}}</p>
+  @if(!isReachToGift){
+    <div class="text">
+      <p>Get a special surprise on orders over $2500!</p>
+    </div>
+
+    <div class="bar">
+      <div>
+        <div [ngStyle]="{'width':(percentage$ | async) +'%'}" class="progress"></div>
+      </div>
+      <div class="img__box">
+        <img src="../../../../../assets/images/gift.gif" alt="gift">
+      </div>
+    </div>
+  }@else {
+    <div class="text__win">
+      <img src="../../../../../assets/images/gliter.gif" alt="gliter">
+      <p>Congratulations, enjoy a 15% discount coupon on your current order! <span (click)="copyToClipboard(coupon)">{{coupon}}</span></p>
+    </div>
+  }
 </section>
