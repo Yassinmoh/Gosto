@@ -8,19 +8,21 @@ import { getCartItems } from '../../../../store/Cart/cart.selectors';
 import { CartItem } from '../../../core/models/CartItem';
 import * as CartActions from '../../../../store/Cart/cart.actions'
 import { RouterModule } from '@angular/router';
+import { MaxlengthPipe } from '../../../shared/pipes/maxlength.pipe';
 
 
 @Component({
   selector: 'Gosto-cart-table-mode',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule,MaxlengthPipe],
   templateUrl: './cart-table-mode.component.html',
   styleUrl: './cart-table-mode.component.scss'
 })
 export class CartTableModeComponent {
 
-  _store = inject(Store<CartState>)
   @Input() cartItems!: CartItem[]
+
+  _store = inject(Store<CartState>)
   cartItems$!: Observable<CartItem[]>;
   quantity!: number
 

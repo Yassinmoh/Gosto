@@ -6,12 +6,13 @@ import { CartState } from '../../../../store/Cart/cart.reducer';
 import { ToastrService } from 'ngx-toastr';
 import * as CartActions from '../../../../store/Cart/cart.actions'
 import { CartItem } from '../../../core/models/CartItem';
+import { MaxlengthPipe } from '../../../shared/pipes/maxlength.pipe';
 
 
 @Component({
   selector: 'Gosto-cartitem-grid-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MaxlengthPipe],
   templateUrl: './cartitem-grid-card.component.html',
   styleUrl: './cartitem-grid-card.component.scss'
 })

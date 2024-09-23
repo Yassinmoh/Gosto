@@ -3,7 +3,7 @@
     <img [src]="'../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
   </div>
   <div class="product__info">
-    <p class="title">{{product.name}}</p>
+    <p class="title">{{product.name | maxLength:20}}</p>
     <div>
       <div>
         <span>Total:</span>

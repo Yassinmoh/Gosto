@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { CartState } from '../../../../store/Cart/cart.reducer';
 import { getSubTotal } from '../../../../store/Cart/cart.selectors';
 import { map, Observable, of, tap } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class ProgressBarGiftComponent implements OnInit {
   coupon!: string
 
   _store = inject(Store<CartState>)
-  // _toster = inject()
+  _toastr = inject(ToastrService)
 
 
   ngOnInit(): void {
@@ -47,10 +48,10 @@ export class ProgressBarGiftComponent implements OnInit {
   }
 
   copyToClipboard(text: string) {
-    navigator.clipboard.writeText(text).then(()=>{
-      console.log('Copied to clipboard:', text);
-    }).catch((error)=>{
-      console.log('something went wrong:', error);
+    navigator.clipboard.writeText(text).then(() => {
+      this._toastr.success(`Copied to clipboard: ${text}`)
+    }).catch((error) => {
+      this._toastr.error(`Something went wrong: ${error}`)
     })
   }
 }

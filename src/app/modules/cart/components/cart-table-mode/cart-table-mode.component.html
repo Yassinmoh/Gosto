@@ -16,7 +16,7 @@
           <use href="#close-icon"></use>
         </svg></td>
       <td><img [src]="'../../../../../assets/images/products/'+cartItem.imageUrl" [alt]="cartItem.name"></td>
-      <td>{{cartItem.name}}</td>
+      <td>{{cartItem.name | maxLength:20}}</td>
       <td>${{(cartItem.price).toFixed(2)}}</td>
       <td>
         <div class="counter">

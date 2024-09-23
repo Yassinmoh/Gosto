@@ -21,16 +21,17 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column-reverse;
 
     img {
-      width: 10%;
+      width: 50%;
     }
 
     p {
       text-align: center;
       margin-top: 2rem;
       @include textStyle(20px, 21px, #0A2748, 700);
-
+      padding: 0 1rem;
       span {
         color: #C6452C;
         cursor: pointer;
@@ -87,6 +88,14 @@ section {
             width: 48px;
             height: 48px;
           }
+        }
+      }
+
+      .text__win{
+        flex-direction: row;
+
+        img{
+          width: 10%;
         }
       }
     }
