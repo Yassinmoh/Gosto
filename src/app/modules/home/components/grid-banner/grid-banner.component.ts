@@ -20,7 +20,7 @@ export class GridBannerComponent implements OnInit {
       "subtitle": "Apple Watch Series 6 GPS Aluminum Case.",
       "btnLabel": "LEARN MORE",
       "imgUrl": "top-apple.jpg",
-      "animateType":"fade-right"
+      "animateType":"fade-up"
     },
     {
       "id": 2,
@@ -38,7 +38,7 @@ export class GridBannerComponent implements OnInit {
       "subtitle": "Pre-order starting at 5:00 a.m. PDT on 2.19.",
       "btnLabel": "LEARN MORE",
       "imgUrl": "top-oppo.jpg",
-      "animateType":"fade-left"
+      "animateType":"fade-up"
     }
   ];
 
@@ -60,7 +60,7 @@ export class GridBannerComponent implements OnInit {
       "subtitle": "A powerful phone to help you relax at work and play. Hurry up!",
       "btnLabel": "LEARN MORE",
       "imgUrl": "FlipBuds.jpg",
-      "animateType":"fade-right"
+      "animateType":"fade-up"
     },
     {
       "id": 2,
@@ -69,7 +69,7 @@ export class GridBannerComponent implements OnInit {
       "subtitle": "Drone Quadcopter UAV with 20MP Camera 1″ CMOS Sensor 4K",
       "btnLabel": "LEARN MORE",
       "imgUrl": "Phantom.jpg",
-      "animateType":"fade-left"
+      "animateType":"fade-up"
     },
   ]
 
