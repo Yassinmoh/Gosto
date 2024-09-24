@@ -10,11 +10,12 @@ import { CartState } from '../../../../../store/Cart/cart.reducer';
 import { ToastrService } from 'ngx-toastr';
 import { CartItem } from '../../../../core/models/CartItem';
 import { WishlistState } from '../../../../../store/Wishlist/wishlist.reducer';
+import { MaxlengthPipe } from '../../../pipes/maxlength.pipe';
 
 @Component({
   selector: 'Gosto-cart-item',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,MaxlengthPipe],
   templateUrl: './cart-item.component.html',
   styleUrl: './cart-item.component.scss'
 })

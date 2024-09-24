@@ -63,6 +63,15 @@
 
     .text {
       @include textStyle(16px, 24px, #4F4F4F, 500);
+      position: relative;
+
+      &::before{
+        content: '*';
+        color: red;
+        position: absolute;
+        right: -0.7rem;
+        top: 3px;
+      }
     }
 
     >div {
