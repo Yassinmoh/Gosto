@@ -3,17 +3,13 @@ import { MainSliderComponent } from '../../components/main-slider/main-slider.co
 import { GridBannerComponent } from '../../components/grid-banner/grid-banner.component';
 import { TopSellingProductsComponent } from '../../components/top-selling-products/top-selling-products.component';
 import { DailyDealsComponent } from '../../components/daily-deals/daily-deals.component';
+import { ScrollToTopDirective } from '../../../shared/directives/scroll-to-top.directive';
 
 @Component({
   selector: 'Gosto-home-page',
   standalone: true,
-  imports: [MainSliderComponent,GridBannerComponent,TopSellingProductsComponent,DailyDealsComponent],
+  imports: [MainSliderComponent,GridBannerComponent,TopSellingProductsComponent,DailyDealsComponent,ScrollToTopDirective],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
-export class HomePageComponent implements OnInit {
-
-  ngOnInit(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-}
+export class HomePageComponent {}
