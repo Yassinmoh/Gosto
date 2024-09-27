@@ -1,0 +1,171 @@
+@import 'common';
+
+section {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.863);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    .container {
+        width: 45%;
+        height: 75%;
+        background: #fff;
+        padding: 0.5rem 1.5rem 1rem 1.5rem;
+        position: relative;
+
+        border-radius: 5px;
+
+        .header {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            ::ng-deep p-dropdown {
+                width: 50%;
+
+                .p-dropdown {
+                    width: 100%;
+                    padding: 0.5rem 1rem;
+
+                    .p-overlay {
+                        .p-overlay-content {
+                            // background: red;
+                            // display: none;
+
+                            .p-dropdown-panel {
+                                .p-dropdown-header {
+                                    // background: red;
+                                    width: 100%;
+                                    height: 30px;
+                                    padding: 0.5rem;
+
+                                    .p-dropdown-filter-container {
+                                        // background: red;
+                                        width: 100%;
+                                        height: 30px;
+                                        padding: 0.5rem;
+
+                                        input {
+                                            width: 100%;
+                                            height: 32px;
+                                            outline: none;
+                                            padding: 0 1rem;
+
+                                            &:focus {
+                                                outline: none !important;
+                                                outline-width: 0 !important;
+                                                // border: 0;
+                                                box-shadow: none;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .p-dropdown-items-wrapper {
+                                    margin-top: 1.5rem;
+
+                                    ul {
+                                        li {
+                                            padding: 0.5rem 1rem;
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            svg {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+        }
+
+        .body {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2rem;
+
+            .source-product,
+            .compare-product {
+                background: rgba(128, 128, 128, 0.064);
+                width: 43%;
+                min-width: 310px;
+                height: 100%;
+                padding: 1rem;
+                border-radius: 5px;
+                flex: 1;
+
+                .img__box {
+                    width: 80%;
+                    height: auto;
+                    margin: 0 auto;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .product__info {
+                    p {
+                        @include textStyle(18px, 22px, #0A2748, 600);
+                        margin: 0.5rem 0;
+                        cursor: pointer;
+                        span {
+                            @include textStyle(15px, 22px, #393c41, 500);
+                            margin-left: 0.3rem;
+                        }
+                    }
+
+                    .rate {
+                        display: flex;
+                        align-items: center;
+                        padding: 0.2rem 0;
+                        margin-top: -5%;
+
+                        >div {
+                            margin: 0.3rem 0 0 0.3rem;
+
+                            svg {
+                                width: 15px;
+                                height: 20px;
+                                fill: transparent;
+                            }
+
+                            &:is(.selected) {
+                                svg {
+                                    fill: gold;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            svg {
+                width: 5%;
+                cursor: pointer;
+            }
+
+            .noProductcompare{
+                @include textStyle(18px, 22px, #0A2748, 600);
+                text-align: center;
+            }
+        }
+
+
+    }
+}

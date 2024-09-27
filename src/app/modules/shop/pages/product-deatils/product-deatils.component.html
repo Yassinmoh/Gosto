@@ -37,7 +37,7 @@
           <svg (click)="toggleToWishlist(product)"><use [attr.href]="(isInWishList$ | async) ? '#heart-r' : '#heart-w'"></use></svg>
           <span>ADD TO WISHLIST</span>
         </div>
-        <div>
+        <div (click)="compare()">
           <svg><use href="#Add_To_Compare"></use></svg>
           <span>ADD TO COMPARE</span>
         </div>
@@ -103,3 +103,5 @@
     <Gosto-recommended-products></Gosto-recommended-products>
   </div>
 </section>
+
+<Gosto-comparison-popup *ngIf="showComparasonPopup$ | async" [currentProduct]="product$ | async" [products]="allProduct$ | async"></Gosto-comparison-popup>

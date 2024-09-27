@@ -20,3 +20,8 @@ body::-webkit-scrollbar {
 .overflow-h{
   overflow: hidden;
 }
+
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

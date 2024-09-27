@@ -34,10 +34,7 @@ export class ProductService {
 
   //Get Product by id:
   getProductById(id:number | string):Observable<Product>{
-    return this._http.get<Product>(`${environment.apiURL}/Products/${id}`).pipe(
-      tap(product => console.log("Product:",product)
-      )
-    )
+    return this._http.get<Product>(`${environment.apiURL}/Products/${id}`)
   }
 
   //Search Products:
@@ -48,8 +45,7 @@ export class ProductService {
   //Get Top Products Have Sale:
   getTopProductsHaveSale():Observable<Product[]>{
     return this._http.get<Product[]>(`${environment.apiURL}/Products`).pipe(
-      map(res => res.sort((a,b)=>(b.sale - a.sale)).slice(0, 15)),
-      tap(data => console.log("Top Sale",data))
+      map(res => res.sort((a,b)=>(b.sale - a.sale)).slice(0, 15))
     )
   }
 

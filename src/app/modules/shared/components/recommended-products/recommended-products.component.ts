@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { Product } from '../../../core/models/product';
-import { Observable, of, tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 import { ProductService } from '../../../core/services/product.service';
 import { RecommendedProductCardComponent } from '../cards/recommended-product-card/recommended-product-card.component';
 
@@ -59,6 +59,7 @@ export class RecommendedProductsComponent implements OnInit {
       this.products$ = of(cachedData); // Use cached products for this page
     } else {
       this.products$ = this._productService.getProducts(this.pageNumber, this.pageSize).pipe(
+        map(data => data.items),
         tap(async (response: any) => {
           await this.indexedDBService.setProducts(cacheKey, response); // Cache products for this page
         })

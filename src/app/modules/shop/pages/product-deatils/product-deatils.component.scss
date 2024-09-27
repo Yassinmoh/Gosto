@@ -119,6 +119,7 @@
 
         span {
           @include textStyle(12px, 22px, #0A2748, 600);
+          cursor: pointer;
         }
 
         svg {

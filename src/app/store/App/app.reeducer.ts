@@ -2,12 +2,14 @@ import { createReducer, on } from "@ngrx/store";
 import * as appActions from './app.actions'
 import { environment } from "../../../environment/environment";
 import { Lang } from "../../modules/core/enums/lang.enum";
+
 export interface AppState {
   toggleShoppingCartPopup: boolean;
   toggleMenuPopup: boolean;
   toggleWishlistPopup: boolean;
   toggleFilterPopup: boolean;
   toggleFilterDialog: boolean;
+  toggleComparasonPopup: boolean;
   Lang: string | null;
   viewMode:string
 }
@@ -18,6 +20,7 @@ const initState = {
   toggleWishlistPopup: false,
   toggleFilterPopup: false,
   toggleFilterDialog:false,
+  toggleComparasonPopup:false,
   Lang: localStorage.getItem(environment.Storage.Lang)
       ? localStorage.getItem(environment.Storage.Lang)
       : Lang.English,
@@ -66,6 +69,12 @@ export const appReducer = createReducer(initState,
     return{
       ...state,
       viewMode:action.mode
+    }
+  }),
+  on(appActions.toggleComparasonPopup,(state:AppState)=>{
+    return{
+      ...state,
+      toggleComparasonPopup:!state.toggleComparasonPopup
     }
   })
 )

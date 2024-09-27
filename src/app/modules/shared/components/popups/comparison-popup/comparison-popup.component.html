@@ -1,0 +1,63 @@
+<section>
+    <div class="container">
+        <div class="header">
+            <svg (click)="close()">
+                <use href="#close-icon"></use>
+            </svg>
+            <p-dropdown [options]="products ?? []" optionLabel="name" optionValue="id" [filter]="true" filterBy="name" [showClear]="false"
+                placeholder="Select product" (onChange)="onProductChange($event)">
+                <ng-template let-prod pTemplate="item">
+                    <div class="flex align-items-center gap-2">
+                        <div>{{ prod.name | maxLength:20}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </div>
+        <div class="body">
+            <div class="source-product">
+                <div class="img__box">
+                    <img [src]="'../../../../../../assets/images/products/'+currentProduct?.imageUrl" [alt]="currentProduct?.name">
+                </div>
+                <div class="product__info">
+                    <p>Name:<span>{{currentProduct?.name}}</span></p>
+                    <p>Price:<span>${{currentProduct?.price}}</span></p>
+                    <p>Category:<span>{{currentProduct?.category}}</span></p>
+                    <p>Sizes:<span>XL,Xs</span></p>
+                    <div class="rate">
+                        <p>Rating:</p>
+                        <div *ngFor="let star of [].constructor(5);let i = index;" [ngClass]="{'selected' : currentProduct?.rating ?? 2 > i}">
+                            <svg>
+                                <use href="#star"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <svg>
+                <use href="#Add_To_Compare"></use>
+            </svg>
+            <div class="compare-product" *ngIf="comparativeProduct$ |async as comparativeProduct ;else noProduct">
+                <div class="img__box">
+                    <img [src]="'../../../../../../assets/images/products/'+comparativeProduct.imageUrl" [alt]="comparativeProduct.name">
+                </div>
+                <div class="product__info">
+                    <p>Name:<span (click)="goToProduct(comparativeProduct.id)">{{comparativeProduct.name | maxLength:20}}</span></p>
+                    <p>Price:<span>${{comparativeProduct.price}}</span></p>
+                    <p>Category:<span>{{comparativeProduct.category}}</span></p>
+                    <p>Material:<span>{{comparativeProduct.specifications['Material']}}</span></p>
+                    <div class="rate">
+                        <p>Rating:</p>
+                        <div *ngFor="let star of [].constructor(5);let i = index;" [ngClass]="{'selected' :  comparativeProduct.rating > i }">
+                            <svg>
+                                <use href="#star"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #noProduct>
+                <p class="noProductcompare">Compare to reach a smart decision – the best is waiting for you!</p>
+            </ng-template>
+        </div>
+    </div>
+</section>

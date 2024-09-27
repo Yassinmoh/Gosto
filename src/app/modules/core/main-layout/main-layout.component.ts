@@ -12,10 +12,11 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { menuPopup, shoppingCartPopup, wishlistPopup } from '../../../store/App/app.selectors';
 import { SharedModule } from '../../shared/shared.module';
+import { ComparisonPopupComponent } from '../../shared/components/popups/comparison-popup/comparison-popup.component';
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet,MiniHeaderComponent,HeaderComponent,FooterComponent,CommonModule,UserMenuComponent,ShoppingCartPopupComponent,SharedModule],
+  imports: [RouterOutlet,MiniHeaderComponent,HeaderComponent,FooterComponent,CommonModule,UserMenuComponent,ShoppingCartPopupComponent,SharedModule,ComparisonPopupComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
 })
