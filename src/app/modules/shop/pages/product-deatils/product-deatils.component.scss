@@ -112,6 +112,10 @@
       gap: 1.5rem;
       margin: 0.8rem 0;
 
+      & div:nth-child(2){
+        display: none;
+      }
+
       >div {
         display: flex;
         align-items: center;
@@ -246,6 +250,12 @@
     .product__details {
       .product_info {
         padding: 0 10%;
+
+        .cta{
+          & div:nth-child(2){
+            display: block;
+          }
+        }
         .add_toCard{
           form{
             .counter{

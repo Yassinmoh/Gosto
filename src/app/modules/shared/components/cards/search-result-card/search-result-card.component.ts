@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../../core/models/product';
 import { RouterModule } from '@angular/router';
+import { LazyloadDirective } from '../../../directives/lazyload.directive';
 
 @Component({
   selector: 'Gosto-search-result-card',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,LazyloadDirective],
   templateUrl: './search-result-card.component.html',
   styleUrl: './search-result-card.component.scss'
 })

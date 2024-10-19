@@ -11,11 +11,12 @@ import { ToastrService } from 'ngx-toastr';
 import { CartItem } from '../../../../core/models/CartItem';
 import { WishlistState } from '../../../../../store/Wishlist/wishlist.reducer';
 import { MaxlengthPipe } from '../../../pipes/maxlength.pipe';
+import { LazyloadDirective } from '../../../directives/lazyload.directive';
 
 @Component({
   selector: 'Gosto-cart-item',
   standalone: true,
-  imports: [RouterModule,MaxlengthPipe],
+  imports: [RouterModule,MaxlengthPipe,LazyloadDirective],
   templateUrl: './cart-item.component.html',
   styleUrl: './cart-item.component.scss'
 })

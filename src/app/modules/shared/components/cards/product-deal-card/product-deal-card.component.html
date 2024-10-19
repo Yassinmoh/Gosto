@@ -1,6 +1,6 @@
 <div class="product__deal__card" [routerLink]="['/shop/product',product.id]">
   <div class="product__deal__card-img">
-    <img [src]="'../../../../../../assets/images/products/'+ product.imageUrl" [alt]="product.name">
+    <img [gostoLazyload]="'/assets/images/products/'+ product.imageUrl" [placeholder]="'/assets/images/placeholder.jpg'" [alt]="product.name">
   </div>
   <div class="product__deal__card-off">
     <span>{{product.sale}}% off</span>

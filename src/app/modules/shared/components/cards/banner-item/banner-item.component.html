@@ -1,5 +1,5 @@
 <div class="card" [attr.data-aos]="item.animateType" data-aos-delay="200"  data-aos-easing="ease-in-out">
-<img [src]="'../../../../../../assets/images/banners/'+item.imgUrl" alt="">
+<img [gostoLazyload]="'/assets/images/banners/'+item.imgUrl" [placeholder]="'/assets/images/placeholder.jpg'" alt="banner_img">
   <div class="card__info" [ngClass]="{'wide':type=='wide','even':type=='even','odd':type=='odd'}">
     <div  class="sale"><p>{{item.tag}}</p></div>
     <div class="titles">

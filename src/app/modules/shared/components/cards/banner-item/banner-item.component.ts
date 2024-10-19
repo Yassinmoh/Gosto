@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import AOS from 'aos';
+import { LazyloadDirective } from '../../../directives/lazyload.directive';
 
 
 
@@ -9,7 +10,7 @@ import AOS from 'aos';
 @Component({
   selector: 'Gosto-banner-item',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,LazyloadDirective],
   templateUrl: './banner-item.component.html',
   styleUrl: './banner-item.component.scss'
 })

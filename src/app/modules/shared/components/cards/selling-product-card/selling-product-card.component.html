@@ -1,6 +1,6 @@
 <div class="product__card">
   <div class="img__box">
-    <img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
+    <img [gostoLazyload]="'/assets/images/products/'+product.imageUrl" [placeholder]="'/assets/images/placeholder.jpg'" [alt]="product.name">
     <div class="btns">
       <div>
         <svg (click)="addToCart(product)"><use href="#shopping-bag-g"></use></svg>

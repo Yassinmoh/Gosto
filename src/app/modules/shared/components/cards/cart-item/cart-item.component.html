@@ -1,6 +1,6 @@
 <div class="cart-item">
   <div class="img__box">
-    <img [src]="'../../../../../../assets/images/products/'+product.imageUrl" [alt]="product.name">
+    <img  [gostoLazyload]="'/assets/images/products/'+product.imageUrl" [placeholder]="'/assets/images/placeholder.jpg'" [alt]="product.name">
   </div>
   <div class="info__box">
     <div>

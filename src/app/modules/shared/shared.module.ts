@@ -19,6 +19,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchResultCardComponent } from './components/cards/search-result-card/search-result-card.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { ProductDealCardComponent } from './components/cards/product-deal-card/product-deal-card.component';
+import { LazyloadDirective } from './directives/lazyload.directive';
 
 
 
@@ -44,7 +45,8 @@ import { ProductDealCardComponent } from './components/cards/product-deal-card/p
     SearchComponent,
     SearchResultCardComponent,
     PaginatorComponent,
-    ProductDealCardComponent
+    ProductDealCardComponent,
+    LazyloadDirective
   ],
   exports:[
     MiniHeaderComponent,
@@ -65,7 +67,8 @@ import { ProductDealCardComponent } from './components/cards/product-deal-card/p
     SearchComponent,
     SearchResultCardComponent,
     PaginatorComponent,
-    ProductDealCardComponent
+    ProductDealCardComponent,
+    LazyloadDirective
   ]
 })
 export class SharedModule { }

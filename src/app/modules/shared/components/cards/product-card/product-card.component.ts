@@ -9,12 +9,13 @@ import { WishlistState } from '../../../../../store/Wishlist/wishlist.reducer';
 import { ToastrService } from 'ngx-toastr';
 import * as cartActions from '../../../../../store/Cart/cart.actions'
 import * as wishlistActions from '../../../../../store/Wishlist/wishlist.actions'
+import { LazyloadDirective } from '../../../directives/lazyload.directive';
 
 
 @Component({
   selector: 'Gosto-product-card',
   standalone: true,
-  imports: [CommonModule,SalePricePipe,RouterModule],
+  imports: [CommonModule,SalePricePipe,RouterModule,LazyloadDirective],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })
