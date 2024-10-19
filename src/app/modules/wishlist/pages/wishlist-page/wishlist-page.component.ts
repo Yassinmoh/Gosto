@@ -7,13 +7,14 @@ import { WishlistState } from '../../../../store/Wishlist/wishlist.reducer';
 import { Observable } from 'rxjs';
 import { Product } from '../../../core/models/product';
 import { wishListItems } from '../../../../store/Wishlist/wishlist.selectors';
+import { ScrollToTopDirective } from '../../../shared/directives/scroll-to-top.directive';
 
 
 
 @Component({
   selector: 'Gosto-wishlist-page',
   standalone: true,
-  imports: [CommonModule,WishlistGridCardComponent,WishlistRowComponent],
+  imports: [CommonModule,WishlistGridCardComponent,WishlistRowComponent,ScrollToTopDirective],
   templateUrl: './wishlist-page.component.html',
   styleUrl: './wishlist-page.component.scss'
 })

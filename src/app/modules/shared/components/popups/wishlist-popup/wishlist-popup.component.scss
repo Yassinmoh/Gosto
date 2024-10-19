@@ -1,6 +1,6 @@
 @import 'common';
 
-:host{
+:host {
   position: relative;
   z-index: 1000001;
 }
@@ -23,6 +23,7 @@
     background: #fff;
     padding: 1rem;
     position: relative;
+
     .header {
       display: flex;
       align-items: center;
@@ -41,11 +42,12 @@
       }
     }
 
-    .content{
+    .content {
       margin-top: 1rem;
       height: 55vh;
       overflow-y: scroll;
-      .empty__card{
+
+      .empty__card {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -53,29 +55,59 @@
         padding: 1rem;
         gap: 1rem;
 
-        p{
-          @include textStyle(16px,29px,#4F4F4F,600);
+        p {
+          @include textStyle(16px, 29px, #4F4F4F, 600);
         }
 
-        svg{
+        svg {
           filter: opacity(0.2);
           width: 80%;
           height: auto;
         }
-        button{
+
+        button {
           border: 0;
           outline: none;
           background: #0071E3;
           width: 70%;
           height: 50px;
           cursor: pointer;
-          @include textStyle(12px,18px,#fff,600);
+          @include textStyle(12px, 18px, #fff, 600);
 
         }
       }
     }
 
+    .cta_btns {
+      position: absolute;
+      bottom: 45px;
+      width: 90%;
+      padding: 1rem 0.5rem 0 0.5rem;
+      margin: 1rem auto 0.5rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin: 1rem 0;
+      padding: 0 0.2rem;
 
+      button {
+        display: block;
+        border: 0;
+        outline: none;
+        padding: 0.5rem 1rem;
+        margin: 0.6rem auto;
+        width: 100%;
+        height: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        @include textStyle(12px, 18px, #000, 600);
+        &:hover {
+          background: #0071E3;
+          color: #fff;
+        }
+      }
+    }
 
     .footer {
       height: 45px;

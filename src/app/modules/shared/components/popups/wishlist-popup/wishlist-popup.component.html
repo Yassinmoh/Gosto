@@ -17,11 +17,13 @@
           <use href="#empty-card"></use>
         </svg>
         <p>No products in the Wishlist.</p>
-        <button (click)="goToShop()">Return To Shop</button>
+        <button (click)="navigateTo('/shop')">Return To Shop</button>
       </div>
       }
     </div>
-
+      <div class="cta_btns">
+        <button (click)="navigateTo('/wishlist')">VIEW WISHLIST</button>
+      </div>
     <div class="footer">
       <p>Free shipping on orders overs $90</p>
     </div>

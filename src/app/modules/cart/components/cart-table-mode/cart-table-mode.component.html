@@ -1,7 +1,9 @@
 <table>
   <thead>
     <tr>
-      <th class="product-remove" style="width: 40px;"></th>
+      <th class="product-remove" style="width: 40px;">
+        <span *ngIf="cartItems.length" (click)="resetCart()" class="reset__btn">Reset Cart</span>
+      </th>
       <th class="product-thumbnail" style="width: 80px;"></th>
       <th class="product-name">PRODUCT</th>
       <th class="product-price">PRICE</th>
@@ -15,7 +17,7 @@
       <td><svg (click)="removeFromCart(cartItem)">
           <use href="#close-icon"></use>
         </svg></td>
-      <td><img [src]="'../../../../../assets/images/products/'+cartItem.imageUrl" [alt]="cartItem.name"></td>
+      <td><img [gostoLazyload]="'/assets/images/products/'+cartItem.imageUrl" [placeholder]="'/assets/images/placeholder.jpg'" [alt]="cartItem.name"></td>
       <td>{{cartItem.name | maxLength:20}}</td>
       <td>${{(cartItem.price).toFixed(2)}}</td>
       <td>

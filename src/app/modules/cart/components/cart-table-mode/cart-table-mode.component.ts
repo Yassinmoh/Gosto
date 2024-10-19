@@ -9,12 +9,13 @@ import { CartItem } from '../../../core/models/CartItem';
 import * as CartActions from '../../../../store/Cart/cart.actions'
 import { RouterModule } from '@angular/router';
 import { MaxlengthPipe } from '../../../shared/pipes/maxlength.pipe';
+import { LazyloadDirective } from '../../../shared/directives/lazyload.directive';
 
 
 @Component({
   selector: 'Gosto-cart-table-mode',
   standalone: true,
-  imports: [CommonModule,RouterModule,MaxlengthPipe],
+  imports: [CommonModule,RouterModule,MaxlengthPipe,LazyloadDirective],
   templateUrl: './cart-table-mode.component.html',
   styleUrl: './cart-table-mode.component.scss'
 })
@@ -46,5 +47,9 @@ export class CartTableModeComponent {
 
   getQuantity(quantity:number){
     return quantity
+  }
+
+  resetCart(){
+    this._store.dispatch(CartActions.resetCart())
   }
 }

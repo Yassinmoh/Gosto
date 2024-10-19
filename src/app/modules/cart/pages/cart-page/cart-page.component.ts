@@ -9,11 +9,12 @@ import { getCartItems } from '../../../../store/Cart/cart.selectors';
 import { CommonModule } from '@angular/common';
 import { CartTotalsComponent } from '../../components/cart-totals/cart-totals.component';
 import { ProgressBarGiftComponent } from '../../components/progress-bar-gift/progress-bar-gift.component';
+import { ScrollToTopDirective } from '../../../shared/directives/scroll-to-top.directive';
 
 @Component({
   selector: 'Gosto-cart-page',
   standalone: true,
-  imports: [CommonModule,CartTableModeComponent,CartitemGridCardComponent,CartTotalsComponent,ProgressBarGiftComponent],
+  imports: [CommonModule,CartTableModeComponent,CartitemGridCardComponent,CartTotalsComponent,ProgressBarGiftComponent,ScrollToTopDirective],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.scss'
 })

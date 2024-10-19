@@ -34,8 +34,8 @@ export class WishlistPopupComponent implements OnInit {
     this._store.dispatch(appActions.toggleWishlistPopup())
   }
 
-  goToShop(){
-    this._router.navigate(['/shop']);
+  navigateTo(destination: string){
+    this._router.navigate([destination]);
     this._store.dispatch(appActions.toggleWishlistPopup())
   }
 }
